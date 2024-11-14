@@ -1,0 +1,15 @@
+/* basic paragraph styling. more complex styling should be done using containers */
+p {
+    margin-right: 5%;
+    margin-left: 5%;
+    color: 36454F;
+}
+
+/* styling for the mission statement */
+
+#mission {
+    background-color: black;
+    opacity: 75%;
+    text-align: center;
+    color: white;
+}
