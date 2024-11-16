@@ -1,3 +1,11 @@
+body {
+     background-color:grey;
+    background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px; 
+    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+    margin: 0px;
+    padding-bottom: 60px;
+    overflow-x: hidden;
+}
 /* basic paragraph styling. more complex styling should be done using containers */
 p {
     margin-right: 5%;
@@ -7,7 +15,7 @@ p {
 
 /* styling for the mission statement */
 
-#mission {
+#quote {
     background-color: black;
     opacity: 75%;
     text-align: center;
