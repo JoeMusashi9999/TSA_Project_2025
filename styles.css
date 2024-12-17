@@ -13,6 +13,41 @@ p {
     color: 36454F;
 }
 
+/* styling for the background */
+/* Define each section */
+.section {
+    width: 100%;
+    height: 100vh; 
+    background-size: cover; 
+    background-position: center;
+    background-attachment: fixed; 
+}
+
+/* Specific backgrounds for each section add images when you get them*/
+#section1 {
+    background-image: url('/images/studio-david-thulstrup-noma-architonic-noma-irina-boersma-16-01-06-arcit18.jpg'); 
+    width: 100%;
+    height: auto
+}
+
+#section2 {
+    background-image: url('images/studio-david-thulstrup-noma-architonic-noma-irina-boersma-20-01-08-arcit18.jpg'); 
+    width: 100%;
+    height: auto
+}
+
+#section3 {
+    background-image: url('images/studio-david-thulstrup-noma-architonic-noma-irina-boersma-27-01-11-arcit18.jpg'); 
+    width: 100%;
+    height: auto
+}
+
+#section4 {
+    background-image: url('images/studio-david-thulstrup-noma-architonic-noma-irina-boersma-28-01-12-arcit18.jpg'); 
+    width: 100%;
+    height: auto
+}
+
 /* styling for the mission statement */
 
 #quote {
@@ -29,29 +64,4 @@ p {
     width: 100%;
     height: 5%;
 }
-/* styling for the background */
-/* Define each section */
-.section {
-    width: 100%;
-    height: 100vh; 
-    background-size: cover; 
-    background-position: center;
-    background-attachment: fixed; 
-}
 
-/* Specific backgrounds for each section add images when you get them*/
-#section1 {
-    background-image: url('/images/studio-david-thulstrup-noma-architonic-noma-irina-boersma-16-01-06-arcit18.jpg'); 
-}
-
-#section2 {
-    background-image: url('images/studio-david-thulstrup-noma-architonic-noma-irina-boersma-20-01-08-arcit18.jpg'); 
-}
-
-#section3 {
-    background-image: url('images/studio-david-thulstrup-noma-architonic-noma-irina-boersma-27-01-11-arcit18.jpg'); 
-}
-
-#section4 {
-    background-image: url('images/studio-david-thulstrup-noma-architonic-noma-irina-boersma-28-01-12-arcit18.jpg'); 
-}
