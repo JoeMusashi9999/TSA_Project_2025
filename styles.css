@@ -19,29 +19,35 @@
 
 body {
      background-color:grey;
+     opacity:25;
     background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px; 
     background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
     margin: 0px;
     padding-bottom: 60px;
     overflow-x: hidden;
+    position: relative;
+    z-index: 10;
 }
 /* basic paragraph styling. more complex styling should be done using containers */
 p {
     margin-right: 5%;
     margin-left: 5%;
     color: 36454F;
+    position: relative;
+    z-index: 10;
 }
 
 /* styling for the background */
 /* Define each section */
 .section {
-    margin-right: 5%;
-    margin-left: 5%;
     width: 100%;
-    height: 100vh; 
-    background-size: cover; 
+    height: 100vh;
+    background-size: cover;
     background-position: center;
-    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    position: relative;
+    z-index: 1;
 }
 
 /* navbar section */
@@ -77,11 +83,12 @@ p {
 
 #links li a {
     text-decoration: none;
-    color: #333;
+    color: white;
     font-size: 1rem;
     font-weight: bold;
     display: block; 
     padding: 10px; 
+    z-index: 99;
 }
 
 #links li a:hover {
@@ -91,23 +98,28 @@ p {
 
 
 /* Specific backgrounds for each section add images when you get them*/
+#background {
+    width: 100vh;
+    height: 100%;
+    z-index: 1;
+}
 
 #section1 {
     background-image: url('images/studio-david-thulstrup-noma-architonic-noma-irina-boersma-20-01-08-arcit18.jpg'); 
     width: 100vh;
-    height: auto;
+    height: 100%;
 }
 
 #section2 {
     background-image: url('images/studio-david-thulstrup-noma-architonic-noma-irina-boersma-27-01-11-arcit18.jpg'); 
     width: 100vh;
-    height: auto;
+    height: 100%;
 }
 
 #section3 {
     background-image: url('images/studio-david-thulstrup-noma-architonic-noma-irina-boersma-28-01-12-arcit18.jpg'); 
     width: 100vh;
-    height: auto;
+    height: 100%;
 }
 
 /* styling for the mission statement */
@@ -121,6 +133,8 @@ p {
     padding-right: 10%;
     padding-top: 1%;
     padding-bottom: 1%;
+    position: relative;
+    z-index: 10;
 }
 
 /*Contact Us Page stylings
@@ -129,10 +143,18 @@ p {
 
 
 header {
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     background-color: #333;
     color: white;
-    padding: 15px;
-    text-align: center;
+    padding: 10px 20px;
+    z-index: 1000;
+    transform: translateY(0);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Contact form styles */
@@ -141,9 +163,12 @@ header {
     margin: 50px auto;
     padding: 20px;
     text-align: center;
+    
 }
 
 h1 {
+    margin-right: 5%;
+    margin-left: 5%;
     font-size: 2.5rem;
     margin-bottom: 10px;
 }
