@@ -59,6 +59,9 @@ p {
     width: 90%; 
     margin: 0 auto; 
 }
+.logo {
+    background-image: url('images/HomeIcon.png');
+}
 
 .logo a {
     text-decoration: none;
@@ -123,6 +126,10 @@ p {
 }
 
 /* styling for the mission statement */
+
+#mission {
+    margin-top: 5%;
+}
 
 #quote {
     background-color: black;
