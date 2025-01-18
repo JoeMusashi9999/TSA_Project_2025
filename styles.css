@@ -140,6 +140,19 @@ p {
 
 /* styling for the mission statement */
 
+.overlay {
+    position: relative; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    width: 80%; 
+    padding: 20px;
+    background-color: rgba(201, 207, 202, 0.75); 
+    color: white; 
+    text-align: center; 
+    border-radius: 10px;
+}
+
 #mission {
     margin-top: 5%;
 }
