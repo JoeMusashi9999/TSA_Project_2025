@@ -1,11 +1,20 @@
-let lastScrollY = window.scrollY;
-let threshold = 50; // Adjust this value for more/less sensitivity
+let lastScrollY = 0; // Last known scroll position
+const threshold = 50; // Sensitivity for detecting scroll direction
+const header = document.querySelector('#navbar'); // Target navbar
 
+// Monitor the entire document for scrolling
 window.addEventListener('scroll', () => {
-    if (window.scrollY - lastScrollY > threshold) {
-        header.style.transform = 'translateY(-100%)';
-    } else if (lastScrollY - window.scrollY > threshold) {
-        header.style.transform = 'translateY(0)';
+    const currentScrollY = window.scrollY; // Modern alternative to pageYOffset
+
+    // If scrolling down and past the threshold
+    if (currentScrollY - lastScrollY > threshold && currentScrollY > 0) {
+        header.style.transform = 'translateY(-100%)'; // Hide navbar
     }
-    lastScrollY = window.scrollY;
+    // If scrolling up and past the threshold
+    else if (lastScrollY - currentScrollY > threshold) {
+        header.style.transform = 'translateY(0)'; // Show navbar
+    }
+
+    // Update the last known scroll position
+    lastScrollY = currentScrollY;
 });

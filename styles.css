@@ -18,15 +18,14 @@
 
 
 body {
-     background-color:grey;
-     opacity:25;
+    background-color:Black;
     background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px; 
     background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
     margin: 0px;
     padding-bottom: 60px;
     overflow-x: hidden;
     position: relative;
-    z-index: 10;
+    
 }
 /* basic paragraph styling. more complex styling should be done using containers */
 p {
@@ -34,7 +33,7 @@ p {
     margin-left: 5%;
     color: 36454F;
     position: relative;
-    z-index: 10;
+    
 }
 
 /* styling for the background */
@@ -47,25 +46,36 @@ p {
     background-repeat: no-repeat;
     background-attachment: scroll;
     position: relative;
-    z-index: 1;
+    
 }
 
-/* navbar section */
+/* Navbar section */
 #navbar {
-    /*keeps code centered and makes the logo on the left and all the links on the right */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 90%; 
-    margin: 0 auto; 
+    position: fixed; /* Ensures the navbar stays on top and visible during scrolling */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width of the viewport */
+    height: 60px;
+    background-color: rgba(75, 72, 72, 0.7); /* Semi-transparent background */
+    padding: 0 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow for better visibility */
+    box-sizing: border-box;
 }
+
 .logo {
     background-image: url('images/HomeIcon.png');
+    height: 40px; /* Adjust height as needed */
+    width: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .logo a {
     text-decoration: none;
-    color: #333;
+    color: #fff; /* Match with navbar theme */
     font-size: 1.5rem;
     font-weight: bold;
 }
@@ -76,12 +86,7 @@ p {
     list-style: none;
     margin: 0;
     padding: 0;
-    width: 70%;
-}
-
-#links li {
-    flex: 1; 
-    text-align: center; 
+    gap: 15px; /* Adds spacing between links */
 }
 
 #links li a {
@@ -90,40 +95,48 @@ p {
     font-size: 1rem;
     font-weight: bold;
     display: block; 
-    padding: 10px; 
-    z-index: 99;
+    padding: 10px 15px; 
+    border-radius: 5px; /* Rounded hover effect */
 }
 
 #links li a:hover {
-    /* Hover effect for links */
     color: #0077cc; 
+    background-color: rgba(255, 255, 255, 0.2); /* Subtle background for hover */
 }
+
 
 
 /* Specific backgrounds for each section add images when you get them*/
 #background {
-    width: 100vh;
-    height: 100%;
-    z-index: 1;
+    position: relative;
+    width: 100vw;
+    height: 300vh; /* Stack sections */
 }
 
+.section {
+    position: sticky;
+    top: 60px; /* Matches the navbar height */
+    width: 100vw; 
+    background-size: contain; /* Ensures the entire image is visible */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #000; /* Fallback color for blank spaces */
+}
+
+
+/* Specific background images for each section */
 #section1 {
-    background-image: url('images/studio-david-thulstrup-noma-architonic-noma-irina-boersma-20-01-08-arcit18.jpg'); 
-    width: 100vh;
-    height: 100%;
+    background-image: url('images/Background1.jpg');
 }
 
 #section2 {
-    background-image: url('images/studio-david-thulstrup-noma-architonic-noma-irina-boersma-27-01-11-arcit18.jpg'); 
-    width: 100vh;
-    height: 100%;
+    background-image: url('images/Background2.jpg');
 }
 
 #section3 {
-    background-image: url('images/studio-david-thulstrup-noma-architonic-noma-irina-boersma-28-01-12-arcit18.jpg'); 
-    width: 100vh;
-    height: 100%;
+    background-image: url('images/Background3.jpg');
 }
+
 
 /* styling for the mission statement */
 
@@ -141,28 +154,12 @@ p {
     padding-top: 1%;
     padding-bottom: 1%;
     position: relative;
-    z-index: 10;
+    
 }
 
 /*Contact Us Page stylings
 -------------------------------------------------------------------- 
 */
-
-
-header {
-    text-align: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    z-index: 1000;
-    transform: translateY(0);
-    transition: transform 0.3s ease-in-out;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
 
 /* Contact form styles */
 #contact {
@@ -223,7 +220,7 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     width: 100%;
 }
