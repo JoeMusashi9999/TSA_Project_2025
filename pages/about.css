@@ -1,0 +1,43 @@
+body {
+    background-color: black;    
+    margin: 0px;
+}
+li {
+    color: white;
+    list-style: none; display: inline-block;
+    font-size: 20px; font-weight: bold; margin-right: 35px;
+}
+
+.navbar {
+    background: gray; font-family: 'Times New Roman', Times, serif; padding-right: 15px;padding-left: 15px;
+    text-decoration: none;
+    display: flex; align-items: center; justify-content: space-between;
+}
+.logo {
+    
+    font-size: 45px; font-weight: 600; color: white;
+
+}
+.heading {
+    color: white;
+    font-size: 20px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.banner {
+   background-image:url(../images/istockphoto-888040016-612x612.jpg);
+   height: 400px;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-attachment: fixed;
+   background-size: cover;
+   font-size: 70px;
+   text-align: center;
+   display: flex;
+   
+   
+
+}
+h1 {
+    color: white;
+    align-items: center;
+    transform: translate(70%,0);
+}
