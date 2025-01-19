@@ -39,5 +39,5 @@ li {
 h1 {
     color: white;
     align-items: center;
-    transform: translate(70%,0);
+    margin: auto;
 }
