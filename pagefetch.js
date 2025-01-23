@@ -2,6 +2,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const links = document.querySelectorAll('.nav-link');
     const contentDiv = document.getElementById('content');
 
+    // Function to initialize the Leaflet map
+    const initializeMap = () => {
+        const mapElement = document.getElementById('map');
+        if (mapElement) {
+            // Initialize the Leaflet map
+            const map = L.map('map').setView([40.7128, -74.006], 13); // Example coordinates and zoom level
+
+            // Add OpenStreetMap tiles
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            // Example marker
+            L.marker([40.7128, -74.006]).addTo(map)
+                .bindPopup('Welcome to New York!')
+                .openPopup();
+        }
+    };
+
+
     // Function to load new page content
     const loadPage = (url) => {
         fetch(url) // Fetch the HTML file
@@ -35,12 +56,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     // Remove the fade-in class after animation
                     setTimeout(() => contentDiv.classList.remove('fade-in'), 300);
+
+                    // Check if the loaded page contains the map and initialize it
+                    if (url.includes('locations.html')) { // Replace with your actual map page URL
+                        initializeMap();
+                    }
                 }, 300);
             })
             .catch(error => {
                 console.error('Error loading page:', error);
 
-                // Optional: Display an error message in the content area
+                // Display an error message in the content area
                 contentDiv.innerHTML = `
                     <div class="error-message">
                         <h2>Error</h2>
@@ -68,4 +94,9 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('popstate', () => {
         loadPage(location.pathname);
     });
+
+    // Load the current page's map if it's the map page on initial load
+    if (location.pathname.includes('locations.html')) { 
+        initializeMap();
+    }
 });
