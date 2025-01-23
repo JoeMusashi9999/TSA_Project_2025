@@ -2,26 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const links = document.querySelectorAll('.nav-link');
     const contentDiv = document.getElementById('content');
 
-    // Function to initialize the Leaflet map
-    const initializeMap = () => {
-        const mapElement = document.getElementById('map');
-        if (mapElement) {
-            // Initialize the Leaflet map
-            const map = L.map('map').setView([40.7128, -74.006], 13); // Example coordinates and zoom level
-
-            // Add OpenStreetMap tiles
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-
-            // Example marker
-            L.marker([40.7128, -74.006]).addTo(map)
-                .bindPopup('Welcome to New York!')
-                .openPopup();
-        }
-    };
-
+    
 
     // Function to load new page content
     const loadPage = (url) => {
@@ -58,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     setTimeout(() => contentDiv.classList.remove('fade-in'), 300);
 
                     // Check if the loaded page contains the map and initialize it
-                    if (url.includes('locations.html')) { // Replace with your actual map page URL
+                    if (url.includes('locations.html')) {
                         initializeMap();
                     }
                 }, 300);
@@ -79,8 +60,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event listener for navigation links
     links.forEach(link => {
         link.addEventListener('click', (event) => {
-            event.preventDefault(); // Prevent default link behavior
             const url = link.getAttribute('href');
+
+            // Skip dynamic loading for locations.html
+            if (url.includes('locations.html')) {
+                return; // Let the browser handle the navigation normally
+            }
+
+            event.preventDefault(); // Prevent default link behavior
 
             // Update the browser's URL without a full page reload
             history.pushState(null, '', url);
@@ -92,11 +79,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Handle back/forward navigation
     window.addEventListener('popstate', () => {
-        loadPage(location.pathname);
+        if (location.pathname.includes('locations.html')) {
+            window.location.reload(); // Reload the page normally for locations.html
+        } else {
+            loadPage(location.pathname);
+        }
     });
 
-    // Load the current page's map if it's the map page on initial load
-    if (location.pathname.includes('locations.html')) { 
-        initializeMap();
-    }
+    
 });
