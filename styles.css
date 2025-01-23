@@ -146,9 +146,7 @@ p {
 
 .overlay {
     position:relative; 
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
+    left: 9.5%; /* To freak out the OCD people (should be 10%) */
     width: 80%; 
     padding: 20px;
     background-color: rgba(201, 207, 202, 0.75); 
