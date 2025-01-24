@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic CSV Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        caption {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+</head>
+<body>
+    <h1>Dynamic CSV Data Display</h1>
+    <table id="csvTable">
+        <caption>Commit Data</caption>
+        <thead>
+            <tr>
+                <th>Week of</th>
+                <th>Commits</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Table rows will be inserted dynamically -->
+        </tbody>
+    </table>
+
+    <script>
+        // Path to your CSV file
+        const csvFilePath = '/Plan_of_Work_Log.csv';
+
+        // Reference to the table body
+        const tableBody = document.querySelector('#csvTable tbody');
+
+        // Function to load and display CSV data
+        function loadCSV(filePath) {
+            Papa.parse(filePath, {
+                download: true,
+                header: true,
+                complete: function(results) {
+                    results.data.forEach(row => {
+                        const tableRow = document.createElement('tr');
+                        tableRow.innerHTML = `
+                            <td>${row['Week of']}</td>
+                            <td>${row['Commits']}</td>
+                        `;
+                        tableBody.appendChild(tableRow);
+                    });
+                },
+                error: function(error) {
+                    console.error('Error loading CSV:', error);
+                }
+            });
+        }
+
+        loadCSV(csvFilePath);
+    </script>
+</body>
+</html>
+
