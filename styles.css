@@ -334,6 +334,102 @@ button:hover {
     }
 }
 
+/* menu styles */
+
+/* Ensure menu styles don't override other pages */
+#menu {
+    max-width: 90%;
+    margin: 80px auto; 
+    padding-bottom: 50px;
+}
+
+/* Menu Category Layout */
+.menu-category {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1); 
+    border-radius: 10px;
+}
+
+/* Category Image Styling */
+.menu-category img {
+    width: 25%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 3px 3px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Menu Text Content */
+.menu-items {
+    width: 70%;
+    color: white;
+}
+
+.menu-items h2 {
+    font-size: 2em;
+    color: #e8dac6;
+    border-bottom: 2px solid #d3b898;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.menu-items h3 {
+    font-size: 1.6em;
+    color: #f5e7db;
+    margin-bottom: 5px;
+}
+
+.menu-items p {
+    font-size: 1em;
+    color: #ddd;
+}
+
+/* Pricing & Labels */
+.price {
+    font-weight: bold;
+    color: #d3b898;
+}
+
+.dietary {
+    font-size: 0.9em;
+    background-color: #e8dac6;
+    padding: 4px 8px;
+    border-radius: 5px;
+    margin-right: 10px;
+    color: #55402d;
+}
+
+/* Alternating Image Positions */
+.menu-category:nth-child(odd) {
+    flex-direction: row;
+}
+
+.menu-category:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .menu-category {
+        flex-direction: column !important;
+        text-align: center;
+    }
+
+    .menu-category img {
+        width: 60%;
+        margin-bottom: 15px;
+    }
+
+    .menu-items {
+        width: 100%;
+    }
+}
+
+
+
 /* Footer styles */
 footer {
     background-color: #333;
