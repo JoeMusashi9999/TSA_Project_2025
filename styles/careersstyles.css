@@ -112,17 +112,17 @@ body {
 /* Toggle button container */
 .resume-toggle {
     display: flex;
-    justify-content: space-evenly;  /* Even space between toggle buttons */
-    align-items: center;
+    align-items: center;  /* Align the radio buttons and labels vertically */
+    gap: 20px;  /* Space between the options */
     margin-bottom: 20px;
-    width: 100%;  /* Ensure it spans the full width */
 }
 
-/* Toggle button */
+/* Hide the actual radio buttons */
 .resume-toggle input[type="radio"] {
-    display: none; /* Hide the radio button */
+    display: none; /* Hide radio button input */
 }
 
+/* Style the labels for the toggle options */
 .resume-toggle label {
     cursor: pointer;
     font-size: 16px;
@@ -146,7 +146,7 @@ input[type="radio"]:checked + label {
     color: #353535;
 }
 
-/* Hide typed resume container by default when file upload is selected */
+/* Hand-typed resume input container visibility */
 #typed-resume-container {
     display: block;
 }

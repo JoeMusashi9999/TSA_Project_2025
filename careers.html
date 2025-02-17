@@ -46,9 +46,11 @@
         <form action="submit_application.php" method="POST" enctype="multipart/form-data">
             <!-- Toggle for resume input -->
             <label for="resume-option">Choose Resume Type:</label>
-            <div>
-                <input type="radio" id="typed" name="resume-option" value="typed" checked> Hand-Typed Resume
-                <input type="radio" id="file" name="resume-option" value="file"> File Upload
+            <div class="resume-toggle">
+                <input type="radio" id="typed" name="resume-option" value="typed" checked>
+                <label for="typed">Hand-Typed Resume</label>
+                <input type="radio" id="file" name="resume-option" value="file">
+                <label for="file">File Upload</label>
             </div>
 
             <!-- Hand-Typed Resume -->
