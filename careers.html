@@ -21,7 +21,7 @@
         </ul>
     </div>
 
-    <div class="container fade-in">
+    <div class="container_career fade-in">
         <div class="content-box">
             <h1>Join the Hearth and Home Family!</h1>
             <p>At Hearth and Home, we’re more than just a restaurant—we’re a community of passionate food lovers dedicated to serving up bold flavors, home-style comfort, and unforgettable dining experiences.</p>
@@ -36,29 +36,36 @@
             <h2>Join the Family!</h2>
             <p>We’re always on the lookout for chefs, servers, baristas, and kitchen staff who bring passion, personality, and dedication to the table.</p>
             <p>Interested? Apply today! Visit us in person or email your resume to <strong>[your email or website link]</strong> to start your journey with Hearth and Home.</p>
-            <button class="btn" onclick="showAlert()">Apply Now</button>
+            <button class="btn" id="apply-btn">Apply Now</button>
         </div>
     </div>
 
     <div class="image-container">
-        <img src="your-image.jpg" alt="Hearth and Home" />
+        <img src="images/Icon.png" alt="Hearth and Home" />
     </div>
 
     <script>
-        // Scroll event to fade out image
+        // Scroll event to slide up and fade out text and background, and reveal the button
         window.addEventListener("scroll", function() {
-            let image = document.querySelector('.image-container img');
+            let contentBox = document.querySelector('.content-box');
+            let applyBtn = document.getElementById("apply-btn");
             let scrollPos = window.scrollY;
-            let fadeEffect = (scrollPos / 500); // Adjust this value for fading speed
 
-            image.style.opacity = 1 - fadeEffect;
+            // Slide up effect for the content box (text + background)
+            let slideEffect = Math.min(scrollPos / 2, 200); // Adjust this value for sliding speed
+            contentBox.style.transform = `translateY(-${slideEffect}px)`;
+            contentBox.style.opacity = 1 - (scrollPos / 500);  // Fade out the box
+
+            // Fade effect for Apply button (appears after a certain scroll threshold)
+            if (scrollPos > 500) {
+                applyBtn.style.opacity = 1;
+                applyBtn.style.transform = "translateY(0)";
+            } else {
+                applyBtn.style.opacity = 0;
+                applyBtn.style.transform = "translateY(50px)";
+            }
         });
-
-        function showAlert() {
-            alert("Thank you for your interest! We look forward to hearing from you.");
-        }
     </script>
-    
 </body>
 <script src="scripts/chatbot.js"></script>
 <script src="scripts/pagefetch.js"></script>
