@@ -1,17 +1,14 @@
+// Handle apply button visibility on scroll
+window.addEventListener('scroll', function () {
+    const applyBtn = document.getElementById('apply-btn_career');
+    const scrollPosition = window.scrollY;
+    const pageHeight = document.body.scrollHeight;
+    const viewportHeight = window.innerHeight;
 
-
-        // Scroll event to show Apply button after scrolling
-        window.addEventListener("scroll", function() {
-            const applyBtn = document.getElementById("apply-btn_career");
-            let scrollPos = window.scrollY;
-
-            // Fade-in effect for button after scrolling past 200px
-
-            if (scrollPos > 100) {  //change this value if the text box gets bigger 
-                applyBtn.style.opacity = 1;  // Make the button visible
-                applyBtn.style.transform = "translateY(0)";  // Reset the translateY to 0
-            } else {
-                applyBtn.style.opacity = 0;  // Hide the button
-                applyBtn.style.transform = "translateY(50px)";  // Keep it hidden below the screen
-            }
-        });
+    // Show the button when the user scrolls to the bottom of the page
+    if (scrollPosition > pageHeight - viewportHeight - 100) {
+        applyBtn.classList.add('visible');
+    } else {
+        applyBtn.classList.remove('visible');
+    }
+});

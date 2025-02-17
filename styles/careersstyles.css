@@ -1,62 +1,97 @@
-/* Position the container with the text */
+/* Allow body to scroll */
+body {
+    height: 100%;  /* Ensure body takes full height */
+    margin: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    font-family: Arial, sans-serif;
+}
+
+/* Set the main content container to allow scrolling */
 .container_career {
     position: relative;
     padding: 50px;
-    z-index: 2;  /* Ensure text is on top */
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh; /* Ensure content takes the full height of the page */
 }
 
-/* Semi-translucent background for text and its sliding effect */
-.content-box {
-    position: relative;
-    background-color: rgba(0, 0, 0, 0.6);  /* Semi-translucent background */
-    color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-} 
-
-/* Image container behind text */
+/* Ensure image is scrollable and the container takes full height */
 .image-container {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;  /* Ensure the image stays behind the text */
+    z-index: 1;
+    opacity: 0.8;
+    transition: opacity 0.5s ease;
 }
 
 .image-container img {
     width: 100%;
-    height: auto;
-    opacity: 1; /* No fade effect on the image */
+    height: 100%;
+    object-fit: cover;
+    border: 2px solid #333;
 }
 
-.button-box {
-    position: st;
+/* Semi-translucent background for the content box */
+.content-box {
+    position: relative;
     background-color: rgba(0, 0, 0, 0.6);  /* Semi-translucent background */
     color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-} 
+    padding: 40px;
+    border: 2px solid #333;  /* Solid border for a more rigid effect */
+    box-sizing: border-box;  /* Ensure padding and border don't affect layout */
+    transition: transform 0.5s ease, opacity 0.5s ease, box-shadow 0.3s ease;
+    z-index: 2;
+}
 
-/* Apply button styles */
+/* Subtle hover effect on the content box */
+.content-box:hover {
+    transform: translateY(-10px);  /* Slight raise on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);  /* Larger shadow */
+}
+
+/* Ensure smooth scrolling for all content */
+html, body {
+    scroll-behavior: smooth;
+}
+
+/* Button container to place Apply button at the bottom */
+.button-container {
+    position: fixed; /* Make the button stick at the bottom */
+    bottom: 20px; /* Position it at the bottom of the viewport */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    text-align: center;
+}
+
+/* Apply button styling */
 #apply-btn_career {
     opacity: 0;  /* Initially hidden */
     transform: translateY(50px);  /* Positioned below the screen */
-    left: 50%; /* Horizontally center it */
-    transform: translateX(-50%); /* Center the button horizontally */
-    position: sticky;
-    padding: 22px 45px; /* Increased padding for 50% bigger button */
-    background-color: #353535; /* Button color */
-    color: white; /* Text color */
-    font-size: 24px; /* Increased font size for bigger text */
-    border: none; /* Remove border */
-    transition: background-color 0.3s ease, opacity 0.5s ease, transform 0.5s ease; /* Transition effects */
-    z-index: 9999; /* Ensure the button is above other content */
+    padding: 20px 40px;
+    background-color: #353535;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid #333;
+    border-radius: 0;
+    transition: background-color 0.3s ease, opacity 0.5s ease, transform 0.5s ease;
+    cursor: pointer;
 }
 
-/* Hover effect */
+/* Button hover effect */
 #apply-btn_career:hover {
-    background-color: #ffffff; /* Change background color when hovering */
+    background-color: #ffffff;
+    color: #353535;
+    transform: translateY(-10px); /* Slight raise on hover */
+}
+
+/* Button visible effect when scrolling */
+#apply-btn_career.visible {
+    opacity: 1;
+    transform: translateY(0); /* Slide up into position */
 }
