@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Ordering</title>
+    <link rel="stylesheet" href="styles/orderstyles.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places"></script>
+</head>
+<body>
+
+    <div id="navbar">
+        <a class="logo" href="index.html">Hearth & Home</a>
+        <ul id="links">
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="toggle-buttons">
+            <button id="delivery-btn" onclick="toggleScreen('delivery')">Delivery</button>
+            <button id="takeout-btn" onclick="toggleScreen('takeout')">Takeout</button>
+        </div>
+
+        <!-- Delivery Screen -->
+        <div id="delivery-screen" class="order-screen">
+            <h2>Delivery</h2>
+            <div id="map" style="height: 400px; width: 100%"></div>
+
+            <label for="address">Enter your address:</label>
+            <input type="text" id="address" placeholder="Enter Address" />
+            <button onclick="captureAddress()">Capture Address</button>
+
+            <div id="food-order">
+                <h3>Menu</h3>
+                <select id="food-items">
+                    <option value="burger">Burger</option>
+                    <option value="pizza">Pizza</option>
+                    <option value="pasta">Pasta</option>
+                </select>
+                <input type="number" id="quantity" value="1" min="1">
+                <textarea id="special-notes" placeholder="Add special notes"></textarea>
+                <button onclick="addToOrder()">Add to Order</button>
+            </div>
+
+            <div id="order-summary">
+                <h3>Order Summary</h3>
+                <div id="order-details"></div>
+                <p>Estimated Delivery Time: <span id="delivery-time"></span></p>
+                <p>Cost: $<span id="order-cost">0</span></p>
+            </div>
+
+            <div id="payment-section">
+                <h3>Payment</h3>
+                <input type="text" placeholder="Credit Card Number" id="credit-card">
+                <button onclick="placeOrder('delivery')">Place Order</button>
+            </div>
+        </div>
+
+        <!-- Takeout Screen -->
+        <div id="takeout-screen" class="order-screen" style="display:none;">
+            <h2>Takeout</h2>
+
+            <div id="food-order">
+                <h3>Menu</h3>
+                <select id="takeout-food-items">
+                    <option value="burger">Burger</option>
+                    <option value="pizza">Pizza</option>
+                    <option value="pasta">Pasta</option>
+                </select>
+                <input type="number" id="takeout-quantity" value="1" min="1">
+                <textarea id="takeout-special-notes" placeholder="Add special notes"></textarea>
+                <button onclick="addToTakeoutOrder()">Add to Order</button>
+            </div>
+
+            <div id="takeout-order-summary">
+                <h3>Order Summary</h3>
+                <div id="takeout-order-details"></div>
+                <p>Estimated Time: 10 mins</p>
+                <p>Cost: $<span id="takeout-order-cost">0</span></p>
+            </div>
+
+            <div id="payment-section">
+                <h3>Payment</h3>
+                <input type="text" placeholder="Credit Card Number" id="takeout-credit-card">
+                <button onclick="placeOrder('takeout')">Place Order</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="scripts/takeoutscripts.js"></script>
+</body>
+</html>
