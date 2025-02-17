@@ -7,8 +7,7 @@
 
             // Fade-in effect for button after scrolling past 200px
 
-            //change this value if the text box gets bigger 
-            if (scrollPos > 100) {
+            if (scrollPos > 100) {  //change this value if the text box gets bigger 
                 applyBtn.style.opacity = 1;  // Make the button visible
                 applyBtn.style.transform = "translateY(0)";  // Reset the translateY to 0
             } else {

@@ -31,25 +31,32 @@
     opacity: 1; /* No fade effect on the image */
 }
 
+.button-box {
+    position: st;
+    background-color: rgba(0, 0, 0, 0.6);  /* Semi-translucent background */
+    color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+} 
+
 /* Apply button styles */
 #apply-btn_career {
     opacity: 0;  /* Initially hidden */
     transform: translateY(50px);  /* Positioned below the screen */
-    position: fixed; /* Keep it fixed at the bottom of the screen */
-    bottom: 0; /* Align at the bottom of the page */
     left: 50%; /* Horizontally center it */
     transform: translateX(-50%); /* Center the button horizontally */
+    position: sticky;
     padding: 22px 45px; /* Increased padding for 50% bigger button */
-    background-color: #007BFF; /* Button color */
+    background-color: #353535; /* Button color */
     color: white; /* Text color */
     font-size: 24px; /* Increased font size for bigger text */
     border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners */
     transition: background-color 0.3s ease, opacity 0.5s ease, transform 0.5s ease; /* Transition effects */
     z-index: 9999; /* Ensure the button is above other content */
 }
 
 /* Hover effect */
 #apply-btn_career:hover {
-    background-color: #0056b3; /* Change background color when hovering */
+    background-color: #ffffff; /* Change background color when hovering */
 }
