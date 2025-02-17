@@ -9,6 +9,20 @@
 </head>
 <body>
 
+    <!-- Navbar -->
+    <div id="navbar">
+        <a class="logo" href="index.html"></a>
+        <ul id="links">
+            <li><a href="locations.html" class="nav-link">Locations</a></li>
+            <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+            <li><a href="order.html" class="nav-link">Order</a></li>
+            <li><a href="menue.html" class="nav-link">Menue</a></li>
+            <li><a href="careers.html" class="nav-link">Careers</a></li>
+            <li><a href="gifts.html" class="nav-link">Gift Card</a></li>
+            <li><a href="about.html" class="nav-link">About Us</a></li>
+        </ul>
+    </div>
+
     <!-- Toggle Buttons for Delivery, Takeout, and Dine-In -->
     <div class="toggle-buttons">
         <button id="delivery-btn" onclick="toggleScreen('delivery')">Delivery</button>
@@ -19,7 +33,7 @@
     <!-- Delivery Screen (default visible) -->
     <div id="delivery-screen" class="order-screen">
         <h2>Delivery Order</h2>
-        
+
         <!-- Map Section (interactive map for delivery) -->
         <div class="map-section">
             <h3>Enter your Address for Delivery</h3>
@@ -114,6 +128,7 @@
         </div>
     </div>
 
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
     <script>
         // Function to toggle between screens
         function toggleScreen(screen) {
@@ -163,9 +178,20 @@
                 alert("Please select both a date and time.");
             }
         }
-    </script>
 
-    
+        // Initialize the map
+        function initMap() {
+            var location = { lat: 47.5678, lng: -122.2453 };  // Example location
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 14,
+                center: location
+            });
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+        }
+    </script>
 
 </body>
 </html>
