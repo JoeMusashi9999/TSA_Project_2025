@@ -36,37 +36,20 @@
             <h2>Join the Family!</h2>
             <p>We’re always on the lookout for chefs, servers, baristas, and kitchen staff who bring passion, personality, and dedication to the table.</p>
             <p>Interested? Apply today! Visit us in person or email your resume to <strong>[your email or website link]</strong> to start your journey with Hearth and Home.</p>
-            <button class="btn" id="apply-btn">Apply Now</button>
+            <button class="btn" id="apply-btn_career">Apply Now</button>
         </div>
     </div>
 
+    <button class="btn" id="apply-btn_career">Apply Now</button>
+
     <div class="image-container">
-        <img src="images/Icon.png" alt="Hearth and Home" />
+        <img src="images/Background1.jpg" alt="Hearth and Home" />
     </div>
 
-    <script>
-        // Scroll event to slide up and fade out text and background, and reveal the button
-        window.addEventListener("scroll", function() {
-            let contentBox = document.querySelector('.content-box');
-            let applyBtn = document.getElementById("apply-btn");
-            let scrollPos = window.scrollY;
+    
 
-            // Slide up effect for the content box (text + background)
-            let slideEffect = Math.min(scrollPos / 2, 200); // Adjust this value for sliding speed
-            contentBox.style.transform = `translateY(-${slideEffect}px)`;
-            contentBox.style.opacity = 1 - (scrollPos / 500);  // Fade out the box
-
-            // Fade effect for Apply button (appears after a certain scroll threshold)
-            if (scrollPos > 500) {
-                applyBtn.style.opacity = 1;
-                applyBtn.style.transform = "translateY(0)";
-            } else {
-                applyBtn.style.opacity = 0;
-                applyBtn.style.transform = "translateY(50px)";
-            }
-        });
-    </script>
 </body>
 <script src="scripts/chatbot.js"></script>
 <script src="scripts/pagefetch.js"></script>
+<script src="scripts/careers.js"></script>
 </html>
