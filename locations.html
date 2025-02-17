@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
     crossorigin=""/>
+    <link rel="stylesheet" href="chatbotstyles.css">
     <link rel="stylesheet" href="styles.css">
     <title>Vegan Placeholder</title>
 </head>
@@ -51,5 +52,16 @@
 <script src="map.js"></script>
 <script src="pagefetch.js"></script>
 </div></body>
+<!-- Floating Chatbot Button -->
+<div id="chatbot-button" onclick="toggleChat()">💬</div>
 
+<!-- Chatbot Container -->
+<div id="chat-container" style="display: none;">
+    <div id="chat-header">AI Chatbot <span onclick="toggleChat()">❌</span></div>
+    <div id="chat-box"></div>
+    <input type="text" id="user-input" placeholder="Type a message...">
+    <button id="send-btn">Send</button>
+</div>
+
+<script src="chatbot.js"></script>
 </html> 

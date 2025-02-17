@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="chatbotstyles.css">
 </head>
 <body><div id="content">
 
@@ -51,9 +52,20 @@
             <p>&copy; 2025 Hearth & Home. All rights reserved.</p>
             <a href="https://drive.google.com/file/d/1E9o7XN-WwjCnjBj33BZMVOf5lWuQxTZZ/view?usp=sharing" class="footer-right">Copyright Checklist</a>
         </div>
-    </footer>
-    
+    </footer> 
 </div>
 <script src="pagefetch.js"></script>
 </body>
+  <!-- Floating Chatbot Button -->
+  <div id="chatbot-button" onclick="toggleChat()">💬</div>
+
+  <!-- Chatbot Container -->
+  <div id="chat-container" style="display: none;">
+      <div id="chat-header">AI Chatbot <span onclick="toggleChat()">❌</span></div>
+      <div id="chat-box"></div>
+      <input type="text" id="user-input" placeholder="Type a message...">
+      <button id="send-btn">Send</button>
+  </div>
+
+  <script src="chatbot.js"></script>
 </html>

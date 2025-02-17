@@ -1,0 +1,58 @@
+/* Floating Chatbot Button */
+#chatbot-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+/* Chatbot Container */
+#chat-container {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 300px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Chatbot Header */
+#chat-header {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* Chatbox Messages */
+#chat-box {
+    height: 200px;
+    overflow-y: scroll;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Chat Input Field */
+#user-input {
+    width: 70%;
+    padding: 5px;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+/* Send Button */
+#send-btn {
+    padding: 5px;
+    cursor: pointer;
+    background: #007bff;
+    color: white;
+    border: none;
+}

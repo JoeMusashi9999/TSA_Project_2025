@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu | Hearth & Home</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="chatbotstyles.css">
 </head>
 <body>
     <header>
         <nav id="navbar">
             <a class="logo" href="index.html">
-                <img src="logo.png">
+                <img src="logo.png" alt="Hearth & Home Logo">
             </a>
             <ul id="links">
                 <li><a href="locations.html" class="nav-link">Locations</a></li>
@@ -132,5 +133,17 @@
     </footer>
     <script src="pagefetch.js"></script>
 </body>
+  <!-- Floating Chatbot Button -->
+  <div id="chatbot-button" onclick="toggleChat()">💬</div>
+
+  <!-- Chatbot Container -->
+  <div id="chat-container" style="display: none;">
+      <div id="chat-header">AI Chatbot <span onclick="toggleChat()">❌</span></div>
+      <div id="chat-box"></div>
+      <input type="text" id="user-input" placeholder="Type a message...">
+      <button id="send-btn">Send</button>
+  </div>
+
+  <script src="chatbot.js"></script>
 </html>
 
