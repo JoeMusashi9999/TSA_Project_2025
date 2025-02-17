@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles/careersstyles.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hearth and Home Careers</title>
+</head>
+<body>
+    <div id="navbar">
+        <a class="logo" href="index.html"></a>
+        <ul id="links">
+            <li><a href="locations.html" class="nav-link">Locations</a></li>
+            <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+            <li><a href="pickup.html" class="nav-link">Pickup</a></li>
+            <li><a href="menue.html" class="nav-link">Menue</a></li>
+            <li><a href="careers.html" class="nav-link">Careers</a></li>
+            <li><a href="gifts.html" class="nav-link">Gift Card</a></li>
+            <li><a href="about.html" class="nav-link">About Us</a></li>
+        </ul>
+    </div>
+
+    <div class="container fade-in">
+        <div class="content-box">
+            <h1>Join the Hearth and Home Family!</h1>
+            <p>At Hearth and Home, we’re more than just a restaurant—we’re a community of passionate food lovers dedicated to serving up bold flavors, home-style comfort, and unforgettable dining experiences.</p>
+            <p>We’re looking for enthusiastic, creative, and team-oriented individuals who share our love for plant-based cuisine, sustainability, and genuine hospitality.</p>
+            <h2>Why Work With Us?</h2>
+            <ul>
+                <li>✅ Be part of a mission-driven brand – We believe in delicious food that’s good for people and the planet.</li>
+                <li>✅ Growth opportunities – We invest in our team and love to promote from within.</li>
+                <li>✅ A supportive, inclusive culture – We value teamwork, creativity, and a positive work environment.</li>
+                <li>✅ Great perks – Enjoy employee meals, competitive pay, and a chance to work with like-minded food lovers!</li>
+            </ul>
+            <h2>Join the Family!</h2>
+            <p>We’re always on the lookout for chefs, servers, baristas, and kitchen staff who bring passion, personality, and dedication to the table.</p>
+            <p>Interested? Apply today! Visit us in person or email your resume to <strong>[your email or website link]</strong> to start your journey with Hearth and Home.</p>
+            <button class="btn" onclick="showAlert()">Apply Now</button>
+        </div>
+    </div>
+
+    <div class="image-container">
+        <img src="your-image.jpg" alt="Hearth and Home" />
+    </div>
+
+    <script>
+        // Scroll event to fade out image
+        window.addEventListener("scroll", function() {
+            let image = document.querySelector('.image-container img');
+            let scrollPos = window.scrollY;
+            let fadeEffect = (scrollPos / 500); // Adjust this value for fading speed
+
+            image.style.opacity = 1 - fadeEffect;
+        });
+
+        function showAlert() {
+            alert("Thank you for your interest! We look forward to hearing from you.");
+        }
+    </script>
+    
+</body>
+<script src="scripts/chatbot.js"></script>
+<script src="scripts/pagefetch.js"></script>
+</html>
