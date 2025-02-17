@@ -53,45 +53,113 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);  /* Larger shadow */
 }
 
-/* Ensure smooth scrolling for all content */
-html, body {
-    scroll-behavior: smooth;
+/* Style for the new application form container */
+.application-form-container {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-translucent background */
+    color: #fff;
+    padding: 30px;
+    border: 2px solid #333;
+    width: 80%;
+    margin: 50px auto;
+    box-sizing: border-box;
+    transition: transform 0.5s ease, opacity 0.5s ease, box-shadow 0.3s ease;
+    z-index: 2;
 }
 
-/* Button container to place Apply button at the bottom */
-.button-container {
-    position: fixed; /* Make the button stick at the bottom */
-    bottom: 20px; /* Position it at the bottom of the viewport */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 9999;
-    text-align: center;
+/* Style the input fields inside the form */
+.application-form-container input,
+.application-form-container select,
+.application-form-container button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
 }
 
-/* Apply button styling */
-#apply-btn_career {
-    opacity: 0;  /* Initially hidden */
-    transform: translateY(50px);  /* Positioned below the screen */
-    padding: 20px 40px;
+/* Style the labels */
+.application-form-container label {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+/* Hover effect for the form */
+.application-form-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Style the submit button inside the form */
+.application-form-container button {
     background-color: #353535;
     color: white;
     font-size: 18px;
     font-weight: bold;
-    border: 2px solid #333;
-    border-radius: 0;
-    transition: background-color 0.3s ease, opacity 0.5s ease, transform 0.5s ease;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.5s ease;
 }
 
-/* Button hover effect */
-#apply-btn_career:hover {
+/* Hover effect for submit button */
+.application-form-container button:hover {
     background-color: #ffffff;
     color: #353535;
-    transform: translateY(-10px); /* Slight raise on hover */
+    transform: translateY(-5px);
 }
 
-/* Button visible effect when scrolling */
-#apply-btn_career.visible {
-    opacity: 1;
-    transform: translateY(0); /* Slide up into position */
+/* Toggle button container */
+.resume-toggle {
+    display: flex;
+    justify-content: space-evenly;  /* Even space between toggle buttons */
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;  /* Ensure it spans the full width */
+}
+
+/* Toggle button */
+.resume-toggle input[type="radio"] {
+    display: none; /* Hide the radio button */
+}
+
+.resume-toggle label {
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    padding: 10px 20px;  /* Adjust padding for better alignment */
+    border: 2px solid #333;
+    border-radius: 5px;
+    background-color: #353535;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect on the label (toggle option) */
+.resume-toggle label:hover {
+    background-color: #ffffff;
+    color: #353535;
+}
+
+/* Show active state when toggled */
+input[type="radio"]:checked + label {
+    background-color: #ffffff;
+    color: #353535;
+}
+
+/* Hide typed resume container by default when file upload is selected */
+#typed-resume-container {
+    display: block;
+}
+
+#file-resume-container {
+    display: none;
+}
+
+/* When file resume option is selected */
+#file:checked ~ #file-resume-container {
+    display: block;
+}
+
+#file:checked ~ #typed-resume-container {
+    display: none;
 }

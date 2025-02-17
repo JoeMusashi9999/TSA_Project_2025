@@ -12,3 +12,21 @@ window.addEventListener('scroll', function () {
         applyBtn.classList.remove('visible');
     }
 });
+
+// JavaScript to toggle between typed resume and file upload
+const typedResumeContainer = document.getElementById('typed-resume-container');
+const fileResumeContainer = document.getElementById('file-resume-container');
+const radioTyped = document.getElementById('typed');
+const radioFile = document.getElementById('file');
+
+// Default behavior: typed resume
+radioTyped.addEventListener('change', function() {
+    typedResumeContainer.style.display = 'block';
+    fileResumeContainer.style.display = 'none';
+});
+
+// Show file upload when file option is selected
+radioFile.addEventListener('change', function() {
+    typedResumeContainer.style.display = 'none';
+    fileResumeContainer.style.display = 'block';
+});
