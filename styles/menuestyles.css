@@ -35,37 +35,49 @@
     height: auto;
     border-radius: 15px;
     box-shadow: 3px 3px 15px rgba(255, 255, 255, 0.2);
+    margin-right: 20px; /* Add space between image and text */
 }
 
 /* Menu Text Content */
 .menu-items {
     width: 70%;
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align all text to the left */
 }
 
+/* Category Title (Main Categories like "Starters and Sides") */
 .menu-items h2 {
     font-size: 2em;
     color: #e8dac6;
     border-bottom: 2px solid #d3b898;
     display: inline-block;
     margin-bottom: 15px;
+    align-self: flex-start; /* Ensure it stays aligned to the left */
 }
 
+/* Item Name (Individual Menu Items) */
 .menu-items h3 {
     font-size: 1.6em;
     color: #f5e7db;
     margin-bottom: 5px;
+    align-self: flex-start; /* Align the item names to the left */
 }
 
+/* Item Description */
 .menu-items p {
     font-size: 1em;
     color: #ddd;
+    margin: 5px 0;
+    align-self: flex-start; /* Align the description to the left */
 }
 
 /* Pricing & Labels */
 .price {
     font-weight: bold;
     color: #d3b898;
+    align-self: flex-start;
 }
 
 .dietary {
@@ -75,6 +87,27 @@
     border-radius: 5px;
     margin-right: 10px;
     color: #55402d;
+    align-self: flex-start;
+}
+
+/* Hover Effect on Menu Category (Shows dish details when hovering over the entire category) */
+.menu-category:hover .dish-details {
+    display: block; /* Shows the details when the menu category is hovered */
+}
+
+/* Initially hide the details of the dishes */
+.dish-details {
+    display: none; /* Hidden by default */
+}
+
+/* Optional: Add smooth transition for details */
+.dish-details {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.menu-category:hover .dish-details {
+    opacity: 1; /* Show details with opacity transition when hovering over category */
 }
 
 /* Alternating Image Positions */
@@ -124,4 +157,28 @@
 body {
     position: relative;
     color: white; /* Ensures contrast against the background */
+}
+
+/* Make sure only the dish name is visible without the details */
+.menu-item h3 {
+    font-size: 1.6em;
+    color: #f5e7db;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+/* Style for other elements */
+.dietary{
+    font-size: 0.9em;
+    color: #ddd;
+    background-color: #505050;
+    padding: 4px 8px;
+    border-radius: 5px;
+}
+
+.price{
+    font-size: 0.9em;
+    color: #ddd;
+    padding: 4px 8px;
+    border-radius: 5px;
 }
