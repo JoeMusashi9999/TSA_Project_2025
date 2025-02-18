@@ -182,3 +182,65 @@ body {
     padding: 4px 8px;
     border-radius: 5px;
 }
+
+/* Sidebar menu button styles */
+
+#menu-selection {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 200px;
+    background-color: rgba(51, 51, 51, 0.6);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.menu-toggle {
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.menu-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px); /* Button moves a little */
+}
+
+/* Active (selected) button styles */
+.menu-toggle.active {
+    background-color: rgba(255, 255, 255, 0.6);
+    color: black;
+    pointer-events: none; /* Prevent hover effects */
+}
+
+/* Main menu content styling */
+#menu-content {
+    margin-left: 220px;
+    padding: 20px;
+}
+
+.menu-category {
+    display: none;
+}
+
+/* Make selected category visible */
+.menu-category.active {
+    display: block;
+    width: 140vh; 
+    margin-left: 20vh; 
+}
+
+#footer {
+    position: fixed; /* Fixes the element relative to the viewport */
+    bottom: 0; /* Positions it at the bottom of the screen */
+    left: 0; /* Optional: positions the element at the left edge */
+    width: 100%; /* Optional: makes the element span the entire width of the viewport */
+}

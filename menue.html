@@ -25,13 +25,31 @@
         </div>
     </header>
 
-    <main>
-        <section id="menu">
-            <h1>Our Menu</h1>
+    <!-- fix when you get the time-->
+    <!-- 
+    <main id="menu">
+        <section id="menu-category">
+            <h2>Our Menu</h2>
             <p>Wholesome, flavorful, and crafted with care for every dietary lifestyle.</p>
+        </section>
+    </main> -->
 
-            <!-- Starters & Sides -->
-            <section class="menu-category">
+    <aside id="menu-selection">
+        <section class="menu-toggle"></section>
+        <section class="menu-toggle"></section>
+        <button class="menu-toggle" data-target="starters">Starters & Sides</button>
+        <button class="menu-toggle" data-target="bowls-soups">Hearty Bowls & Soups</button>
+        <button class="menu-toggle" data-target="sandwiches">Sandwiches & Wraps</button>
+        <button class="menu-toggle" data-target="salads">Salads</button>
+        <button class="menu-toggle" data-target="drinks">Drinks</button>
+        <button class="menu-toggle" data-target="burgers">Burgers & Sandwiches</button>
+        <button class="menu-toggle" data-target="desserts">Desserts</button>
+    </aside>
+
+    
+
+    <main id="menu">
+        <section class="menu-category" id="starters">
                 <h2>Starters & Sides</h2>
                 <ul>
                     <li class="menu-item">
@@ -58,10 +76,8 @@
                         </div>
                     </li>
                 </ul>
-            </section>
-
-                    <!-- Hearty Bowls & Soups -->
-        <section class="menu-category">
+        </section>
+        <section class="menu-category" id="bowls-soups">
             <h2>Hearty Bowls & Soups</h2>
             <ul>
                 <li class="menu-item">
@@ -88,11 +104,9 @@
                         <p class="price">$7.25 (310 cal.)</p>
                     </div>
                 </li>
-            </ul>
+            </ul> <!-- Hearty Bowls & Soups content here -->
         </section>
-
-        <!-- Sandwiches & Wraps -->
-        <section class="menu-category">
+        <section class="menu-category" id="sandwiches">
             <h2>Sandwiches & Wraps</h2>
             <ul>
                 <li class="menu-item">
@@ -121,10 +135,7 @@
                 </li>
             </ul>
         </section>
-
-        <!-- Salads -->
-        <section class="menu-category">
-            <button class="expand-btn">▲</button>
+        <section class="menu-category" id="salads">
             <h2>Salads</h2>
             <ul>
                 <li class="menu-item">
@@ -153,9 +164,7 @@
                 </li>
             </ul>
         </section>
-
-        <!-- Drinks -->
-        <section class="menu-category">
+        <section class="menu-category" id="drinks">
             <h2>Drinks</h2>
             <ul>
                 <li class="menu-item">
@@ -201,9 +210,7 @@
                 </li>
             </ul>
         </section>
-
-        <!-- Burgers & Sandwiches -->
-        <section class="menu-category">
+        <section class="menu-category" id="burgers">
             <h2>Burgers & Sandwiches</h2>
             <ul>
                 <li class="menu-item">
@@ -299,9 +306,7 @@
                 </li>
             </ul>
         </section>
-
-        <!-- Desserts -->
-        <section class="menu-category">
+        <section class="menu-category" id="desserts">
             <h2>Desserts</h2>
             <ul>
                 <li class="menu-item">
@@ -330,14 +335,14 @@
                 </li>
             </ul>
         </section>
+    </main>
 
-</main>
-
-<footer>
+<footer id="footer">
     <div class="footer-content">
         <p>&copy; 2025 Hearth & Home. All rights reserved.</p>
     </div>
 </footer>
+
 <script src="scripts/pagefetch.js"></script>
 </body>
 <!-- Floating Chatbot Button -->
@@ -355,4 +360,24 @@
 <img src="images/Background1.jpg" alt="Hearth and Home" />
 </div>
 <script src="scripts/chatbot.js"></script>
+
+<script>
+    // Get all menu-toggle buttons and menu sections
+const buttons = document.querySelectorAll('.menu-toggle');
+const sections = document.querySelectorAll('.menu-category');
+
+// Add event listeners to each button
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Remove active class from all buttons and sections
+        buttons.forEach(b => b.classList.remove('active'));
+        sections.forEach(s => s.classList.remove('active'));
+
+        // Add active class to the clicked button and corresponding section
+        button.classList.add('active');
+        const targetId = button.getAttribute('data-target');
+        document.getElementById(targetId).classList.add('active');
+    });
+});
+</script>
 </html>
