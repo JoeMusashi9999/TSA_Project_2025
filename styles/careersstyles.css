@@ -43,8 +43,7 @@ body {
     background-color: rgba(0, 0, 0, 0.6);  /* Semi-translucent background */
     color: #fff;
     padding: 40px;
-    border: 2px solid #333;  /* Solid border for a more rigid effect */
-    box-sizing: border-box;  /* Ensure padding and border don't affect layout */
+    border: 0px solid #333;  /* Solid border for a more rigid effect */
     transition: transform 0.5s ease, opacity 0.5s ease, box-shadow 0.3s ease;
     z-index: 2;
 }
@@ -65,7 +64,7 @@ body {
     background-color: rgba(0, 0, 0, 0.6); /* Semi-translucent background */
     color: #fff;
     padding: 30px;
-    border: 2px solid #333;
+    border: 0px solid #333;
     width: 80%;
     margin: 50px auto;
     box-sizing: border-box;

@@ -15,8 +15,8 @@
     margin: 40px auto;
     padding: 20px;
     background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background */
-    border: 2px solid #333;
-    border-radius: 15px;
+    border: 0px #333;
+    border-radius: 0px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
