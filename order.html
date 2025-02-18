@@ -141,11 +141,12 @@
             var address = document.getElementById('address').value;
             if (address) {
                 var estimatedTime = Math.floor(Math.random() * 60) + 30; // Random time between 30 and 90 minutes
-                document.getElementById('estimated-time').textContent = estimatedTime + " minutes";
+                document.getElementById('estimated-time').textContent = estimatedTime + " minutes//this function does nto work and just spits out a random time lol";
             } else {
                 alert("Please enter an address.");
             }
         }
+
 
         // Function to reserve a table
         function reserveTable() {
