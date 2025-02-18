@@ -37,7 +37,7 @@
     <aside id="menu-selection">
         <section class="menu-toggle"></section>
         <section class="menu-toggle"></section>
-        <button class="menu-toggle" data-target="starters">Starters & Sides</button>
+        <button class="menu-toggle" data-target="starters" >Starters & Sides</button>
         <button class="menu-toggle" data-target="bowls-soups">Hearty Bowls & Soups</button>
         <button class="menu-toggle" data-target="sandwiches">Sandwiches & Wraps</button>
         <button class="menu-toggle" data-target="salads">Salads</button>
@@ -343,7 +343,7 @@
     </div>
 </footer>
 
-<script src="scripts/pagefetch.js"></script>
+
 </body>
 <!-- Floating Chatbot Button -->
 <div id="chatbot-button" onclick="toggleChat()">💬</div>
@@ -360,24 +360,6 @@
 <img src="images/Background1.jpg" alt="Hearth and Home" />
 </div>
 <script src="scripts/chatbot.js"></script>
-
-<script>
-    // Get all menu-toggle buttons and menu sections
-const buttons = document.querySelectorAll('.menu-toggle');
-const sections = document.querySelectorAll('.menu-category');
-
-// Add event listeners to each button
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        // Remove active class from all buttons and sections
-        buttons.forEach(b => b.classList.remove('active'));
-        sections.forEach(s => s.classList.remove('active'));
-
-        // Add active class to the clicked button and corresponding section
-        button.classList.add('active');
-        const targetId = button.getAttribute('data-target');
-        document.getElementById(targetId).classList.add('active');
-    });
-});
-</script>
+<script src="scripts/menue.js"></script>
+<script src="scripts/pagefetch.js"></script>
 </html>

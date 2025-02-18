@@ -1,13 +1,11 @@
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA_Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/indexstyles.css">
     <link rel="icon" href="/images/Icon.png" type="image/icon type">
-    <link rel="stylesheet" href="styles/chatbotstyles.css">
-    <link rel="stylesheet" href="styles/styles.css">
     <title>Hearth & Home</title>
 </head>
 <body><div id="content">
@@ -17,7 +15,7 @@
             <ul id="links">
                 <li><a href="locations.html" class="nav-link">Locations</a></li>
                 <li><a href="contact.html" class="nav-link">Contact Us</a></li>
-                <li><a href="order.html" class="nav-link">Order</a></li>
+                <li><a href="pickup.html" class="nav-link">Pickup</a></li>
                 <li><a href="menue.html" class="nav-link">Menue</a></li>
                 <li><a href="careers.html" class="nav-link">Careers</a></li>
                 <li><a href="gifts.html" class="nav-link">Gift Card</a></li>
@@ -25,11 +23,15 @@
             </ul>
         </div>
     </header>
-    <!--This is for the background. I set all of these to a class in order to control them all in the same way and the ids allow me to change them individually-->
+    <!--
+
+    what is this for??
+    This is for the background. I set all of these to a class in order to control them all in the same way and the ids allow me to change them individually
     <div id="background">
         <div class="section" id="section1"></div>
         <div class="section" id="section2"></div>
         <div class="section" id="section3"></div>
+    -->
         
     </div>
 <div class="overlay" id="ethos">
@@ -67,7 +69,7 @@
     <p>Whether you’re Paleo, pescatarian, vegetarian, vegan, keto, or simply curious, we’ve created a space where everyone can enjoy a delicious meal that suits their lifestyle. With us, no one leaves hungry—or feeling left out. Welcome to a restaurant that truly serves everyone!</p>
 </div>
 <!--pagefetch script for dynamic loading-->
-<script src="scripts/pagefetch.js"></script>
+<script src="pagefetch.js"></script>
 <footer>
     <div class="footer-content">
         <a href="Plan_of_Work_Log.csv" class="footer-left">Plan of Work</a>
@@ -77,17 +79,5 @@
 </footer>
 
 </div></body>
-<!-- Floating Chatbot Button -->
-<div id="chatbot-button" onclick="toggleChat()">💬</div>
-
-<!-- Chatbot Container -->
-<div id="chat-container" style="display: none;">
-    <div id="chat-header">AI Chatbot <span onclick="toggleChat()">❌</span></div>
-    <div id="chat-box"></div>
-    <input type="text" id="user-input" placeholder="Type a message...">
-    <button id="send-btn">Send</button>
-</div>
-
-<script src="scripts/chatbot.js"></script>
 
 </html> 
