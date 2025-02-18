@@ -110,14 +110,14 @@
     opacity: 1; /* Show details with opacity transition when hovering over category */
 }
 
-/* Alternating Image Positions */
+
 .menu-category:nth-child(odd) {
     flex-direction: row;
-}
+} /*redundant remove soon or use*/ 
 
 .menu-category:nth-child(even) {
-    flex-direction: row-reverse;
-}
+    flex-direction: row;
+} /*redundant remove soon or use*/ 
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
