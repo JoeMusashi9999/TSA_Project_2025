@@ -19,7 +19,7 @@ h1, h2, h3 {
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin-top: 30px;
+    margin-top: 70px; /* Moved 40px lower */
 }
 
 .toggle-buttons button {
@@ -34,11 +34,16 @@ h1, h2, h3 {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+/* Active button style */
 .toggle-buttons button.active {
-    background-color: #444; /* Slightly lighter grey for active state */
+    background-color: white; /* White background for active button */
+    color: #333; /* Dark text for contrast */
+    border: 2px solid #333; /* Dark border for active state */
+    pointer-events: none; /* Disables any hover effect on active button */
 }
 
-.toggle-buttons button:hover {
+/* Hover effect for non-active buttons */
+.toggle-buttons button:not(.active):hover {
     background-color: #555; /* Lighter grey on hover */
     transform: scale(1.05);
 }
@@ -254,4 +259,3 @@ button:hover {
 .order-screen.active {
     display: block;
 }
-

@@ -24,26 +24,22 @@
         </ul>
     </div>
 
-    <!-- Toggle Buttons for Delivery, Takeout, and Dine-In -->
+    <!-- Toggle Buttons for Delivery, Takeout, and Dine-In (Buttons) -->
     <div class="toggle-buttons">
         <button id="delivery-btn" onclick="toggleScreen('delivery')">Delivery</button>
-        <button id="takeout-btn" onclick="toggleScreen('takeout')">Takeout</button>
+        <button id="takeout-btn" class="active" onclick="toggleScreen('takeout')">Takeout</button>
         <button id="dinein-btn" onclick="toggleScreen('dinein')">Dine-In</button>
     </div>
 
-    <!-- Delivery Screen (default visible) -->
-    <div id="delivery-screen" class="order-screen">
+    <!-- Delivery Screen -->
+    <div id="delivery-screen" class="order-screen" style="display: none;">
         <h2>Delivery Order</h2>
-
-        <!-- Map Section (interactive map for delivery) -->
         <div class="map-section">
             <h3>Enter your Address for Delivery</h3>
             <input type="text" id="address" placeholder="Enter your address">
             <button onclick="calculateDeliveryTime()">Find Delivery Time</button>
             <div id="delivery-time">Estimated Delivery Time: <span id="estimated-time"></span></div>
         </div>
-
-        <!-- Menu Section for Delivery -->
         <div class="menu-section">
             <h3>Menu</h3>
             <ul id="delivery-menu">
@@ -52,8 +48,6 @@
                 <li>Item 3: <input type="number" min="0" value="0" class="quantity"> <button>Add</button></li>
             </ul>
         </div>
-
-        <!-- Payment Section -->
         <div class="payment-section">
             <h3>Payment</h3>
             <input type="text" placeholder="Card Number">
@@ -63,11 +57,9 @@
         </div>
     </div>
 
-    <!-- Takeout Screen -->
-    <div id="takeout-screen" class="order-screen" style="display: none;">
+    <!-- Takeout Screen (default visible) -->
+    <div id="takeout-screen" class="order-screen">
         <h2>Takeout Order</h2>
-
-        <!-- Menu Section for Takeout -->
         <div class="menu-section">
             <h3>Menu</h3>
             <ul id="takeout-menu">
@@ -76,14 +68,10 @@
                 <li>Item 3: <input type="number" min="0" value="0" class="quantity"> <button>Add</button></li>
             </ul>
         </div>
-
-        <!-- Estimated Time for Takeout -->
         <div class="takeout-time">
             <h3>Estimated Time for Takeout</h3>
             <div id="takeout-est-time">Approximate time: 10 minutes</div>
         </div>
-
-        <!-- Payment Section for Takeout -->
         <div class="payment-section">
             <h3>Payment</h3>
             <input type="text" placeholder="Card Number">
@@ -96,8 +84,6 @@
     <!-- Dine-In Screen -->
     <div id="dinein-screen" class="order-screen" style="display: none;">
         <h2>Dine-In Order</h2>
-
-        <!-- Menu Section for Dine-In -->
         <div class="menu-section">
             <h3>Menu</h3>
             <ul id="dinein-menu">
@@ -106,20 +92,14 @@
                 <li>Item 3: <input type="number" min="0" value="0" class="quantity"> <button>Add</button></li>
             </ul>
         </div>
-
-        <!-- Date & Time Reservation for Dine-In -->
         <div class="reservation-section">
             <h3>Reserve a Table</h3>
             <label for="reservation-date">Choose a Date:</label>
             <input type="date" id="reservation-date" name="reservation-date">
-            
             <label for="reservation-time">Choose a Time:</label>
             <input type="time" id="reservation-time" name="reservation-time">
-
             <button onclick="reserveTable()">Reserve Table</button>
         </div>
-
-        <!-- Payment Section for Dine-In -->
         <div class="payment-section">
             <h3>Payment</h3>
             <input type="text" placeholder="Card Number">
@@ -137,23 +117,22 @@
             document.getElementById('delivery-screen').style.display = 'none';
             document.getElementById('takeout-screen').style.display = 'none';
             document.getElementById('dinein-screen').style.display = 'none';
-            
+
+            // Remove active class from all buttons
+            document.getElementById('delivery-btn').classList.remove('active');
+            document.getElementById('takeout-btn').classList.remove('active');
+            document.getElementById('dinein-btn').classList.remove('active');
+
             // Show the selected screen
             if (screen === 'delivery') {
                 document.getElementById('delivery-screen').style.display = 'block';
                 document.getElementById('delivery-btn').classList.add('active');
-                document.getElementById('takeout-btn').classList.remove('active');
-                document.getElementById('dinein-btn').classList.remove('active');
             } else if (screen === 'takeout') {
                 document.getElementById('takeout-screen').style.display = 'block';
                 document.getElementById('takeout-btn').classList.add('active');
-                document.getElementById('delivery-btn').classList.remove('active');
-                document.getElementById('dinein-btn').classList.remove('active');
             } else {
                 document.getElementById('dinein-screen').style.display = 'block';
                 document.getElementById('dinein-btn').classList.add('active');
-                document.getElementById('delivery-btn').classList.remove('active');
-                document.getElementById('takeout-btn').classList.remove('active');
             }
         }
 
@@ -192,7 +171,20 @@
                 map: map
             });
         }
+
+        // Set the Takeout screen to show by default on page load
+        window.onload = function() {
+            toggleScreen('takeout');
+        };
     </script>
 
+    <div id="chat-container" style="display: none;">
+        <div id="chat-header">AI Chatbot <span onclick="toggleChat()">❌</span></div>
+        <div id="chat-box"></div>
+        <input type="text" id="user-input" placeholder="Type a message...">
+        <button id="send-btn">Send</button>
+    </div>
+
+    <script src="scripts/chatbot.js"></script>
 </body>
 </html>
