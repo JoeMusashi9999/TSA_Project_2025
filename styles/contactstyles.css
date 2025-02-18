@@ -1,0 +1,92 @@
+/* Ensure body covers the full height */
+body {
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* Background image container */
+.image-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Centering and styling the contact form */
+#contact {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border-radius: 10px;
+    border: 2px solid #333;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/*When hovered over do this*/
+#contact:hover {
+    transform: translateY(-5px); /* Slight lift effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Soft shadow on hover */
+    background: rgba(255, 255, 255, 0.2); /* Slightly lighter background */
+    filter: brightness(1.2); /* Increases brightness */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+#contact h1 {
+    margin-bottom: 20px;
+}
+
+/* Style input fields and textarea */
+#contact-form input, 
+#contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #333;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Style labels */
+#contact-form label {
+    display: block;
+    font-size: 16px;
+    text-align: left;
+    margin-top: 10px;
+}
+
+/* Style the submit button */
+#contact-form button {
+    width: 100%;
+    background-color: #353535;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#contact-form button:hover {
+    background-color: #ffffff;
+    color: #353535;
+    transform: translateY(-3px);
+}

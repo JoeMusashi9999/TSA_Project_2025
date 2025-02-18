@@ -52,8 +52,12 @@ body {
 /* Subtle hover effect on the content box */
 .content-box:hover {
     transform: translateY(-10px);  /* Slight raise on hover */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);  /* Larger shadow */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Soft shadow on hover */
+    background: rgba(255, 255, 255, 0.2); /* Slightly lighter background */
+    filter: brightness(1.2); /* Increases brightness */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
 }
+
 
 /* Style for the new application form container */
 .application-form-container {
@@ -92,8 +96,12 @@ body {
 /* Hover effect for the form */
 .application-form-container:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Soft shadow on hover */
+    background: rgba(255, 255, 255, 0.2); /* Slightly lighter background */
+    filter: brightness(1.2); /* Increases brightness */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
 }
+
 
 /* Style the submit button inside the form */
 .application-form-container button {
@@ -118,6 +126,8 @@ body {
     align-items: center;  /* Align the radio buttons and labels vertically */
     gap: 20px;  /* Space between the options */
     margin-bottom: 20px;
+    width: 50%; /* Set a width */
+    margin: 0 auto; /* Centers horizontally */
 }
 
 /* Hide the actual radio buttons */
@@ -135,6 +145,8 @@ body {
     border-radius: 5px;
     background-color: #353535;
     transition: background-color 0.3s ease, color 0.3s ease;
+    width: 50%; /* Set a width */
+    margin: 0 auto; /* Centers horizontally */
 }
 
 /* Hover effect on the label (toggle option) */
@@ -152,8 +164,15 @@ input[type="radio"]:checked + label {
 /* Hand-typed resume input container visibility */
 #typed-resume-container {
     display: block;
+    width: 100%; /* Set a width */
+    margin: 0 auto; /* Centers horizontally */
+    /* border: 2px solid #333; */
 }
 
+#typed-resume-container-lable {
+    display: block; /* Ensures the label appears above the textarea */
+    margin-bottom: 5px; /* Adds spacing between the label and the textarea */
+}
 #file-resume-container {
     display: none;
 }

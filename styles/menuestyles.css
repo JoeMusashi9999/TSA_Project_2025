@@ -1,0 +1,127 @@
+/* Menu Styles */
+
+/* Ensure menu styles don't override other pages */
+#menu {
+    max-width: 90%;
+    margin: 80px auto;
+    padding-bottom: 50px;
+}
+
+/* Menu Category Layout */
+.menu-category {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background */
+    border: 2px solid #333;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Subtle Hover Effect */
+.menu-category:hover {
+    transform: translateY(-5px); /* Slight lift effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Soft shadow on hover */
+    background: rgba(255, 255, 255, 0.2); /* Slightly lighter background */
+    filter: brightness(1.2); /* Increases brightness */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+/* Category Image Styling */
+.menu-category img {
+    width: 25%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 3px 3px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Menu Text Content */
+.menu-items {
+    width: 70%;
+    color: white;
+}
+
+.menu-items h2 {
+    font-size: 2em;
+    color: #e8dac6;
+    border-bottom: 2px solid #d3b898;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.menu-items h3 {
+    font-size: 1.6em;
+    color: #f5e7db;
+    margin-bottom: 5px;
+}
+
+.menu-items p {
+    font-size: 1em;
+    color: #ddd;
+}
+
+/* Pricing & Labels */
+.price {
+    font-weight: bold;
+    color: #d3b898;
+}
+
+.dietary {
+    font-size: 0.9em;
+    background-color: #e8dac6;
+    padding: 4px 8px;
+    border-radius: 5px;
+    margin-right: 10px;
+    color: #55402d;
+}
+
+/* Alternating Image Positions */
+.menu-category:nth-child(odd) {
+    flex-direction: row;
+}
+
+.menu-category:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .menu-category {
+        flex-direction: column !important;
+        text-align: center;
+    }
+
+    .menu-category img {
+        width: 60%;
+        margin-bottom: 15px;
+    }
+
+    .menu-items {
+        width: 100%;
+    }
+}
+
+/* Background Image Styling */
+.image-container {
+    position: fixed; /* Ensures it stays in place while scrolling */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Pushes image behind the content */
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures it covers the entire screen */
+    opacity: 0.8; /* Adjust transparency if needed */
+}
+
+/* Ensure text is readable */
+body {
+    position: relative;
+    color: white; /* Ensures contrast against the background */
+}
