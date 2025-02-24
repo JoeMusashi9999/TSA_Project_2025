@@ -1,0 +1,122 @@
+/* General Body Styling */
+body {
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* Main Content Container */
+.container_career {
+    position: relative;
+    padding: 50px;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+    margin-bottom: 0px;
+    margin-top: 40px;
+}
+
+/* Background Image */
+.image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.8;
+    transition: opacity 0.5s ease;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 0px solid #333;
+}
+
+/* Content Box */
+.content-box {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 40px;
+    border: 0px solid #333;
+    box-sizing: border-box;
+    transition: transform 0.5s ease, opacity 0.5s ease, box-shadow 0.3s ease;
+    z-index: 2;
+}
+
+/* Hover Effect */
+.content-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+    background: rgba(255, 255, 255, 0.2);
+    filter: brightness(1.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+/* Navigation Bar */
+#navbar {
+    background-color: #222;
+    padding: 15px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 3;
+}
+
+#links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+#links li {
+    margin: 0 15px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #f0a500;
+}
+
+/* Chatbot Styles */
+#chatbot-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #353535;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background 0.3s ease;
+}
+
+#chatbot-button:hover {
+    background: #f0a500;
+}
+
+#chat-container {
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    width: 300px;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    display: none;
+}

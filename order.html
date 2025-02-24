@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/orderstyles.css">
+    <title>Order Page</title>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div id="navbar">
+        <a class="logo" href="index.html"></a>
+        <ul id="links">
+            <li><a href="locations.html" class="nav-link">Locations</a></li>
+            <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+            <li><a href="order.html" class="nav-link">Order</a></li>
+            <li><a href="menue.html" class="nav-link">Menue</a></li>
+            <li><a href="careers.html" class="nav-link">Careers</a></li>
+            <li><a href="gifts.html" class="nav-link">Gift Card</a></li>
+            <li><a href="about.html" class="nav-link">About Us</a></li>
+        </ul>
+    </div>
+
+    <!-- Toggle Buttons for Delivery, Takeout, and Dine-In (Buttons) -->
+    <div class="toggle-buttons">
+        <button id="delivery-btn" onclick="toggleScreen('delivery')">Delivery</button>
+        <button id="takeout-btn" class="active" onclick="toggleScreen('takeout')">Takeout</button>
+        <button id="dinein-btn" onclick="toggleScreen('dinein')">Dine-In</button>
+    </div>
+
+    <!-- Delivery Screen -->
+    <div id="delivery-screen" class="order-screen" style="display: none;">
+        <h2>Delivery Order</h2>
+        <div class="map-section">
+            <h3>Enter your Address for Delivery</h3>
+            <input type="text" id="address" placeholder="Enter your address">
+            <button onclick="calculateDeliveryTime()">Find Delivery Time</button>
+            <div id="delivery-time">Estimated Delivery Time: <span id="estimated-time"></span></div>
+        </div>
+        <div class="menu-section">
+            <h3>Menu</h3>
+            <ul id="delivery-menu">
+                <li>Item 1: <input type="number" min="0" value="0" class="quantity"> <button>Add</button></li>
+                <li>Item 2: <input type="number" min="0" value="0" class="quantity"> <button>Add</button></li>
+                <li>Item 3: <input type="number" min="0" value="0" class="quantity"> <button>Add</button></li>
+            </ul>
+        </div>
+        <div class="payment-section">
+            <h3>Payment</h3>
+            <input type="text" placeholder="Card Number">
+            <input type="text" placeholder="Expiration Date">
+            <input type="text" placeholder="CVV">
+            <button>Place Order</button>
+        </div>
+    </div>
+
+    <!-- Takeout Screen (default visible) -->
+    <div id="takeout-screen" class="order-screen">
+        <h2>Takeout Order</h2>
+        <div class="menu-section">
+            <h3>Menu</h3>
+            <ul id="takeout-menu">
+                <li>Item 1: <input type="number" min="0" value="0" class="quantity"> <button>Add</button></li>
+                <li>Item 2: <input type="number" min="0" value="0" class="quantity"> <button>Add</button></li>
+                <li>Item 3: <input type="number" min="0" value="0" class="quantity"> <button>Add</button></li>
+            </ul>
+        </div>
+        <div class="takeout-time">
+            <h3>Estimated Time for Takeout</h3>
+            <div id="takeout-est-time">Approximate time: 10 minutes</div>
+        </div>
+        <div class="payment-section">
+            <h3>Payment</h3>
+            <input type="text" placeholder="Card Number">
+            <input type="text" placeholder="Expiration Date">
+            <input type="text" placeholder="CVV">
+            <button>Place Order</button>
+        </div>
+    </div>
+
+    <!-- Dine-In Screen -->
+    <div id="dinein-screen" class="order-screen" style="display: none;">
+        <h2>Dine-In Order</h2>
+        <div class="menu-section">
+            <h3>Menu</h3>
+            <ul id="dinein-menu">
+                <li>Item 1: <input type="number" min="0" value="0" class="quantity"> <button>Add</button></li>
+                <li>Item 2: <input type="number" min="0" value="0" class="quantity"> <button>Add</button></li>
+                <li>Item 3: <input type="number" min="0" value="0" class="quantity"> <button>Add</button></li>
+            </ul>
+        </div>
+        <div class="reservation-section">
+            <h3>Reserve a Table</h3>
+            <label for="reservation-date">Choose a Date:</label>
+            <input type="date" id="reservation-date" name="reservation-date">
+            <label for="reservation-time">Choose a Time:</label>
+            <input type="time" id="reservation-time" name="reservation-time">
+            <button onclick="reserveTable()">Reserve Table</button>
+        </div>
+        <div class="payment-section">
+            <h3>Payment</h3>
+            <input type="text" placeholder="Card Number">
+            <input type="text" placeholder="Expiration Date">
+            <input type="text" placeholder="CVV">
+            <button>Place Order</button>
+        </div>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+    <script>
+        // Function to toggle between screens
+        function toggleScreen(screen) {
+            // Hide all screens
+            document.getElementById('delivery-screen').style.display = 'none';
+            document.getElementById('takeout-screen').style.display = 'none';
+            document.getElementById('dinein-screen').style.display = 'none';
+
+            // Remove active class from all buttons
+            document.getElementById('delivery-btn').classList.remove('active');
+            document.getElementById('takeout-btn').classList.remove('active');
+            document.getElementById('dinein-btn').classList.remove('active');
+
+            // Show the selected screen
+            if (screen === 'delivery') {
+                document.getElementById('delivery-screen').style.display = 'block';
+                document.getElementById('delivery-btn').classList.add('active');
+            } else if (screen === 'takeout') {
+                document.getElementById('takeout-screen').style.display = 'block';
+                document.getElementById('takeout-btn').classList.add('active');
+            } else {
+                document.getElementById('dinein-screen').style.display = 'block';
+                document.getElementById('dinein-btn').classList.add('active');
+            }
+        }
+
+        // Function to calculate estimated delivery time
+        function calculateDeliveryTime() {
+            var address = document.getElementById('address').value;
+            if (address) {
+                var estimatedTime = Math.floor(Math.random() * 60) + 30; // Random time between 30 and 90 minutes
+                document.getElementById('estimated-time').textContent = estimatedTime + " minutes//this function does nto work and just spits out a random time lol";
+            } else {
+                alert("Please enter an address.");
+            }
+        }
+
+
+        // Function to reserve a table
+        function reserveTable() {
+            var date = document.getElementById('reservation-date').value;
+            var time = document.getElementById('reservation-time').value;
+
+            if (date && time) {
+                alert("Table reserved for " + date + " at " + time);
+            } else {
+                alert("Please select both a date and time.");
+            }
+        }
+
+        // Initialize the map
+        function initMap() {
+            var location = { lat: 47.5678, lng: -122.2453 };  // Example location
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 14,
+                center: location
+            });
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+        }
+
+        // Set the Takeout screen to show by default on page load
+        window.onload = function() {
+            toggleScreen('takeout');
+        };
+    </script>
+
+    <div id="chat-container" style="display: none;">
+        <div id="chat-header">AI Chatbot <span onclick="toggleChat()">❌</span></div>
+        <div id="chat-box"></div>
+        <input type="text" id="user-input" placeholder="Type a message...">
+        <button id="send-btn">Send</button>
+    </div>
+
+    <script src="scripts/chatbot.js"></script>
+    <script src="scripts/pagefetch.js"></script>
+</body>
+</html>

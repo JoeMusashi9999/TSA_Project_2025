@@ -1,0 +1,246 @@
+/* Menu Styles */
+
+/* Ensure menu styles don't override other pages */
+#menu {
+    max-width: 90%;
+    margin: 80px auto;
+    padding-bottom: 50px;
+}
+
+/* Menu Category Layout */
+.menu-category {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background */
+    border: 0px #333;
+    border-radius: 0px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Subtle Hover Effect */
+.menu-category:hover {
+    transform: translateY(-5px); /* Slight lift effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Soft shadow on hover */
+    background: rgba(255, 255, 255, 0.2); /* Slightly lighter background */
+    filter: brightness(1.2); /* Increases brightness */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+/* Category Image Styling */
+.menu-category img {
+    width: 25%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 3px 3px 15px rgba(255, 255, 255, 0.2);
+    margin-right: 20px; /* Add space between image and text */
+}
+
+/* Menu Text Content */
+.menu-items {
+    width: 70%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align all text to the left */
+}
+
+/* Category Title (Main Categories like "Starters and Sides") */
+.menu-items h2 {
+    font-size: 2em;
+    color: #e8dac6;
+    border-bottom: 2px solid #d3b898;
+    display: inline-block;
+    margin-bottom: 15px;
+    align-self: flex-start; /* Ensure it stays aligned to the left */
+}
+
+/* Item Name (Individual Menu Items) */
+.menu-items h3 {
+    font-size: 1.6em;
+    color: #f5e7db;
+    margin-bottom: 5px;
+    align-self: flex-start; /* Align the item names to the left */
+}
+
+/* Item Description */
+.menu-items p {
+    font-size: 1em;
+    color: #ddd;
+    margin: 5px 0;
+    align-self: flex-start; /* Align the description to the left */
+}
+
+/* Pricing & Labels */
+.price {
+    font-weight: bold;
+    color: #d3b898;
+    align-self: flex-start;
+}
+
+.dietary {
+    font-size: 0.9em;
+    background-color: #e8dac6;
+    padding: 4px 8px;
+    border-radius: 5px;
+    margin-right: 10px;
+    color: #55402d;
+    align-self: flex-start;
+}
+
+/* Hover Effect on Menu Category (Shows dish details when hovering over the entire category) */
+.menu-category:hover .dish-details {
+    display: block; /* Shows the details when the menu category is hovered */
+}
+
+/* Initially hide the details of the dishes */
+.dish-details {
+    display: none; /* Hidden by default */
+}
+
+/* Optional: Add smooth transition for details */
+.dish-details {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.menu-category:hover .dish-details {
+    opacity: 1; /* Show details with opacity transition when hovering over category */
+}
+
+
+.menu-category:nth-child(odd) {
+    flex-direction: row;
+} /*redundant remove soon or use*/ 
+
+.menu-category:nth-child(even) {
+    flex-direction: row;
+} /*redundant remove soon or use*/ 
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .menu-category {
+        flex-direction: column !important;
+        text-align: center;
+    }
+
+    .menu-category img {
+        width: 60%;
+        margin-bottom: 15px;
+    }
+
+    .menu-items {
+        width: 100%;
+    }
+}
+
+/* Background Image Styling */
+.image-container {
+    position: fixed; /* Ensures it stays in place while scrolling */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Pushes image behind the content */
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures it covers the entire screen */
+    opacity: 0.8; /* Adjust transparency if needed */
+}
+
+/* Ensure text is readable */
+body {
+    position: relative;
+    color: white; /* Ensures contrast against the background */
+}
+
+/* Make sure only the dish name is visible without the details */
+.menu-item h3 {
+    font-size: 1.6em;
+    color: #f5e7db;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+/* Style for other elements */
+.dietary{
+    font-size: 0.9em;
+    color: #ddd;
+    background-color: #505050;
+    padding: 4px 8px;
+    border-radius: 5px;
+}
+
+.price{
+    font-size: 0.9em;
+    color: #ddd;
+    padding: 4px 8px;
+    border-radius: 5px;
+}
+
+/* Sidebar menu button styles */
+
+#menu-selection {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 200px;
+    background-color: rgba(51, 51, 51, 0.6);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.menu-toggle {
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.menu-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px); /* Button moves a little */
+}
+
+/* Active (selected) button styles */
+.menu-toggle.active {
+    background-color: rgba(255, 255, 255, 0.6);
+    color: black;
+    pointer-events: none; /* Prevent hover effects */
+}
+
+/* Main menu content styling */
+#menu-content {
+    margin-left: 220px;
+    padding: 20px;
+}
+
+.menu-category {
+    display: none;
+}
+
+/* Make selected category visible */
+.menu-category.active {
+    display: block;
+    width: 140vh; 
+    margin-left: 20vh; 
+}
+
+#footer {
+    position: fixed; /* Fixes the element relative to the viewport */
+    bottom: 0; /* Positions it at the bottom of the screen */
+    left: 0; /* Optional: positions the element at the left edge */
+    width: 100%; /* Optional: makes the element span the entire width of the viewport */
+}

@@ -1,0 +1,261 @@
+/* General Body Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Light grey background */
+    color: #333; /* Dark text for contrast */
+}
+
+/* Page Header and Title */
+h1, h2, h3 {
+    font-family: 'Arial', sans-serif;
+    color: #222; /* Slightly darker text for titles */
+    margin-bottom: 20px;
+}
+
+/* Toggle Buttons */
+.toggle-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 70px; /* Moved 40px lower */
+}
+
+.toggle-buttons button {
+    padding: 15px 30px;
+    font-size: 16px;
+    background-color: #333; /* Dark grey background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Active button style */
+.toggle-buttons button.active {
+    background-color: white; /* White background for active button */
+    color: #333; /* Dark text for contrast */
+    border: 2px solid #333; /* Dark border for active state */
+    pointer-events: none; /* Disables any hover effect on active button */
+}
+
+/* Hover effect for non-active buttons */
+.toggle-buttons button:not(.active):hover {
+    background-color: #555; /* Lighter grey on hover */
+    transform: scale(1.05);
+}
+
+/* Order Screens */
+.order-screen {
+    background-color: #fff; /* White background for each screen */
+    border-radius: 5px; /* Slight rounding of corners */
+    padding: 25px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border: 1px solid #ddd; /* Light border for separation */
+}
+
+/* Menu Section */
+.menu-section {
+    margin-bottom: 30px;
+}
+
+.menu-section h3 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.menu-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-section li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    background-color: #f9f9f9; /* Light grey background for items */
+    padding: 12px 18px;
+    border: 1px solid #ddd;
+    border-radius: 5px; /* Square corners */
+}
+
+.menu-section li:hover {
+    background-color: #eaeaea; /* Slight grey background on hover */
+}
+
+.menu-section input {
+    width: 50px;
+    padding: 5px;
+    font-size: 14px;
+    margin-right: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.menu-section button {
+    background-color: #333; /* Dark grey button */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.menu-section button:hover {
+    background-color: #444; /* Lighter grey on hover */
+}
+
+/* Address Section (For Delivery) */
+.map-section {
+    margin-bottom: 20px;
+}
+
+.map-section input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    margin-bottom: 12px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.map-section button {
+    background-color: #333; /* Dark grey for action buttons */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.map-section button:hover {
+    background-color: #444;
+}
+
+/* Payment Section */
+.payment-section {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.payment-section input {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin: 12px 0;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.payment-section button {
+    width: 100%;
+    padding: 15px;
+    background-color: #333; /* Dark grey for the submit button */
+    color: white;
+    border: none;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.payment-section button:hover {
+    background-color: #444;
+}
+
+/* Reservation Section (For Dine-In) */
+.reservation-section {
+    margin-bottom: 30px;
+}
+
+.reservation-section input {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    margin-bottom: 12px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.reservation-section button {
+    background-color: #333; /* Dark grey for action buttons */
+    color: white;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reservation-section button:hover {
+    background-color: #444;
+}
+
+/* Time & Date Inputs */
+input[type="date"], input[type="time"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333; /* Dark grey footer */
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Box Shadows and Transitions */
+input[type="text"], input[type="number"], input[type="date"], input[type="time"] {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, input[type="date"]:focus, input[type="time"]:focus {
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    border: 1px solid #007BFF;
+}
+
+/* Buttons Hover Effects */
+button:hover {
+    transform: translateY(-2px);
+}
+
+/* Active Screen State */
+.order-screen {
+    display: none;
+}
+
+.order-screen.active {
+    display: block;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hearth and Home Careers</title>
+    <link rel="stylesheet" href="styles/careersstyles.css">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <div id="navbar">
+        <a class="logo" href="index.html">Hearth and Home</a>
+        <ul id="links">
+            <li><a href="locations.html" class="nav-link">Locations</a></li>
+            <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+            <li><a href="order.html" class="nav-link">Order</a></li>
+            <li><a href="menu.html" class="nav-link">Menu</a></li>
+            <li><a href="careers.html" class="nav-link">Careers</a></li>
+            <li><a href="gifts.html" class="nav-link">Gift Card</a></li>
+            <li><a href="about.html" class="nav-link">About Us</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Career Content Section -->
+    <div class="container_career fade-in">
+        <div class="content-box">
+            <h1>Join the Hearth and Home Family!</h1>
+            <p>At Hearth and Home, we’re more than just a restaurant—we’re a community of passionate food lovers dedicated to serving up bold flavors, home-style comfort, and unforgettable dining experiences.</p>
+            <p>We’re looking for enthusiastic, creative, and team-oriented individuals who share our love for plant-based cuisine, sustainability, and genuine hospitality.</p>
+            <h2>Why Work With Us?</h2>
+            <ul>
+                <li>✅ Be part of a mission-driven brand – We believe in delicious food that’s good for people and the planet.</li>
+                <li>✅ Growth opportunities – We invest in our team and love to promote from within.</li>
+                <li>✅ A supportive, inclusive culture – We value teamwork, creativity, and a positive work environment.</li>
+                <li>✅ Great perks – Enjoy employee meals, competitive pay, and a chance to work with like-minded food lovers!</li>
+            </ul>
+            <h2>Join the Family!</h2>
+            <p>We’re always on the lookout for chefs, servers, baristas, and kitchen staff who bring passion, personality, and dedication to the table.</p>
+            <p>Interested? Apply today! Visit us in person or email your resume to <strong>[your email or website link]</strong> to start your journey with Hearth and Home.</p>
+        </div>
+    </div>
+
+    <!-- Job Application Form -->
+    <div class="application-form-container">
+        <h2>Apply for a Job</h2>
+        <form action="submit_application.php" method="POST" enctype="multipart/form-data">
+            <!-- Toggle for resume input -->
+            <label for="resume-option">Choose Resume Type:</label>
+            <div class="resume-toggle">
+                <input type="radio" id="typed" name="resume-option" value="typed" checked>
+                <label for="typed">Hand-Typed Resume</label>
+                <input type="radio" id="file" name="resume-option" value="file">
+                <label for="file">File Upload</label>
+            </div>
+
+            <!-- Hand-Typed Resume -->
+            <div id="typed-resume-container">
+                <label for="typed-resume">Typed Resume</label>
+                <textarea name="typed-resume" id="typed-resume" rows="6" placeholder="Type your resume here..."></textarea>
+            </div>
+
+            <!-- File Upload Resume -->
+            <div id="file-resume-container" style="display: none;">
+                <label for="resume">Upload Resume (PDF)</label>
+                <input type="file" name="resume" id="resume" accept=".pdf" />
+            </div>
+
+            <label for="name">Full Name</label>
+            <input type="text" name="name" id="name" required />
+
+            <label for="dob">Date of Birth</label>
+            <input type="date" name="dob" id="dob" required />
+
+            <label for="address">Address</label>
+            <input type="text" name="address" id="address" required />
+
+            <label for="city">City</label>
+            <input type="text" name="city" id="city" required />
+
+            <label for="state">State</label>
+            <input type="text" name="state" id="state" required />
+
+            <label for="zip">Zip Code</label>
+            <input type="text" name="zip" id="zip" required />
+
+            <label for="email">Email Address</label>
+            <input type="email" name="email" id="email" required />
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" name="phone" id="phone" required />
+
+            <button type="submit">Submit Application</button>
+        </form>
+    </div>
+
+    <div class="image-container">
+        <img src="images/Background1.jpg" alt="Hearth and Home" />
+    </div>
+
+    <div id="chat-container" style="display: none;">
+        <div id="chat-header">AI Chatbot <span onclick="toggleChat()">❌</span></div>
+        <div id="chat-box"></div>
+        <input type="text" id="user-input" placeholder="Type a message...">
+        <button id="send-btn">Send</button>
+    </div>
+    
+    <script src="scripts/chatbot.js"></script>
+    <script src="scripts/pagefetch.js"></script>
+    <script src="scripts/careers.js"></script>
+    
+</body>
+</html>

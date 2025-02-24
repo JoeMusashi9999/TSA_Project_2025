@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA_Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/chatbotstyles.css">
+    <link rel="stylesheet" href="styles/contactstyles.css">
+</head>
+<body><div id="content">
+
+    <header>
+        <div id="navbar">
+            <a class="logo" href="index.html"></a>
+            <ul id="links">
+                <li><a href="locations.html" class="nav-link">Locations</a></li>
+                <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+                <li><a href="order.html" class="nav-link">Order</a></li>
+                <li><a href="menue.html" class="nav-link">Menue</a></li>
+                <li><a href="careers.html" class="nav-link">Careers</a></li>
+                <li><a href="gifts.html" class="nav-link">Gift Card</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div id="contact">
+        <h1>Contact Us</h1>
+        <p>We’d love to hear from you! Fill out the form below and we’ll get back to you as soon as possible.</p>
+        
+        <form id="contact-form" action="submit_contact.php" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your email address" required>
+
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <a href="Plan_of_Work_Log.csv" class="footer-left">Plan of Work</a>
+            <p>&copy; 2025 Hearth & Home. All rights reserved.</p>
+            <a href="https://drive.google.com/file/d/1E9o7XN-WwjCnjBj33BZMVOf5lWuQxTZZ/view?usp=sharing" class="footer-right">Copyright Checklist</a>
+        </div>
+    </footer> 
+</div>
+<script src="scripts/pagefetch.js"></script>
+</body>
+  <!-- Floating Chatbot Button -->
+  <div id="chatbot-button" onclick="toggleChat()">💬</div>
+
+  <!-- Chatbot Container -->
+  <div id="chat-container" style="display: none;">
+      <div id="chat-header">AI Chatbot <span onclick="toggleChat()">❌</span></div>
+      <div id="chat-box"></div>
+      <input type="text" id="user-input" placeholder="Type a message...">
+      <button id="send-btn">Send</button>
+  </div>
+
+  <div class="image-container">
+    <img src="images/Background1.jpg" alt="Hearth and Home" />
+    </div>
+    
+  <script src="scripts/chatbot.js"></script>
+</html>
