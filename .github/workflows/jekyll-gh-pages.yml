@@ -43,6 +43,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+      API: ${{ secrets.ChatGPT_api}}
     runs-on: ubuntu-latest
     needs: build
     steps:
