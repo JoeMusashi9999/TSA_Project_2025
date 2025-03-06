@@ -2,9 +2,11 @@
 
 /* Ensure menu styles don't override other pages */
 #menu {
-    max-width: 90%;
-    margin: 80px auto;
+    
     padding-bottom: 50px;
+    margin-left: 5%; /* Shift content slightly to center it */
+    padding: 20px;
+    transition: margin-left 0.3s ease-in-out;
 }
 
 /* Menu Category Layout */
@@ -20,14 +22,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Subtle Hover Effect */
-.menu-category:hover {
-    transform: translateY(-5px); /* Slight lift effect */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Soft shadow on hover */
-    background: rgba(255, 255, 255, 0.2); /* Slightly lighter background */
-    filter: brightness(1.2); /* Increases brightness */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
-}
+
 
 /* Category Image Styling */
 .menu-category img {
@@ -90,25 +85,10 @@
     align-self: flex-start;
 }
 
-/* Hover Effect on Menu Category (Shows dish details when hovering over the entire category) */
-.menu-category:hover .dish-details {
-    display: block; /* Shows the details when the menu category is hovered */
-}
-
-/* Initially hide the details of the dishes */
 .dish-details {
-    display: none; /* Hidden by default */
+    display: block !important; /* Ensures details are always visible */
 }
 
-/* Optional: Add smooth transition for details */
-.dish-details {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.menu-category:hover .dish-details {
-    opacity: 1; /* Show details with opacity transition when hovering over category */
-}
 
 
 .menu-category:nth-child(odd) {
@@ -188,38 +168,53 @@ body {
 #menu-selection {
     position: fixed;
     left: 0;
-    top: 0;
-    height: 100vh;
-    width: 200px;
-    background-color: rgba(51, 51, 51, 0.6);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    padding-top: 20px;
+    top: 60px; /* Adjusted for the navbar height */
+    height: calc(100% - 60px); /* Ensures it doesn't overlap with the navbar */
+    width: 5%;
+    background: rgba(75, 72, 72, 0.9);
+    overflow: hidden;
+    transition: width 0.3s ease-in-out;
+    white-space: nowrap;
+    padding-top: 10px;
+}
+
+#menu-selection:hover {
+    width: 20%;
 }
 
 .menu-toggle {
+    display: block;
+    width: 100%;
+    padding: 10px;
     background: transparent;
     border: none;
     color: white;
-    padding: 15px;
+    font-size: 1rem;
     text-align: left;
-    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all 0.3s ease-in-out;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
 }
 
-.menu-toggle:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: translateX(5px); /* Button moves a little */
+#menu-selection:not(:hover) .menu-toggle {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
 }
 
-/* Active (selected) button styles */
+#menu-selection:not(:hover) .menu-toggle::after {
+    content: none;
+}
+
+/* Highlight active menu section */
 .menu-toggle.active {
-    background-color: rgba(255, 255, 255, 0.6);
-    color: black;
-    pointer-events: none; /* Prevent hover effects */
+    background: rgba(255, 255, 255, 0.2);
+    font-weight: bold;
+    border-left: 5px solid #FFD700; /* Gold highlight */
 }
+
+
 
 /* Main menu content styling */
 #menu-content {
