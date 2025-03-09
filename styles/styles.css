@@ -40,6 +40,7 @@ p {
 }
 
 /* Navbar section */
+/* Navbar section */
 #navbar {
     display: flex;
     justify-content: space-between;
@@ -61,11 +62,9 @@ p {
 }
 
 .logo {
-    background-image: url('images/HomeIcon.png');
     height: 40px;
     width: 40px;
-    background-size: contain;
-    background-repeat: no-repeat;
+    
 }
 
 .logo a {
@@ -73,6 +72,11 @@ p {
     color: #fff;
     font-size: 1.5rem;
     font-weight: bold;
+}
+
+.logo img {
+    height: 40px; /* Adjust as needed */
+    display: block;
 }
 
 #links {

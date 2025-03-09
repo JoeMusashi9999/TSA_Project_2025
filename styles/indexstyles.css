@@ -49,66 +49,6 @@ p {
     
 }
 
-/* Navbar section */
-#navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed; /* Ensures the navbar stays on top and visible during scrolling */
-    top: 0;
-    left: 0;
-    width: 100%; /* Full width of the viewport */
-    height: 60px;
-    background-color: rgba(75, 72, 72, 0.7); /* Semi-transparent background */
-    padding: 0 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow for better visibility */
-    box-sizing: border-box;
-    z-index: 999;
-}
-
-#navbar, #links, #links a {
-    pointer-events: auto;
-}
-
-.logo {
-    background-image: url('images/HomeIcon.png');
-    height: 40px;
-    width: 40px;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.logo a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-#links {
-    display: flex;
-    justify-content: space-between; 
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    
-    gap: 15px;
-}
-
-#links li a {
-    text-decoration: none;
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
-    display: block; 
-    padding: 10px 15px; 
-    border-radius: 5px;
-}
-
-#links li a:hover {
-    color: rgba(255, 253, 208); 
-    background-color: rgba(255, 255, 255, 0.2);
-}
 
 
 

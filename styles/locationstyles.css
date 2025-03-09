@@ -27,3 +27,40 @@
     backface-visibility: hidden;
     will-change: transform;
 }
+
+/* Style for location bubbles */
+.location-bubble {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.location-bubble:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-3px);
+}
+
+.location-bubble h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.location-bubble p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* Hidden address links */
+.hidden-link {
+    color: rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: block;
+    font-size: 12px;
+}
+
+.hidden-link:hover {
+    color: rgba(255, 255, 255, 0.6);
+}
