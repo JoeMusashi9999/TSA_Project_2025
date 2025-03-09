@@ -8,14 +8,18 @@
     color: #333;
 }
 body {
-    background-color:Black;
+    background-color: Black;
     background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px; 
     background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
-    margin: 0px;
-    padding-bottom: 60px;
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
-    position: relative;
-    
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+#content {
+    flex: 1;  /* Makes sure content stretches to push the footer down */
 }
 /* basic paragraph styling. more complex styling should be done using containers */
 p {
@@ -172,11 +176,9 @@ footer {
     background-color: #333;
     color: white;
     padding: 10px;
-    position: absolute;
-    bottom: 0;
     width: 100%;
+    position: relative;
 }
-
 .footer-content {
     display: flex;
     justify-content: space-between;
