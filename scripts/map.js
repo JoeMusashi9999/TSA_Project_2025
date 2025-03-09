@@ -27,11 +27,22 @@ document.addEventListener("DOMContentLoaded", function () {
         map.setView([lat, lng], 15); // Adjust zoom level as needed
     }
 
-    // Handle sidebar location clicks
-    document.getElementById("sidebar").innerHTML = "<h2>Our Locations</h2><ul>" +
-        Object.keys(locations).map(key =>
-            `<li><a href="#" onclick="zoomToLocation('${key}')">${key}</a></li>`
-        ).join('') + "</ul>";
+    // Attach event listeners to sidebar location links
+document.querySelectorAll(".hidden-link").forEach(link => {
+    link.addEventListener("click", function(event) {
+        event.preventDefault(); // Prevents the page from jumping
+
+        // Retrieve latitude and longitude from data attributes
+        const lat = parseFloat(this.dataset.lat);
+        const lng = parseFloat(this.dataset.lng);
+
+        if (!isNaN(lat) && !isNaN(lng)) {
+            zoomToLocation(lat, lng);
+        } else {
+            console.error("Invalid coordinates for", this);
+        }
+    });
+});
 
     window.zoomToLocation = function (key) {
         if (markers[key]) {
