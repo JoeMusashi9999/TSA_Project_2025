@@ -141,6 +141,15 @@ body {
     width: 80%;
     max-width: 1200px;
 }
+.timeline-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+}
 
 #timeline-container {
     position: relative;
@@ -155,13 +164,14 @@ body {
     transform: translateY(100vh); /* Starts below the viewport */
 }
 
-/* Centered Timeline */
 .timeline-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    width: 100%;
     position: relative;
+    width: 80%;
+    max-width: 1000px;
+    margin: 50px auto 0 auto;
 }
 
 /* Timeline Line - Default Grey */
@@ -195,19 +205,33 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    cursor: pointer;
+    justify-content: center;
     position: relative;
+    width: 25%; /* Ensures even spacing for 4 steps */
+    text-align: center;
+    z-index: 2;
+}
+
+.timeline-step p {
+    margin-top: 35px; /* Adjust space below the circle */
+    margin-bottom: 75px;
+    font-weight: bold;
+    
 }
 
 /* Circular Indicators */
 .circle {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     background-color: white;
     border: 3px solid black;
     border-radius: 50%;
+    position: absolute;
+    top: 50%; /* Aligns with the line */
+    transform: translateY(-50%);
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
 
 /* Highlight step when hovered */
 .timeline-step:hover .circle {
@@ -248,12 +272,13 @@ body {
     position: absolute;
     width: 120px;
     height: 180px;
-    background: url('/images/10079771.jpg') center/cover no-repeat; /* Uses the uploaded card back */
+    background: url('/images/10079771.jpg') center/cover no-repeat;
     border-radius: 8px;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.6s ease-in-out, background 0.3s ease-in-out;
     cursor: pointer;
     backface-visibility: hidden;
+    transform-origin: center;
 }
 
 /* Evenly fan out the cards */
@@ -266,6 +291,17 @@ body {
 /* Flip Effect */
 .card.flipped {
     background: darkblue; /* Solid blue when flipped */
-    transform: rotateY(180deg) translateY(-30px) scale(1.1);
-    z-index: 10;
+    transform: rotateY(180deg) scale(2) translateY(-10vh); 
+    z-index: 100; 
+    width: 300px; 
+    height: 450px; 
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateY(180deg) scale(1.5);
+}
+/* Clicking outside resets everything */
+.card-hand .card.flipped ~ .card {
+    opacity: 1;
+    filter: none;
 }

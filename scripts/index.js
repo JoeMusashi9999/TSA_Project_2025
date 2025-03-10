@@ -41,4 +41,11 @@ document.addEventListener("DOMContentLoaded", () => {
             card.classList.add("flipped");
         });
     });
+
+    // Click anywhere outside to reset
+    document.addEventListener("click", (event) => {
+        if (!event.target.classList.contains("card")) {
+            cards.forEach(c => c.classList.remove("flipped"));
+        }
+    });
 });
