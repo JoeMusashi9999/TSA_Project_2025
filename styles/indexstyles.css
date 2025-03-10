@@ -1,56 +1,6 @@
-/* Smooth transitions between pages */
-#content {
-    opacity: 1;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.fade-out {
-    opacity: 0;
-}
-
-.fade-in {
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    opacity: 1;
-}
-
-
-
-
 body {
-    background-color:Black;
-    background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px; 
-    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
-    margin: 0px;
-    padding-bottom: 60px;
-    overflow-x: hidden;
-    position: relative;
-    
+    scroll-behavior: smooth;
 }
-/* basic paragraph styling. more complex styling should be done using containers */
-p {
-    margin-right: 5%;
-    margin-left: 5%;
-    color: 36454F;
-    position: relative;
-    
-}
-
-/* styling for the background */
-/* Define each section */
-.section {
-    width: 100%;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    position: relative;
-    
-}
-
-
-
 
 /* Specific backgrounds for each section add images when you get them */
 #background {
@@ -113,292 +63,209 @@ p {
     
 }
 
-/*Contact Us Page stylings
--------------------------------------------------------------------- 
-*/
+/*landing page styles */
 
-/* Contact form styles */
-#contact {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    text-align: center;
+/* Wrapper to blur only the background */
+#background-blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/images/Background4.jpg') center/cover no-repeat;
+    filter: blur(3px); /* Always blurred */
+    z-index: -2; /* Push further behind */
+}
+
+#landing {
+    position: fixed; /* Fixes the background in place */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -1; /* Moves it behind content */
+}
+
+
+#title-container {
+    opacity: 0;
+    transform: translateY(-50px);
+    filter: blur(5px); /* Start blurry */
+    animation: fadeInSlide 1s ease-out forwards, focusText 1s ease-out 1s forwards;
+}
+
+
+@keyframes fadeInSlide {
+    0% { opacity: 0; transform: translateY(-50px); filter: blur(5px); }
+    100% { opacity: 1; transform: translateY(0); filter: blur(5px); }
+}
+
+
+@keyframes focusText {
+    0% { filter: blur(5px); }
+    100% { filter: none; }  
+}
+
+#main-title {
+    font-size: 5rem;
     color: white;
-    
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
 }
 
-h1 {
-    margin-right: 5%;
-    margin-left: 5%;
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+/* Scroll Down Indicator */
+
+#scroll-down-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    color: #333;
+    cursor: pointer;
+    animation: bounce 1.5s infinite;
+    z-index: 5;
 }
 
-form {
+@keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(10px); }
+}
+
+
+/*Timeline styles */
+#timeline {
+    text-align: center;
+    width: 80%;
+    max-width: 1200px;
+}
+
+#timeline-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5; /* Adjust as needed */
+    z-index: 1; /* Ensures it appears above landing */
+    transform: translateY(100vh); /* Starts below the viewport */
+}
+
+/* Centered Timeline */
+.timeline-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+/* Timeline Line - Default Grey */
+.timeline-container::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 80%;
+    height: 5px;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: -1;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Timeline Progress Line */
+.timeline-container::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 0%;
+    height: 5px;
+    background: black;
+    z-index: -1;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Individual Timeline Steps */
+.timeline-step {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-form label {
-    font-size: 1rem;
-    margin-bottom: 5px;
-    text-align: left;
-    width: 100%;
-}
-
-form input, form textarea {
-    width: 100%;
-    max-width: 500px;
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-form button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    background-color: #0077cc;
-    color: white;
     cursor: pointer;
+    position: relative;
 }
 
-form button:hover {
-    background-color: #005fa3;
-}
-
-
-/* Location.html styles */
-#grid-container {
-    display: grid;
-    grid-template-columns: 25vw 1fr;
-    grid-template-rows: 1fr auto;
-    gap: 0;
-    height: 90vh; 
-}
-
-#sidebar {
-    grid-column: 1;
-    grid-row: 1; 
-    background-color: rgba(75, 72, 72, 0.9);
-    color: white;
-    padding: 20px;
-    overflow-y: auto; 
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-
-#map {
-    grid-column: 2; 
-    grid-row: 1; 
-    background: lightblue; 
-    /* Trigger GPU rendering & optimize */
-    transform: translateZ(0); 
-    backface-visibility: hidden;
-    will-change: transform;
-}
-
-
-/* Gift Card page styling */
-.button-container {
-    display: flex;
-    justify-content: space-around;
-    margin: 20px 0;
-}
-
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #007BFF;
-    color: white;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-.form-container {
-    display: none;
-    margin: 20px auto;
-    max-width: 400px;
+/* Circular Indicators */
+.circle {
+    width: 20px;
+    height: 20px;
     background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 3px solid black;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.form-container input {
-    width: 90%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+/* Highlight step when hovered */
+.timeline-step:hover .circle {
+    background-color: black;
+    transform: scale(1.2);
 }
 
-.balance {
-    margin: 20px auto;
-    max-width: 600px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* Mark steps as visited */
+.timeline-step.visited .circle {
+    background-color: black;
 }
 
-.history {
-    margin: 20px auto;
-    max-width: 600px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* Progress Bar Expansion */
+.timeline-container.progressed::after {
+    width: 80%; /* This will grow dynamically */
 }
 
-.fade-in {
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* menu styles */
-
-/* Ensure menu styles don't override other pages */
-#menu {
-    max-width: 90%;
-    margin: 80px auto; 
-    padding-bottom: 50px;
-}
-
-/* Menu Category Layout */
-.menu-category {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 40px auto;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.1); 
-    border-radius: 10px;
-}
-
-/* Category Image Styling */
-.menu-category img {
-    width: 25%;
-    height: auto;
-    border-radius: 15px;
-    box-shadow: 3px 3px 15px rgba(255, 255, 255, 0.2);
-}
-
-/* Menu Text Content */
-.menu-items {
-    width: 70%;
-    color: white;
-}
-
-.menu-items h2 {
-    font-size: 2em;
-    color: #e8dac6;
-    border-bottom: 2px solid #d3b898;
-    display: inline-block;
-    margin-bottom: 15px;
-}
-
-.menu-items h3 {
-    font-size: 1.6em;
-    color: #f5e7db;
-    margin-bottom: 5px;
-}
-
-.menu-items p {
-    font-size: 1em;
-    color: #ddd;
-}
-
-/* Pricing & Labels */
-.price {
+/* Style for step text */
+.timeline-step p {
+    margin-top: 10px;
     font-weight: bold;
-    color: #d3b898;
 }
 
-.dietary {
-    font-size: 0.9em;
-    background-color: #e8dac6;
-    padding: 4px 8px;
-    border-radius: 5px;
-    margin-right: 10px;
-    color: #55402d;
-}
-
-/* Alternating Image Positions */
-.menu-category:nth-child(odd) {
-    flex-direction: row;
-}
-
-.menu-category:nth-child(even) {
-    flex-direction: row-reverse;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .menu-category {
-        flex-direction: column !important;
-        text-align: center;
-    }
-
-    .menu-category img {
-        width: 60%;
-        margin-bottom: 15px;
-    }
-
-    .menu-items {
-        width: 100%;
-    }
-}
-
-
-
-/* Footer styles */
-footer {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-
-.footer-content {
+/* cards styles */
+.card-hand {
+    position: relative;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    max-width: 1200px;
-    margin: 0 auto;
+    justify-content: center;
+    align-items: flex-end;
+    width: 500px; /* Ensures it's centered */
+    height: 200px;
+    margin: 40px auto 0 auto; /* Centers the hand under the timeline */
 }
 
-.footer-content a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
+
+/* Default Card Styles */
+.card {
+    position: absolute;
+    width: 120px;
+    height: 180px;
+    background: url('/images/10079771.jpg') center/cover no-repeat; /* Uses the uploaded card back */
+    border-radius: 8px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.6s ease-in-out, background 0.3s ease-in-out;
+    cursor: pointer;
+    backface-visibility: hidden;
 }
 
-.footer-content a:hover {
-    text-decoration: underline;
-}
+/* Evenly fan out the cards */
+.card:nth-child(1) { transform: rotate(-20deg) translateX(-140px); }
+.card:nth-child(2) { transform: rotate(-10deg) translateX(-70px); }
+.card:nth-child(3) { transform: rotate(0deg) translateX(0px); }  /* Middle card */
+.card:nth-child(4) { transform: rotate(10deg) translateX(70px); }
+.card:nth-child(5) { transform: rotate(20deg) translateX(140px); }
 
-.footer-content p {
-    margin: 0;
+/* Flip Effect */
+.card.flipped {
+    background: darkblue; /* Solid blue when flipped */
+    transform: rotateY(180deg) translateY(-30px) scale(1.1);
+    z-index: 10;
 }

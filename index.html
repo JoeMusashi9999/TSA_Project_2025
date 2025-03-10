@@ -24,17 +24,57 @@
             </ul>
         </div>
     </header>
-    <!--
+    <section id="landing">
+        <div id="background-blur"></div> 
+        <div id="title-container">
+            <h1 id="main-title">Hearth & Home</h1>
+        </div>
+        <a href="#timeline-container" id="scroll-down-indicator">&#8595; Scroll Down &#8595;</a>
 
-    what is this for??
-    This is for the background. I set all of these to a class in order to control them all in the same way and the ids allow me to change them individually
-    <div id="background">
-        <div class="section" id="section1"></div>
-        <div class="section" id="section2"></div>
-        <div class="section" id="section3"></div>
-    -->
-        
+    </section>
+    <!-- Add a proper section to contain the timeline -->
+<section id="timeline-container">
+    <section id="timeline">
+        <h2>From Farm to Table</h2>
+
+        <div class="timeline-container">
+            <div class="timeline-line"></div> <!-- This is the line that connects the steps -->
+
+            <div class="timeline-step" data-card="card1">
+                <div class="circle"></div>
+                <p>Sourcing</p>
+            </div>
+
+            <div class="timeline-step" data-card="card2">
+                <div class="circle"></div>
+                <p>Sustainability</p>
+            </div>
+
+            <div class="timeline-step" data-card="card3">
+                <div class="circle"></div>
+                <p>Preparation</p>
+            </div>
+
+            <div class="timeline-step" data-card="card4">
+                <div class="circle"></div>
+                <p>Serving</p>
+            </div>
+        </div>
+
+        <div class="card-hand">
+            <div class="card" id="card1"></div>
+            <div class="card" id="card2"></div>
+            <div class="card" id="card3"></div>
+            <div class="card" id="card4"></div>
+            <div class="card" id="card5"></div>
+        </div>
+    </section>
+</section>
+
+    
+    
     </div>
+    <!--
 <div class="overlay" id="ethos">
     <h1>Our Ethos</h1>
     <p>We are built on the belief that we are here to serve with love, fairness, and integrity. Inspired by the timeless words of Psalm 89:14,</p>
@@ -68,7 +108,7 @@
     </ul>
     <br>
     <p>Whether you’re Paleo, pescatarian, vegetarian, vegan, keto, or simply curious, we’ve created a space where everyone can enjoy a delicious meal that suits their lifestyle. With us, no one leaves hungry—or feeling left out. Welcome to a restaurant that truly serves everyone!</p>
-</div>
+</div>   -->
 
 <footer>
     <div class="footer-content">
@@ -78,6 +118,9 @@
     </div>
 </footer>
 
-</div></body>
+</div>
+<script src="scripts/chatbot.js"></script>
+<script src="scripts/index.js"></script>
+</body>
 
 </html> 
