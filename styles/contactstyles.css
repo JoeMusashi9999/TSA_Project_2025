@@ -1,11 +1,3 @@
-/* Ensure body covers the full height */
-body {
-    height: 100%;
-    margin: 0;
-    overflow-x: hidden;
-    font-family: Arial, sans-serif;
-}
-
 /* Background image container */
 .image-container {
     position: fixed;
