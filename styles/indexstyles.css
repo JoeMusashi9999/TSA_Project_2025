@@ -73,12 +73,13 @@ body {
     width: 100%;
     height: 100%;
     background: url('/images/Background4.jpg') center/cover no-repeat;
-    filter: blur(3px); /* Always blurred */
-    z-index: -2; /* Push further behind */
+    filter: blur(3px); 
+    z-index: -2;
+    pointer-events: none;
 }
 
 #landing {
-    position: fixed; /* Fixes the background in place */
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100vw;
@@ -86,15 +87,16 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: -1; /* Moves it behind content */
+    z-index: -1; 
 }
 
 
 #title-container {
     opacity: 0;
     transform: translateY(-50px);
-    filter: blur(5px); /* Start blurry */
+    filter: blur(5px);
     animation: fadeInSlide 1s ease-out forwards, focusText 1s ease-out 1s forwards;
+    pointer-events: none;
 }
 
 
@@ -113,6 +115,40 @@ body {
     font-size: 5rem;
     color: white;
     text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+}
+
+/* Mission Button - Semi Transparent & Pulsing */
+#mission-button {
+    position: absolute;
+    bottom: 15%; 
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid white;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease-in-out;
+    animation: slowPulse 3s infinite ease-in-out; 
+    pointer-events: auto;
+}
+
+/* Hover Effect */
+#mission-button:hover {
+    background: rgba(255, 255, 255, 0.4); 
+    transform: translateX(-50%) scale(1.1);
+}
+
+/* Pulse Animation */
+@keyframes slowPulse {
+    0% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.02); }
+    100% { transform: translateX(-50%) scale(1); }
 }
 
 /* Scroll Down Indicator */
@@ -134,4 +170,91 @@ body {
     50% { transform: translateX(-50%) translateY(10px); }
 }
 
+/* Spacer to push the deck below the landing page */
+#spacer {
+    height: 100vh; 
+    width: 100vw;
+    background: transparent;
+}
 
+#deck-container {
+    position: relative; 
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #f5f5f5; 
+}
+
+/* Stacking Deck */
+.deck {
+    position: relative;
+    width: 70vw;
+    max-width: 700px;
+    height: 70vh; 
+    max-height: 500px; 
+}
+
+/* Individual Cards */
+.card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.5);
+    transition: all 0.5s ease-in-out;
+    border-radius: 10px;
+    text-align: center;
+    padding: 15px;
+}
+
+/* Card Header */
+.card-header {
+    font-size: 1.5rem;
+    padding: 10px;
+}
+
+/* Card Body */
+.card-body {
+    padding: 10px;
+}
+
+/* Card Footer */
+.card-footer {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 10px;
+    color: #777;
+}
+
+/* Animation: Cards Appear Staggered */
+.deck .card:nth-child(1) { transform: rotate(-5deg) translateY(0); }
+.deck .card:nth-child(2) { transform: rotate(3deg) translateY(5px); }
+.deck .card:nth-child(3) { transform: rotate(-2deg) translateY(10px); }
+.deck .card:nth-child(4) { transform: rotate(4deg) translateY(15px); }
+
+/* Move Cards Off Screen */
+.is-offscreen--r {
+    transform: translate(1000px, 0px) rotateZ(30deg) !important;
+}
+
+.is-offscreen--l {
+    transform: translate(-1000px, 0px) rotateZ(-20deg) !important;
+}
+
+/* Instructions */
+.body-message {
+    color: #777;
+    margin-top: 75px;
+    font-size: 1rem;
+}
