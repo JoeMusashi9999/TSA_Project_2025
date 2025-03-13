@@ -40,25 +40,90 @@
             <button onclick="calculateDeliveryTime()">Find Delivery Time</button>
             <div id="delivery-time">Estimated Delivery Time: <span id="estimated-time"></span></div>
         </div>
-        <div class="menu-section">
-            <h3>Menu</h3>
-            <ul id="delivery-menu">
-                <select class="menu-dropdown">
-                    <option value="fries">Golden Fries - $4.25</option>
-                    <option value="sweet-fries">Sweetheart Fries - $5.25</option>
-                    <option value="mac-cheese">Hearth and Home Mac & Cheese - $5.45</option>
-                    <option value="lentil-soup">Housemade Heirloom Lentil Soup - $6.45</option>
-                    <option value="tomato-bisque">Smoky Roasted Tomato Bisque - $6.95</option>
-                </select>
-                <input type="number" min="0" value="0" class="quantity">
-                <button>Add</button>
+        <div>
+            <!-- Navigation -->
+            <aside id="menu-selection">
+                <button class="menu-toggle active" data-target="Starters">Starters & Sides</button>
+                <button class="menu-toggle" data-target="Bowls-Soups">Hearty Bowls & Soups</button>
+                <button class="menu-toggle" data-target="Sandwiches">Sandwiches & Wraps</button>
+                <button class="menu-toggle" data-target="Salads">Salads</button>
+                <button class="menu-toggle" data-target="Drinks">Drinks</button>
+                <button class="menu-toggle" data-target="Burgers">Burgers & Sandwiches</button>
+                <button class="menu-toggle" data-target="Desserts">Desserts</button>
+            </aside>
+        
+            <!-- Menu Content -->
+            <main id="menu">
+                <section class="menu-category active" id="Starters">
+                    <!-- Paste all your menu sections here -->
+                    <h2>Starters & Sides</h2>
+                    <ul>
+                        <!-- Menu items -->
+                    </ul>
+                </section>
+                
+                <!-- Other menu sections -->
+            </main>
+        
+            <!-- Menu Script -->
+            <script>
+                // Toggle Menu Categories (scoped to delivery-screen)
+                document.querySelectorAll('#delivery-screen .menu-toggle').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const parent = document.getElementById('delivery-screen');
+                        parent.querySelectorAll('.menu-toggle, .menu-category').forEach(el => {
+                            el.classList.remove('active');
+                        });
+                        button.classList.add('active');
+                        parent.querySelector(`#${button.dataset.target}`).classList.add('active');
+                    });
+                });
+        
+                // Initialize first category when screen becomes visible
+                const deliveryScreen = document.getElementById('delivery-screen');
+                const observer = new MutationObserver((mutations) => {
+                    if(getComputedStyle(deliveryScreen).display !== 'none') {
+                        deliveryScreen.querySelector('.menu-toggle').click();
+                    }
+                });
+                observer.observe(deliveryScreen, { attributes: true });
+            </script>
         </div>
         <div class="payment-section">
             <h3>Payment</h3>
             <input type="text" placeholder="Card Number">
             <input type="text" placeholder="Expiration Date">
             <input type="text" placeholder="CVV">
-            <button>Place Order</button>
+        </div>
+
+        <div id="order-summary">
+            <h3>Your Order</h3>
+            <div id="order-items"></div>
+            <div id="order-totals">
+                <div class="total-line">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">$0.00</span>
+                </div>
+                <div class="total-line">
+                    <span>Tax (10%):</span>
+                    <span id="tax">$0.00</span>
+                </div>
+                <div id="tip-section">
+                    <h4>Add Tip</h4>
+                    <div class="tip-buttons">
+                        <button data-percent="0">None</button>
+                        <button data-percent="15">15%</button>
+                        <button data-percent="20">20%</button>
+                        <button data-percent="25">25%</button>
+                    </div>
+                    <input type="number" id="custom-tip" placeholder="Custom $">
+                </div>
+                <div class="total-line grand-total">
+                    <span>Total:</span>
+                    <span id="total">$0.00</span>
+                </div>
+                <button id="place-order">Place Order</button>
+            </div>
         </div>
     </div>
 
@@ -193,5 +258,6 @@
 
     <script src="scripts/chatbot.js"></script>
     <script src="scripts/pagefetch.js"></script>
+    <script src="scripts/order.js"></script>
 </body>
 </html>

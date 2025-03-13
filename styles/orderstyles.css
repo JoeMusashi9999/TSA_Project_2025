@@ -259,3 +259,139 @@ button:hover {
 .order-screen.active {
     display: block;
 }
+
+#delivery-screen {
+    position: relative;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+#delivery-screen #menu-selection {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+#delivery-screen .menu-category {
+    padding: 1rem;
+}
+
+ /* Base Styles */
+ * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+}
+
+/* Menu Navigation */
+#menu-selection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: #2c5f2d;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.menu-toggle {
+    padding: 0.8rem 1.2rem;
+    background: #97bc62;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle:hover,
+.menu-toggle.active {
+    background: #7a9f4a;
+    transform: translateY(-2px);
+}
+
+/* Menu Layout */
+#menu {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.menu-category {
+    display: none;
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.menu-category.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+h2 {
+    color: #2c5f2d;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+/* Menu Items */
+.menu-item {
+    list-style: none;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+h3 {
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.dish-details p {
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.dietary {
+    display: inline-block;
+    background: #e8f5e9;
+    color: #2c5f2d;
+    padding: 0.3rem 0.7rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+}
+
+.price {
+    color: #2c5f2d;
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    #menu-selection {
+        justify-content: center;
+    }
+    
+    .menu-toggle {
+        flex: 1 1 45%;
+        text-align: center;
+        margin: 0.2rem;
+    }
+}
