@@ -5,13 +5,26 @@ body {
     padding: 0;
     background-color: #f4f4f4; /* Light grey background */
     color: #333; /* Dark text for contrast */
+    line-height: 1.6;
 }
 
-/* Page Header and Title */
+/* Headings */
 h1, h2, h3 {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #222; /* Slightly darker text for titles */
     margin-bottom: 20px;
+}
+
+h2 {
+    color: #2c5f2d;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+h3 {
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
 }
 
 /* Toggle Buttons */
@@ -34,7 +47,6 @@ h1, h2, h3 {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Active button style */
 .toggle-buttons button.active {
     background-color: white; /* White background for active button */
     color: #333; /* Dark text for contrast */
@@ -42,7 +54,6 @@ h1, h2, h3 {
     pointer-events: none; /* Disables any hover effect on active button */
 }
 
-/* Hover effect for non-active buttons */
 .toggle-buttons button:not(.active):hover {
     background-color: #555; /* Lighter grey on hover */
     transform: scale(1.05);
@@ -56,6 +67,27 @@ h1, h2, h3 {
     margin: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     border: 1px solid #ddd; /* Light border for separation */
+    display: none;
+}
+
+.order-screen.active {
+    display: block;
+}
+
+#delivery-screen {
+    position: relative;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+#delivery-screen #menu-selection {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+#delivery-screen .menu-category {
+    padding: 1rem;
 }
 
 /* Menu Section */
@@ -85,6 +117,7 @@ h1, h2, h3 {
     padding: 12px 18px;
     border: 1px solid #ddd;
     border-radius: 5px; /* Square corners */
+    transition: background-color 0.3s ease;
 }
 
 .menu-section li:hover {
@@ -99,6 +132,7 @@ h1, h2, h3 {
     border-radius: 5px;
     border: 1px solid #ddd;
     background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .menu-section button {
@@ -108,11 +142,12 @@ h1, h2, h3 {
     padding: 8px 15px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .menu-section button:hover {
     background-color: #444; /* Lighter grey on hover */
+    transform: translateY(-2px);
 }
 
 /* Address Section (For Delivery) */
@@ -128,6 +163,7 @@ h1, h2, h3 {
     border-radius: 5px;
     border: 1px solid #ddd;
     background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .map-section button {
@@ -138,11 +174,12 @@ h1, h2, h3 {
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .map-section button:hover {
     background-color: #444;
+    transform: translateY(-2px);
 }
 
 /* Payment Section */
@@ -161,6 +198,7 @@ h1, h2, h3 {
     border-radius: 5px;
     border: 1px solid #ddd;
     background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .payment-section button {
@@ -172,11 +210,12 @@ h1, h2, h3 {
     font-size: 18px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .payment-section button:hover {
     background-color: #444;
+    transform: translateY(-2px);
 }
 
 /* Reservation Section (For Dine-In) */
@@ -192,6 +231,7 @@ h1, h2, h3 {
     border-radius: 5px;
     border: 1px solid #ddd;
     background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .reservation-section button {
@@ -201,11 +241,12 @@ h1, h2, h3 {
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .reservation-section button:hover {
     background-color: #444;
+    transform: translateY(-2px);
 }
 
 /* Time & Date Inputs */
@@ -218,27 +259,13 @@ input[type="date"], input[type="time"] {
     border-radius: 5px;
     border: 1px solid #ddd;
     background-color: #fff;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #333; /* Dark grey footer */
-    color: white;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-footer p {
-    margin: 0;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Box Shadows and Transitions */
 input[type="text"], input[type="number"], input[type="date"], input[type="time"] {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.2s ease-in-out;
+    transition: box-shadow 0.2s ease-in-out, border-color 0.3s ease;
 }
 
 input[type="text"]:focus, input[type="number"]:focus, input[type="date"]:focus, input[type="time"]:focus {
@@ -251,42 +278,19 @@ button:hover {
     transform: translateY(-2px);
 }
 
-/* Active Screen State */
-.order-screen {
-    display: none;
-}
-
-.order-screen.active {
-    display: block;
-}
-
-#delivery-screen {
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333; /* Dark grey footer */
+    color: white;
     position: relative;
-    height: 100vh;
-    overflow-y: auto;
+    margin-top: auto;
+    width: 100%;
 }
 
-#delivery-screen #menu-selection {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-#delivery-screen .menu-category {
-    padding: 1rem;
-}
-
- /* Base Styles */
- * {
-    box-sizing: border-box;
+footer p {
     margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    background-color: #f5f5f5;
 }
 
 /* Menu Navigation */
@@ -338,24 +342,12 @@ body {
     animation: fadeIn 0.5s ease;
 }
 
-h2 {
-    color: #2c5f2d;
-    margin-bottom: 1.5rem;
-    font-size: 2rem;
-}
-
 /* Menu Items */
 .menu-item {
     list-style: none;
     margin-bottom: 2rem;
     padding: 1rem;
     border-bottom: 1px solid #eee;
-}
-
-h3 {
-    color: #333;
-    margin-bottom: 0.5rem;
-    font-size: 1.3rem;
 }
 
 .dish-details p {
@@ -379,11 +371,13 @@ h3 {
     margin-top: 0.5rem;
 }
 
+/* Animations */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
     #menu-selection {
         justify-content: center;
@@ -393,5 +387,16 @@ h3 {
         flex: 1 1 45%;
         text-align: center;
         margin: 0.2rem;
+    }
+
+    .toggle-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-toggle {
+        flex: 1 1 100%;
     }
 }
