@@ -259,3 +259,15 @@ button:hover {
 .order-screen.active {
     display: block;
 }
+.logo {
+    display: inline-block;
+    height: 50px; 
+    width: 50px; 
+    margin-left: 20px; 
+}
+
+.logo img {
+    width: 100%; 
+    height: auto; 
+    object-fit: contain; 
+}
