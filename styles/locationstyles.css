@@ -4,7 +4,7 @@
     grid-template-columns: 25vw 1fr;
     grid-template-rows: 1fr auto;
     gap: 0;
-    height: 90vh; 
+    height: 97vh; 
 }
 
 #sidebar {
@@ -12,7 +12,7 @@
     grid-row: 1; 
     background-color: rgba(75, 72, 72, 0.9);
     color: white;
-    padding: 20px;
+    padding: 50px;
     overflow-y: auto; 
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
@@ -38,4 +38,40 @@
     width: 100%; 
     height: auto; 
     object-fit: contain; 
+
+/* Style for location bubbles */
+.location-bubble {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.location-bubble:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-3px);
+}
+
+.location-bubble h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.location-bubble p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* Hidden address links */
+.hidden-link {
+    color: rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: block;
+    font-size: 12px;
+}
+
+.hidden-link:hover {
+    color: rgba(255, 255, 255, 0.6);
 }

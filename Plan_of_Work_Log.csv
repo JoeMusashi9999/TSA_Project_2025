@@ -1,15 +1,53 @@
 Date,Task,Time Involved,Team Member Responsible,Comments
-2024-11-03,"Worked on coding tasks.",4 hrs,"Derek Borden","Completed 2 commits, focusing on creating the template."
-2024-11-10,"Worked on coding tasks and improving functionality of existing pages.",16 hrs,"Derek Borden","Completed 8 commits, focusing on key features and fixes."
-2024-11-17,Low activity - planning and minor updates.,1 hr,"Derek Borden",Minimal updates this week.
-2024-11-24,Low activity - planning on major updates.,1 hr,"Derek Borden",Minimal updates this week.
-2024-12-01,"Worked on coding tasks, resolving issues, and improving functionality.",4 hrs,"Derek Borden","Completed 2 commits, focusing on key features and fixes."
-2024-12-08,Low activity - planning and minor updates.,1 hr,"Derek Borden",Minimal updates this week.
-2024-12-15,"Worked on adding more pages as well as improving css.",6 hrs,"Derek Borden","Completed 3 commits, focusing on key features and fixes."
-2024-12-22,"Worked on  resolving issues.",2 hrs,"Derek Borden","Completed 1 commits, focusing on key features and fixes."
-2024-12-29,"Worked on coding for JS listners and others.",10 hrs,"Derek Borden","Completed 5 commits, focusing on JS."
-2025-01-05,"Writing session for the content.",2 hrs,"Derek Borden","Completed 1 commits, focusing on creating content."
-2025-01-12,"Worked on coding tasks and improving functionality.",8 hrs,"Derek Borden","Completed 4 commits, focusing on key features, esp. maps."
-2025-01-19,"Worked on coding tasks, resolving issues, and improving functionality.",12 hrs,"Derek Borden","Completed 6 commits, focusing on key features and fixes."
-2025-02-16,"Team meating to discuss tasks and create a plan", 4hrs,"All","Completed a few commits, created a plan."
-2025-02-17,"Worked on building out various pages including the order page and career page." 12 hrs, "Aiden Chen", "Completed many commits, focusing on building the website out"
+2024-11-03,Worked on coding tasks.,4 hrs,Derek Borden,"Completed 2 commits, focusing on creating the template."
+2024-11-10,Worked on coding tasks and improving functionality of existing pages.,16 hrs,Derek Borden,"Completed 8 commits, focusing on key features and fixes."
+2024-11-17,Low activity - planning and minor updates.,1 hr,Derek Borden,Minimal updates this week.
+2024-11-24,Low activity - planning on major updates.,1 hr,Derek Borden,Minimal updates this week.
+2024-12-01,"Worked on coding tasks, resolving issues, and improving functionality.",4 hrs,Derek Borden,"Completed 2 commits, focusing on key features and fixes."
+2024-12-08,Low activity - planning and minor updates.,1 hr,Derek Borden,Minimal updates this week.
+2024-12-15,Worked on adding more pages as well as improving CSS.,6 hrs,Derek Borden,"Completed 3 commits, focusing on key features and fixes."
+2024-12-22,Worked on resolving issues.,2 hrs,Derek Borden,"Completed 1 commit, focusing on key features and fixes."
+2024-12-29,Worked on coding for JS listeners and others.,10 hrs,Derek Borden,"Completed 5 commits, focusing on JS."
+2025-01-05,Writing session for the content.,2 hrs,Derek Borden,"Completed 1 commit, focusing on creating content."
+2025-01-12,Worked on coding tasks and improving functionality.,8 hrs,Derek Borden,"Completed 4 commits, focusing on key features, esp. maps."
+2025-01-19,"Worked on coding tasks, resolving issues, and improving functionality.",12 hrs,Derek Borden,"Completed 6 commits, focusing on key features and fixes."
+2025-02-16,Team meeting to discuss tasks and create a plan,4 hrs,All,"Completed a few commits, created a plan."
+2025-02-17,Worked on building out various pages including the order page and career page.,12 hrs,Aiden Chen,"Completed many commits, focusing on building the website out."
+2025-02-01,Enhanced map functionality by adding custom zoom controls and improving sidebar interaction.,60 min,Derek Borden,Commit added to project.
+2025-02-03,Removed unnecessary body styles from contact stylesheets to optimize layout.,60 min,Derek Borden,Commit added to project.
+2025-02-05,"Refactored layout and styles, adjusted footer positioning, and improved map view.",63 min,Derek Borden,Commit added to project.
+2025-02-07,Updated location links to use data attributes and enhanced sidebar styles.,90 min,Derek Borden,Commit added to project.
+2025-02-09,Enhanced navbar and location styles by adding location bubbles and updating map functionality.,70 min,Derek Borden,Commit added to project.
+2025-02-11,Made various changes and minor improvements.,60 min,Derek Borden,Commit added to project.
+2025-02-13,Removed redundant code for optimization.,36 min,Aiden Chen,Commit added to project.
+2025-02-15,Deleted unnecessary pages to streamline navigation.,35 min,Aiden Chen,Commit added to project.
+2025-02-17,Applied fixes to various sections of the website.,39 min,Aiden Chen,Commit added to project.
+2025-02-19,"Tried to fix issues with index.html, but some problems remain.",30 min,Aiden Chen,Commit added to project.
+2025-02-21,Completely revamped the menu page with a new layout and functionality.,36 min,Aiden Chen,Commit added to project.
+2025-02-23,Added additional features and options to the menu.,39 min,Aiden Chen,Commit added to project.
+2025-02-25,Expanded menu functionality with new interactive elements.,30 min,Aiden Chen,Commit added to project.
+2025-02-27,Updated border styles for a more refined look.,43 min,Aiden Chen,Commit added to project.
+2025-03-01,Reorganized menu and order sections for better navigation.,40 min,Aiden Chen,Commit added to project.
+2025-03-03,Improved styling for the about page.,39 min,Aiden Chen,Commit added to project.
+2025-03-05,Made various stylistic enhancements to the menu.,31 min,Aiden Chen,Commit added to project.
+2025-03-07,Implemented PHP and adjusted margins on the career page.,34 min,Aiden Chen,Commit added to project.
+2025-03-09,Resolved issues with toggle functionality on the careers page.,41 min,Aiden Chen,Commit added to project.
+2025-03-11,Integrated a job application form on the apply page.,41 min,Aiden Chen,Commit added to project.
+2025-03-13,Modified careers page layout and content.,37 min,Aiden Chen,Commit added to project.
+2025-03-15,"Enhanced order page functionality with options for dine-in, takeout, and delivery.",36 min,Aiden Chen,Commit added to project.
+2025-03-17,Implemented rudimentary order functionality.,40 min,Aiden Chen,Commit added to project.
+2025-03-19,Addressed bugs affecting the careers page.,38 min,Aiden Chen,Commit added to project.
+2025-03-21,Added a button with pending style and functionality.,37 min,Aiden Chen,Commit added to project.
+2025-03-23,Fixed a critical issue in the careers section.,30 min,Aiden Chen,Commit added to project.
+2025-03-25,Created and structured the careers page.,40 min,Aiden Chen,Commit added to project.
+2025-03-27,Implemented a chatbot and built the about us section.,36 min,Aiden Chen,Commit added to project.
+2025-03-29,"Created the initial about us page, requiring further refinement.",35 min,Aiden Chen,Commit added to project.
+2025-03-31,Developed the contact page.,67 min,Derek Borden,Commit added to project.
+2025-04-02,Made styling improvements across multiple pages.,70 min,Derek Borden,Commit added to project.
+2025-04-04,Cleaned up unnecessary header hiding logic.,24 min,Derek Borden,Commit added to project.
+2025-04-06,Fixed page fetch functionality issues.,79 min,Derek Borden,Commit added to project.
+2025-04-08,Added minor fixes and additional content.,47 min,Derek Borden,Commit added to project.
+2025-04-10,Committed changes across various sections.,84 min,Derek Borden,Commit added to project.
+2025-04-12,Resolved issues with links and maps.,80 min,Derek Borden,Commit added to project.
+2025-04-14,Identified issues with content placement for future fixes.,62 min,Derek Borden,Commit added to project.
+2025-04-16,Made minor adjustments and fixes., 31 min,Derek Borden,Commit added to project.

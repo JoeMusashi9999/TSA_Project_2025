@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA_Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/indexstyles.css">
     <link rel="icon" href="/images/Icon.png" type="image/icon type">
     <title>Hearth & Home</title>
@@ -11,11 +12,11 @@
 <body><div id="content">
     <header>
         <div id="navbar">
-            <a class="logo" href="index.html"></a>
+            <a class="logo" href="index.html"><img src="images/HomeIcon.png"></a>
             <ul id="links">
                 <li><a href="locations.html" class="nav-link">Locations</a></li>
                 <li><a href="contact.html" class="nav-link">Contact Us</a></li>
-                <li><a href="pickup.html" class="nav-link">Pickup</a></li>
+                <li><a href="order.html" class="nav-link">Order</a></li>
                 <li><a href="menue.html" class="nav-link">Menue</a></li>
                 <li><a href="careers.html" class="nav-link">Careers</a></li>
                 <li><a href="gifts.html" class="nav-link">Gift Card</a></li>
@@ -23,17 +24,75 @@
             </ul>
         </div>
     </header>
-    <!--
+    <section id="landing">
+        <div id="background-blur"></div> 
+        <div id="title-container">
+            <h1 id="main-title">Hearth & Home</h1>
+        </div>
+        <a href="/about.html" id="mission-button">Learn About Our Mission</a>
+        <a href="#deck-container" id="scroll-down-indicator">&#8595; Scroll Down &#8595;</a>
 
-    what is this for??
-    This is for the background. I set all of these to a class in order to control them all in the same way and the ids allow me to change them individually
-    <div id="background">
-        <div class="section" id="section1"></div>
-        <div class="section" id="section2"></div>
-        <div class="section" id="section3"></div>
-    -->
-        
+    </section>
+    <!-- Add a proper section to contain the cards -->
+    <section id="spacer"></section> <!-- Ensures scroll space -->
+    <section id="deck-container">
+        <div class="deck">
+            <div class="card">
+                <header class="card-header">
+                    <h3>Sourcing</h3>
+                </header>
+                <div class="card-body">
+                    We partner with local farmers to bring fresh ingredients straight to your plate.
+                </div>
+                <image class = "card-body" src = "images/indeximages/homegrown.webp"></image>
+                <footer class="card-footer">
+                    Fresh & Organic
+                </footer>
+            </div>
+    
+            <div class="card">
+                <header class="card-header">
+                    <h3>Sustainability</h3>
+                </header>
+                <div class="card-body">
+                    Our commitment to the environment means sustainable practices at every step.
+                </div>
+                <footer class="card-footer">
+                    Eco-Friendly
+                </footer>
+            </div>
+    
+            <div class="card">
+                <header class="card-header">
+                    <h3>Preparation</h3>
+                </header>
+                <div class="card-body">
+                    Every dish is made with care, combining traditional methods with modern techniques.
+                </div>
+                <footer class="card-footer">
+                    Handcrafted Meals
+                </footer>
+            </div>
+    
+            <div class="card">
+                <header class="card-header">
+                    <h3>Serving</h3>
+                </header>
+                <div class="card-body">
+                    Beautifully plated, perfectly balanced, and made just for you.
+                </div>
+                <footer class="card-footer">
+                    Culinary Experience
+                </footer>
+            </div>
+        </div>
+        <p class="body-message">Click stack to remove a card, click anywhere else to add more cards.</p>
+    </section>
+    
+    
+    
     </div>
+    <!--
 <div class="overlay" id="ethos">
     <h1>Our Ethos</h1>
     <p>We are built on the belief that we are here to serve with love, fairness, and integrity. Inspired by the timeless words of Psalm 89:14,</p>
@@ -67,9 +126,8 @@
     </ul>
     <br>
     <p>Whether you’re Paleo, pescatarian, vegetarian, vegan, keto, or simply curious, we’ve created a space where everyone can enjoy a delicious meal that suits their lifestyle. With us, no one leaves hungry—or feeling left out. Welcome to a restaurant that truly serves everyone!</p>
-</div>
-<!--pagefetch script for dynamic loading-->
-<script src="pagefetch.js"></script>
+</div>   -->
+
 <footer>
     <div class="footer-content">
         <a href="Plan_of_Work_Log.csv" class="footer-left">Plan of Work</a>
@@ -78,6 +136,9 @@
     </div>
 </footer>
 
-</div></body>
+</div>
+<script src="scripts/chatbot.js"></script>
+<script src="scripts/index.js"></script>
+</body>
 
 </html> 

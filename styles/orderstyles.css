@@ -5,13 +5,26 @@ body {
     padding: 0;
     background-color: #f4f4f4; /* Light grey background */
     color: #333; /* Dark text for contrast */
+    line-height: 1.6;
 }
 
-/* Page Header and Title */
+/* Headings */
 h1, h2, h3 {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #222; /* Slightly darker text for titles */
     margin-bottom: 20px;
+}
+
+h2 {
+    color: #2c5f2d;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+h3 {
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
 }
 
 /* Toggle Buttons */
@@ -19,6 +32,7 @@ h1, h2, h3 {
     display: flex;
     justify-content: center;
     gap: 15px;
+    position: static;
     margin-top: 70px; /* Moved 40px lower */
 }
 
@@ -34,7 +48,6 @@ h1, h2, h3 {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Active button style */
 .toggle-buttons button.active {
     background-color: white; /* White background for active button */
     color: #333; /* Dark text for contrast */
@@ -42,7 +55,6 @@ h1, h2, h3 {
     pointer-events: none; /* Disables any hover effect on active button */
 }
 
-/* Hover effect for non-active buttons */
 .toggle-buttons button:not(.active):hover {
     background-color: #555; /* Lighter grey on hover */
     transform: scale(1.05);
@@ -56,6 +68,27 @@ h1, h2, h3 {
     margin: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     border: 1px solid #ddd; /* Light border for separation */
+    display: none;
+}
+
+.order-screen.active {
+    display: block;
+}
+
+#delivery-screen {
+    position: relative;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+#delivery-screen #menu-selection {
+    position: static;
+    top: 0;
+    z-index: 1000;
+}
+
+#delivery-screen .menu-category {
+    padding: 1rem;
 }
 
 /* Menu Section */
@@ -85,6 +118,7 @@ h1, h2, h3 {
     padding: 12px 18px;
     border: 1px solid #ddd;
     border-radius: 5px; /* Square corners */
+    transition: background-color 0.3s ease;
 }
 
 .menu-section li:hover {
@@ -99,6 +133,7 @@ h1, h2, h3 {
     border-radius: 5px;
     border: 1px solid #ddd;
     background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .menu-section button {
@@ -108,11 +143,12 @@ h1, h2, h3 {
     padding: 8px 15px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .menu-section button:hover {
     background-color: #444; /* Lighter grey on hover */
+    transform: translateY(-2px);
 }
 
 /* Address Section (For Delivery) */
@@ -128,6 +164,7 @@ h1, h2, h3 {
     border-radius: 5px;
     border: 1px solid #ddd;
     background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .map-section button {
@@ -138,11 +175,12 @@ h1, h2, h3 {
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .map-section button:hover {
     background-color: #444;
+    transform: translateY(-2px);
 }
 
 /* Payment Section */
@@ -161,6 +199,7 @@ h1, h2, h3 {
     border-radius: 5px;
     border: 1px solid #ddd;
     background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .payment-section button {
@@ -172,11 +211,12 @@ h1, h2, h3 {
     font-size: 18px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .payment-section button:hover {
     background-color: #444;
+    transform: translateY(-2px);
 }
 
 /* Reservation Section (For Dine-In) */
@@ -192,6 +232,7 @@ h1, h2, h3 {
     border-radius: 5px;
     border: 1px solid #ddd;
     background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .reservation-section button {
@@ -201,11 +242,12 @@ h1, h2, h3 {
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .reservation-section button:hover {
     background-color: #444;
+    transform: translateY(-2px);
 }
 
 /* Time & Date Inputs */
@@ -218,27 +260,13 @@ input[type="date"], input[type="time"] {
     border-radius: 5px;
     border: 1px solid #ddd;
     background-color: #fff;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #333; /* Dark grey footer */
-    color: white;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-footer p {
-    margin: 0;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Box Shadows and Transitions */
 input[type="text"], input[type="number"], input[type="date"], input[type="time"] {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.2s ease-in-out;
+    transition: box-shadow 0.2s ease-in-out, border-color 0.3s ease;
 }
 
 input[type="text"]:focus, input[type="number"]:focus, input[type="date"]:focus, input[type="time"]:focus {
@@ -251,13 +279,19 @@ button:hover {
     transform: translateY(-2px);
 }
 
-/* Active Screen State */
-.order-screen {
-    display: none;
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333; /* Dark grey footer */
+    color: white;
+    position: relative;
+    margin-top: auto;
+    width: 100%;
 }
 
-.order-screen.active {
-    display: block;
+footer p {
+    margin: 0;
 }
 .logo {
     display: inline-block;
@@ -270,4 +304,469 @@ button:hover {
     width: 100%; 
     height: auto; 
     object-fit: contain; 
+
+/* Menu Navigation */
+#menu-selection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: #2c5f2d;
+    position: static;
+    top: 0;
+    z-index: 100;
+}
+
+.menu-toggle {
+    padding: 0.8rem 1.2rem;
+    background: #97bc62;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle:hover,
+.menu-toggle.active {
+    background: #7a9f4a;
+    transform: translateY(-2px);
+}
+
+/* Menu Layout */
+#menu {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.menu-category {
+    display: none;
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.menu-category.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Menu Items */
+.menu-item {
+    list-style: none;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.dish-details p {
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.dietary {
+    display: inline-block;
+    background: #e8f5e9;
+    color: #2c5f2d;
+    padding: 0.3rem 0.7rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+}
+
+.price {
+    color: #2c5f2d;
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #menu-selection {
+        justify-content: center;
+    }
+    
+    .menu-toggle {
+        flex: 1 1 45%;
+        text-align: center;
+        margin: 0.2rem;
+    }
+
+    .toggle-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-toggle {
+        flex: 1 1 100%;
+    }
+}
+
+.order-summary {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 25px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+.order-summary h2 {
+    color: #2c5f2d;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+#order-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#order-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    background-color: #f9f9f9;
+    padding: 12px 18px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#order-list li:hover {
+    background-color: #eaeaea;
+}
+
+.remove-item {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.remove-item:hover {
+    background-color: #ff1a1a;
+}
+
+.tip-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.tip-button {
+    padding: 15px 30px;
+    font-size: 16px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.tip-button.active {
+    background-color: #2c5f2d;
+    color: white;
+    border: 2px solid #2c5f2d;
+    pointer-events: none;
+}
+
+.tip-button:not(.active):hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+/* Style quantity-toggle containers */
+.quantity-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+    padding: 10px;
+    background: #f8f8f8;
+    border-radius: 5px;
+}
+
+/* Style quantity inputs */
+.quantity-toggle .quantity {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Style labels */
+.quantity-toggle label {
+    font-weight: bold;
+    color: #2c5f2d;
+}
+
+/* Existing button styles will work, but you might want to add: */
+.add-to-order {
+    margin-left: auto; /* pushes button to right side */
+    transition: transform 0.2s ease;
+}
+
+.add-to-order:hover {
+    transform: translateY(-2px);
+}
+
+#place-order {
+    width: 100%; /* Full width for better visibility */
+    padding: 15px 30px; /* Comfortable padding */
+    font-size: 18px; /* Slightly larger font size for emphasis */
+    font-weight: bold; /* Bold text for prominence */
+    background-color: #2c5f2d; /* Green color from your theme */
+    color: white; /* White text for contrast */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    text-transform: uppercase; /* Uppercase text for a modern look */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+#place-order:hover {
+    background-color: #235823; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+#place-order:active {
+    background-color: #1a471a; /* Even darker green on click */
+    transform: translateY(0); /* Reset lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Reset shadow */
+}
+
+#place-order:disabled {
+    background-color: #cccccc; /* Greyed out when disabled */
+    color: #666666; /* Darker text for disabled state */
+    cursor: not-allowed; /* Indicate non-interactivity */
+    box-shadow: none; /* Remove shadow when disabled */
+}
+
+/* Order Summary Container */
+#order-summary {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+#order-summary h2 {
+    color: #2c5f2d;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* Order Details */
+.order-details {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #eee;
+}
+
+.order-details h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* Order Items */
+#order-items {
+    margin-bottom: 20px;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.order-item:last-child {
+    border-bottom: none;
+}
+
+.order-item span {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Order Totals */
+#order-totals {
+    margin-top: 20px;
+}
+
+.total-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+.total-line span {
+    font-weight: bold;
+}
+
+.total-line.grand-total {
+    font-size: 1.2rem;
+    color: #2c5f2d;
+    padding-top: 15px;
+    border-top: 2px solid #2c5f2d;
+}
+
+/* Tip Section */
+#tip-section {
+    margin-top: 20px;
+}
+
+#tip-section h4 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.tip-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.tip-button {
+    flex: 1;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.tip-button.active {
+    background-color: #2c5f2d;
+    border: 2px solid #2c5f2d;
+}
+
+.tip-button:hover {
+    background-color: #444;
+    transform: translateY(-2px);
+}
+
+#custom-tip {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#custom-tip:focus {
+    border-color: #2c5f2d;
+    box-shadow: 0 0 8px rgba(44, 95, 45, 0.5);
+}
+
+/* Add to Order Button Styling - Enhanced Compatibility */
+.add-to-order {
+    background-color: #2c5f2d; /* Matches theme's primary green */
+    color: #fff;
+    border: 2px solid transparent;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: auto; /* Aligns to right in flex container */
+}
+
+.add-to-order:hover {
+    background-color: #235823; /* Darker variant of primary green */
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+}
+
+.add-to-order:active {
+    transform: translateY(0);
+    background-color: #1a471a;
+}
+
+.add-to-order:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(44,95,45,0.3);
+}
+
+/* Quantity Input Alignment - Enhanced Specificity */
+.quantity-toggle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 12px 0;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-radius: 6px;
+}
+
+.quantity-toggle label {
+    font-weight: 500;
+    color: #2c5f2d;
+    min-width: 80px;
+}
+
+.quantity {
+    width: 65px;
+    padding: 7px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.95rem;
+}
+
+/* Price Styling - Complementary Colors */
+.menu-item .price {
+    color: #d32f2f;
+    font-weight: 600;
+    margin: 8px 0;
+    font-size: 1.1rem;
+}
+
+/* Dietary Tags - Consistent with Theme */
+.menu-item .dietary {
+    background-color: #e8f5e9;
+    color: #235823;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.85rem;
 }
