@@ -65,9 +65,14 @@
                                 <span class="dietary">Gluten-Free</span>
                                 <p class="price">Regular $4.25 | Large $6.25</p>
                                 <div class="quantity-toggle">
-                                    <label for="golden-fries-quantity">Quantity:</label>
-                                    <input type="number" id="golden-fries-quantity" class="quantity" min="1" value="1">
-                                    <button class="add-to-order" data-name="Golden Fries" data-price="4.25">Add to Order</button>
+                                    <label for="regular-golden-fries-quantity">Regular | Quantity:</label>
+                                    <input type="number" id="regular-golden-fries-quantity" class="quantity" min="1" value="1">
+                                    <button class="add-to-order" data-name="Regular Golden Fries" data-price="4.25">Add to Order</button>
+                                </div>
+                                <div class="quantity-toggle">
+                                    <label for="small-golden-fries-quantity">Large | Quantity: </label>
+                                    <input type="number" id="regular-golden-fries-quantity" class="quantity" min="1" value="1">
+                                    <button class="add-to-order" data-name="Large Golden Fries" data-price="6.25">Add to Order</button>
                                 </div>
                             </div>
                         </li>
@@ -78,9 +83,14 @@
                                 <span class="dietary">Gluten-Free</span>
                                 <p class="price">Regular $5.25 | Large $8.25</p>
                                 <div class="quantity-toggle">
-                                    <label for="sweetheart-fries-quantity">Quantity:</label>
-                                    <input type="number" id="sweetheart-fries-quantity" class="quantity" min="1" value="1">
-                                    <button class="add-to-order" data-name="Sweetheart Fries" data-price="5.25">Add to Order</button>
+                                    <label for="regular: sweetheart-fries-quantity">Regular | Quantity: </label>
+                                    <input type="number" id="regular: sweetheart-fries-quantity" class="quantity" min="1" value="1">
+                                    <button class="add-to-order" data-name=" Small Sweetheart Fries" data-price="5.25">Add to Order</button>
+                                </div>
+                                <div class = "quantity-toggle">
+                                    <label for="large: sweetheart-fries-quantity">Large | Quantity: </label>
+                                    <input type="number" id="large: sweetheart-fries-quantity" class="quantity" min="1" value="1">
+                                    <button class="add-to-order" data-name="Large Sweetheart Fries" data-price="8.25">Add to Order</button>
                                 </div>
                             </div>
                         </li>
@@ -90,9 +100,19 @@
                                 <p>Creamy, dairy-free cashew cheese sauce over organic elbow pasta, topped with crispy herb breadcrumbs.</p>
                                 <p class="price">Small $5.45 | Medium $6.95 | Large $8.45</p>
                                 <div class="quantity-toggle">
-                                    <label for="mac-cheese-quantity">Quantity:</label>
-                                    <input type="number" id="mac-cheese-quantity" class="quantity" min="1" value="1">
-                                    <button class="add-to-order" data-name="Hearth and Home Mac & Cheese" data-price="5.45">Add to Order</button>
+                                    <label for="small: mac-cheese-quantity">Small | Quantity: </label>
+                                    <input type="number" id="small: mac-cheese-quantity" class="quantity" min="1" value="1">
+                                    <button class="add-to-order" data-name="Small Hearth and Home Mac & Cheese" data-price="5.45">Add to Order</button>
+                                </div>
+                                <div class="quantity-toggle">
+                                    <label for="medium: mac-cheese-quantity">Medium | Quantity:</label>
+                                    <input type="number" id="medium: mac-cheese-quantity" class="quantity" min="1" value="1">
+                                    <button class="add-to-order" data-name="Medium Hearth and Home Mac & Cheese" data-price="5.45">Add to Order</button>
+                                </div>
+                                <div class="quantity-toggle">
+                                    <label for="large mac-cheese-quantity">Large | Quantity: </label>
+                                    <input type="number" id="large mac-cheese-quantity" class="quantity" min="1" value="1">
+                                    <button class="add-to-order" data-name="Large Hearth and Home Mac & Cheese" data-price="8.45">Add to Order</button></div>
                                 </div>
                             </div>
                         </li>
@@ -483,150 +503,762 @@
                     </ul>
                 </section>
             </main>
-
-            <!-- Menu Script -->
-            <script>
-                // Toggle Menu Categories (scoped to delivery-screen)
-                document.querySelectorAll('#delivery-screen .menu-toggle').forEach(button => {
-                    button.addEventListener('click', () => {
-                        const parent = document.getElementById('delivery-screen');
-                        parent.querySelectorAll('.menu-toggle, .menu-category').forEach(el => {
-                            el.classList.remove('active');
-                        });
-                        button.classList.add('active');
-                        parent.querySelector(`#${button.dataset.target}`).classList.add('active');
-                    });
-                });
-
-                // Initialize first category when screen becomes visible
-                const deliveryScreen = document.getElementById('delivery-screen');
-                const observer = new MutationObserver((mutations) => {
-                    if(getComputedStyle(deliveryScreen).display !== 'none') {
-                        deliveryScreen.querySelector('.menu-toggle').click();
-                    }
-                });
-                observer.observe(deliveryScreen, { attributes: true });
-            </script>
-        </div>
-        <div class="payment-section">
-            <h3>Payment</h3>
-            <input type="text" placeholder="Card Number">
-            <input type="text" placeholder="Expiration Date">
-            <input type="text" placeholder="CVV">
-        </div>
-
-        <div id="order-summary">
-            <h3>Your Order</h3>
-            <div id="order-items"></div>
-            <div id="order-totals">
-                <div class="total-line">
-                    <span>Subtotal:</span>
-                    <span id="subtotal">$0.00</span>
-                </div>
-                <div class="total-line">
-                    <span>Tax (10%):</span>
-                    <span id="tax">$0.00</span>
-                </div>
-                <div id="tip-section">
-                    <h4>Add Tip</h4>
-                    <div class="tip-buttons">
-                        <button data-percent="0">None</button>
-                        <button data-percent="15">15%</button>
-                        <button data-percent="20">20%</button>
-                        <button data-percent="25">25%</button>
-                    </div>
-                    <input type="number" id="custom-tip" placeholder="Custom $">
-                </div>
-                <div class="total-line grand-total">
-                    <span>Total:</span>
-                    <span id="total">$0.00</span>
-                </div>
-                <button id="place-order">Place Order</button>
+        
+            <div class="payment-section">
+                <h3>Payment</h3>
+                <input type="text" placeholder="Card Number">
+                <input type="text" placeholder="Expiration Date">
+                <input type="text" placeholder="CVV">
             </div>
-        </div>
+            
+            <div id="delivery-order-summary" class="order-summary">
+                <h3><strong>Your Order</strong></h3>
+                <div id="delivery-order-items"></div>
+                <div id="delivery-order-totals">
+                    <div class="total-line">
+                        <span><strong>Subtotal:</strong></span>
+                        <span id="delivery-subtotal">$0.00</span>
+                    </div>
+                    <div class="total-line">
+                        <span><strong>Sales Tax:</strong></span>
+                        <span id="delivery-tax">$0.00</span>
+                    </div>
+                    <div class="total-line">
+                        <span><strong>Delivery Flat Fee:</strong></span>
+                        <span>$5.00</span>
+                    </div>
+                    <div id="delivery-tip-section">
+                        <h4>Add Tip</h4>
+                        <div class="tip-buttons">
+                            <button class="tip-button" data-tip="0">0%</button>
+                            <button class="tip-button" data-tip="0.10">10%</button>
+                            <button class="tip-button" data-tip="0.15">15%</button>
+                            <button class="tip-button" data-tip="0.20">20%</button>
+                        </div>
+                        <input type="number" id="delivery-custom-tip" placeholder="Custom $">
+                    </div>
+                    <div class="total-line grand-total">
+                        <span>Total:</span>
+                        <span id="delivery-total">$0.00</span>
+                    </div>
+                    <button class="place-order" data-screen="delivery">Place Order</button>
+                </div>
+            </div>
+
+        
+        
     </div>
-
+</div>
     <script>
-        let order = [];
-        let tipAmount = 0;
+        let deliveryOrder = {
+            items: [],
+            tipPercentage: 0,
+            customTip: 0
+        };
 
+        let takeoutOrder = {
+            items: [],
+            tipPercentage: 0,
+            customTip: 0
+        };
+
+        let currentScreen = 'takeout';
+
+        //menue functionality
+
+        // Toggle Menu Categories 
+        document.querySelectorAll('#delivery-screen .menu-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const parent = document.getElementById('delivery-screen');
+                parent.querySelectorAll('.menu-toggle, .menu-category').forEach(el => {
+                    el.classList.remove('active');
+                });
+                button.classList.add('active');
+                parent.querySelector(`#${button.dataset.target}`).classList.add('active');
+            });
+        });
+
+        document.querySelectorAll('#delivery-tip-section .tip-button').forEach(button => {
+    button.addEventListener('click', (e) => {
+        // Remove active class from all tip buttons
+        document.querySelectorAll('#delivery-tip-section .tip-button').forEach(btn => {
+            btn.classList.remove('active');
+        });
+
+        // Add active class to the clicked button
+        e.target.classList.add('active');
+
+        // Update tip percentage
+        deliveryOrder.tipPercentage = parseFloat(e.target.dataset.tip);
+        deliveryOrder.customTip = 0; // Reset custom tip
+        document.getElementById('delivery-custom-tip').value = ''; // Clear custom tip input
+        updateOrderSummary();
+    });
+});
+
+document.getElementById('delivery-custom-tip').addEventListener('input', function(e) {
+    // Get the numeric value from input (default to 0 if empty/invalid)
+    const customTip = parseFloat(e.target.value) || 0;
+    
+    // Update deliveryOrder object
+    deliveryOrder.customTip = customTip;
+    
+    // Clear percentage selection when custom tip is entered
+    if (customTip > 0) {
+        deliveryOrder.tipPercentage = 0;
+        // Remove active class from all percentage buttons
+        document.querySelectorAll('#delivery-tip-section .tip-button').forEach(btn => {
+            btn.classList.remove('active');
+        });
+    }
+    
+    // Force update of order summary
+    updateOrderSummary();
+});
+
+// Add event listener for delivery page custom tip input
+document.getElementById('delivery-custom-tip').addEventListener('input', (e) => {
+    deliveryOrder.customTip = parseFloat(e.target.value) || 0;
+    if (deliveryOrder.customTip > 0) {
+        deliveryOrder.tipPercentage = 0; // Reset percentage if custom tip is set
+        document.querySelectorAll('#delivery-tip-section .tip-button').forEach(btn => {
+            btn.classList.remove('active');
+        });
+    }
+    updateOrderSummary();
+});
+            
         // Add to Order functionality
-        document.querySelectorAll('.add-to-order').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const item = e.target.closest('.menu-item');
-                const name = item.querySelector('h3').textContent;
+        document.body.addEventListener('click', (e) => {
+            if (e.target.classList.contains('add-to-order')) {
+                const button = e.target;
+                const toggle = button.closest('.quantity-toggle');
+                const name = button.dataset.name;
                 const price = parseFloat(button.dataset.price);
-                const quantity = parseInt(item.querySelector('.quantity').value);
+                const quantity = parseInt(toggle.querySelector('.quantity').value) || 1;
 
+                if (currentScreen === 'delivery') {
+                    deliveryOrder.items.push({ name, price, quantity });
+                } else {
+                    takeoutOrder.items.push({ name, price, quantity });
+                }
+                updateOrderSummary();
+            }
+        });
+
+        function initializeMenuToggles(screenType) {
+            const parent = document.getElementById(`${screenType}-screen`);
+            
+            parent.querySelectorAll('.menu-toggle').forEach(button => {
+                button.addEventListener('click', () => {
+                    parent.querySelectorAll('.menu-toggle, .menu-category').forEach(el => {
+                        el.classList.remove('active');
+                    });
+                    button.classList.add('active');
+                    const target = parent.querySelector(`#${button.dataset.target}`);
+                    if (target) target.classList.add('active');
+                });
+            });
+        }
+    function initializeAddToOrder(screenType) {
+        document.querySelectorAll(`#${screenType}-screen .add-to-order`).forEach(button => {
+            button.addEventListener('click', (e) => {
+                const toggle = e.target.closest('.quantity-toggle');
+                const name = button.dataset.name;
+                const price = parseFloat(button.dataset.price);
+                const quantity = parseInt(toggle.querySelector('.quantity').value) || 1;
                 order.push({ name, price, quantity });
                 updateOrderSummary();
             });
         });
-
+    }
         // Tip Selection
-        document.querySelectorAll('.tip-buttons button').forEach(button => {
-            button.addEventListener('click', (e) => {
-                tipAmount = parseFloat(e.target.dataset.percent);
-                updateOrderSummary();
-            });
+        document.querySelectorAll('.tip-button').forEach(button => {
+    button.addEventListener('click', (e) => {
+        const prefix = currentScreen === 'delivery' ? 'delivery' : 'takeout';
+        const currentOrder = currentScreen === 'delivery' ? deliveryOrder : takeoutOrder;
+
+        // Remove active class from all tip buttons
+        document.querySelectorAll(`#${prefix}-tip-section .tip-button`).forEach(btn => {
+            btn.classList.remove('active');
         });
 
-        document.getElementById('custom-tip').addEventListener('input', (e) => {
-            tipAmount = parseFloat(e.target.value) || 0;
+        // Add active class to the clicked button
+        e.target.classList.add('active');
+
+        // Update tip percentage
+        currentOrder.tipPercentage = parseFloat(e.target.dataset.tip);
+        currentOrder.customTip = 0; // Reset custom tip
+        document.getElementById(`${prefix}-custom-tip`).value = ''; // Clear custom tip input
+        updateOrderSummary();
+    });
+});
+
+        document.querySelectorAll('.custom-tip').forEach(input => {
+    input.addEventListener('input', (e) => {
+        const prefix = currentScreen === 'delivery' ? 'delivery' : 'takeout';
+        const currentOrder = currentScreen === 'delivery' ? deliveryOrder : takeoutOrder;
+        currentOrder.customTip = parseFloat(e.target.value) || 0;
+        if (currentOrder.customTip > 0) {
+            currentOrder.tipPercentage = 0; // Reset percentage if custom tip is set
+        }
+        updateOrderSummary();
+    });
+});
+
+function updateOrderSummary() {
+    const currentOrder = currentScreen === 'delivery' ? deliveryOrder : takeoutOrder;
+    const prefix = currentScreen === 'delivery' ? 'delivery' : 'takeout';
+
+    // Calculate subtotal
+    const subtotal = currentOrder.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+    // Calculate tax (10% for example)
+    const tax = subtotal * 0.10;
+
+    // Calculate tip
+    let tip = 0;
+    if (currentOrder.customTip > 0) {
+        tip = currentOrder.customTip; // Use custom tip if set
+    } else {
+        tip = subtotal * currentOrder.tipPercentage; // Use percentage if no custom tip
+    }
+
+    // Calculate total
+    const deliveryFee = currentScreen === 'delivery' ? 5 : 0; // Add delivery fee for delivery orders
+    const total = subtotal + tax + tip + deliveryFee;
+
+    // Update display
+    document.getElementById(`${prefix}-subtotal`).textContent = `$${subtotal.toFixed(2)}`;
+    document.getElementById(`${prefix}-tax`).textContent = `$${tax.toFixed(2)}`;
+    document.getElementById(`${prefix}-total`).textContent = `$${total.toFixed(2)}`;
+
+    // Update order items
+    const itemsContainer = document.getElementById(`${prefix}-order-items`);
+    itemsContainer.innerHTML = currentOrder.items.map((item, index) => `
+        <div class="order-item">
+            ${item.quantity}x ${item.name} - $${(item.price * item.quantity).toFixed(2)}
+            <button class="remove-item" data-index="${index}">Remove</button>
+        </div>
+    `).join('');
+
+    // Update remove buttons
+    document.querySelectorAll(`#${prefix}-order-summary .remove-item`).forEach(button => {
+        button.addEventListener('click', (e) => {
+            const index = parseInt(e.target.dataset.index);
+            currentOrder.items.splice(index, 1);
             updateOrderSummary();
         });
-
-        function updateOrderSummary() {
-            const subtotal = order.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            const tax = subtotal * 0.10; // Washington 10% sales tax
-            const tip = tipAmount >= 1 ? tipAmount : subtotal * (tipAmount/100);
-            const total = subtotal + tax + tip;
-
-            // Update display
-            document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
-            document.getElementById('tax').textContent = `$${tax.toFixed(2)}`;
-            document.getElementById('total').textContent = `$${total.toFixed(2)}`;
-            
-            // Update order items list
-            const itemsContainer = document.getElementById('order-items');
-            itemsContainer.innerHTML = order.map(item => `
-                <div class="order-item">
-                    ${item.quantity}x ${item.name} - $${(item.price * item.quantity).toFixed(2)}
-                </div>
-            `).join('');
-        }
-
-        // Place Order
-        document.getElementById('place-order').addEventListener('click', () => {
-            const total = parseFloat(document.getElementById('total').textContent.replace('$', ''));
-            if (total > 0) {
-                alert(`Order placed! Total: $${total.toFixed(2)}`);
-                order = [];
-                updateOrderSummary();
-            }
-        });
+    });
+}
+        updateOrderSummary();
     </script>
     <!-- Takeout Screen (default visible) -->
     <div id="takeout-screen" class="order-screen">
         <h2>Takeout Order</h2>
-        <div class="menu-section">
-            <h3>Menu</h3>
-            <ul id="takeout-menu">
-                <li>Item 1: <input type="number" min="0" value="0" class="quantity"> <button>Add</button></li>
-                <li>Item 2: <input type="number" min="0" value="0" class="quantity"> <button>Add</button></li>
-                <li>Item 3: <input type="number" min="0" value="0" class="quantity"> <button>Add</button></li>
-            </ul>
+        <div class="map-section" style="display: none;"> <!-- Hidden for takeout -->
+            <!-- Address input would be removed for takeout -->
         </div>
-        <div class="takeout-time">
-            <h3>Estimated Time for Takeout</h3>
-            <div id="takeout-est-time">Approximate time: 10 minutes</div>
-        </div>
-        <div class="payment-section">
-            <h3>Payment</h3>
-            <input type="text" placeholder="Card Number">
-            <input type="text" placeholder="Expiration Date">
-            <input type="text" placeholder="CVV">
-            <button>Place Order</button>
+        <div>
+            <!-- Same menu structure as delivery -->
+            <aside id="menu-selection-takeout">
+                <button class="menu-toggle active" data-target="Starters">Starters & Sides</button>
+                <button class="menu-toggle" data-target="Bowls-Soups">Hearty Bowls & Soups</button>
+                <button class="menu-toggle" data-target="Sandwiches">Sandwiches & Wraps</button>
+                <button class="menu-toggle" data-target="Salads">Salads</button>
+                <button class="menu-toggle" data-target="Drinks">Drinks</button>
+                <button class="menu-toggle" data-target="Burgers">Burgers & Sandwiches</button>
+                <button class="menu-toggle" data-target="Desserts">Desserts</button>
+            </aside>
+    
+            <!-- Same menu content as delivery -->
+            <main id="menu-takeout">
+                    <!-- Starters & Sides -->
+                    <section class="menu-category active" id="Starters">
+                        <h2>Starters & Sides</h2>
+                        <ul>
+                            <li class="menu-item">
+                                <h3>Golden Fries</h3>
+                                <div class="dish-details">
+                                    <p>Hand-cut, crispy golden fries, served with house-made herb-infused ketchup or garlic aioli.</p>
+                                    <span class="dietary">Gluten-Free</span>
+                                    <p class="price">Regular $4.25 | Large $6.25</p>
+                                    <div class="quantity-toggle">
+                                        <label for="regular-golden-fries-quantity">Regular | Quantity:</label>
+                                        <input type="number" id="regular-golden-fries-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Regular Golden Fries" data-price="4.25">Add to Order</button>
+                                    </div>
+                                    <div class="quantity-toggle">
+                                        <label for="small-golden-fries-quantity">Large | Quantity: </label>
+                                        <input type="number" id="regular-golden-fries-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Large Golden Fries" data-price="6.25">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <h3>Sweetheart Fries</h3>
+                                <div class="dish-details">
+                                    <p>Crispy sweet potato fries, lightly seasoned, served with smoky chipotle aioli or house-made ketchup.</p>
+                                    <span class="dietary">Gluten-Free</span>
+                                    <p class="price">Regular $5.25 | Large $8.25</p>
+                                    <div class="quantity-toggle">
+                                        <label for="regular: sweetheart-fries-quantity">Regular | Quantity: </label>
+                                        <input type="number" id="regular: sweetheart-fries-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name=" Small Sweetheart Fries" data-price="5.25">Add to Order</button>
+                                    </div>
+                                    <div class = "quantity-toggle">
+                                        <label for="large: sweetheart-fries-quantity">Large | Quantity: </label>
+                                        <input type="number" id="large: sweetheart-fries-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Large Sweetheart Fries" data-price="8.25">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <h3>Hearth and Home Mac & Cheese</h3>
+                                <div class="dish-details">
+                                    <p>Creamy, dairy-free cashew cheese sauce over organic elbow pasta, topped with crispy herb breadcrumbs.</p>
+                                    <p class="price">Small $5.45 | Medium $6.95 | Large $8.45</p>
+                                    <div class="quantity-toggle">
+                                        <label for="small: mac-cheese-quantity">Small | Quantity: </label>
+                                        <input type="number" id="small: mac-cheese-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Small Hearth and Home Mac & Cheese" data-price="5.45">Add to Order</button>
+                                    </div>
+                                    <div class="quantity-toggle">
+                                        <label for="medium: mac-cheese-quantity">Medium | Quantity:</label>
+                                        <input type="number" id="medium: mac-cheese-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Medium Hearth and Home Mac & Cheese" data-price="5.45">Add to Order</button>
+                                    </div>
+                                    <div class="quantity-toggle">
+                                        <label for="large mac-cheese-quantity">Large | Quantity: </label>
+                                        <input type="number" id="large mac-cheese-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Large Hearth and Home Mac & Cheese" data-price="8.45">Add to Order</button></div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+    
+                    <!-- Hearty Bowls & Soups -->
+                    <section class="menu-category" id="Bowls-Soups">
+                        <h2>Hearty Bowls & Soups</h2>
+                        <ul>
+                            <li class="menu-item">
+                                <h3>Butternut Squash & Quinoa Bowl</h3>
+                                <div class="dish-details">
+                                    <p>Roasted butternut squash, organic quinoa, sautéed spinach, and toasted sunflower seeds, drizzled with a maple-tahini dressing.</p>
+                                    <span class="dietary">Vegan, Gluten-Free</span>
+                                    <p class="price">$13.95</p>
+                                    <div class="quantity-toggle">
+                                        <label for="butternut-bowl-quantity">Quantity:</label>
+                                        <input type="number" id="butternut-bowl-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Butternut Squash & Quinoa Bowl" data-price="13.95">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <h3>Spicy Tofu & Broccoli Bowl</h3>
+                                <div class="dish-details">
+                                    <p>Marinated tofu, steamed broccoli, brown rice, and a spicy sesame soy sauce, topped with crushed peanuts and green onions.</p>
+                                    <span class="dietary">Vegan, Gluten-Free</span>
+                                    <p class="price">$14.95</p>
+                                    <div class="quantity-toggle">
+                                        <label for="tofu-bowl-quantity">Quantity:</label>
+                                        <input type="number" id="tofu-bowl-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Spicy Tofu & Broccoli Bowl" data-price="14.95">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <h3>Autumn Harvest Soup</h3>
+                                <div class="dish-details">
+                                    <p>A rich, creamy soup made with roasted squash, apples, and a hint of cinnamon and nutmeg, topped with crispy kale chips.</p>
+                                    <span class="dietary">Vegan, Gluten-Free</span>
+                                    <p class="price">$7.25</p>
+                                    <div class="quantity-toggle">
+                                        <label for="autumn-soup-quantity">Quantity:</label>
+                                        <input type="number" id="autumn-soup-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Autumn Harvest Soup" data-price="7.25">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+    
+                    <!-- Sandwiches & Wraps -->
+                    <section class="menu-category" id="Sandwiches">
+                        <h2>Sandwiches & Wraps</h2>
+                        <ul>
+                            <li class="menu-item">
+                                <h3>Smoky Grilled Veggie Wrap</h3>
+                                <div class="dish-details">
+                                    <p>Grilled zucchini, bell peppers, onions, and mushrooms wrapped in a warm tortilla with hummus, avocado, and a smoky chipotle sauce.</p>
+                                    <span class="dietary">Vegan, Gluten-Free Option Available</span>
+                                    <p class="price">$12.95</p>
+                                    <div class="quantity-toggle">
+                                        <label for="veggie-wrap-quantity">Quantity:</label>
+                                        <input type="number" id="veggie-wrap-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Smoky Grilled Veggie Wrap" data-price="12.95">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <h3>Hearth & Home Veggie Burger</h3>
+                                <div class="dish-details">
+                                    <p>House-made veggie patty made from black beans, quinoa, and spices, topped with lettuce, tomato, pickles, and our signature herb mayo.</p>
+                                    <span class="dietary">Vegan, Gluten-Free Option Available</span>
+                                    <p class="price">$13.25</p>
+                                    <div class="quantity-toggle">
+                                        <label for="veggie-burger-quantity">Quantity:</label>
+                                        <input type="number" id="veggie-burger-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Hearth & Home Veggie Burger" data-price="13.25">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+    
+                    <!-- Salads -->
+                    <section class="menu-category" id="Salads">
+                        <h2>Salads</h2>
+                        <ul>
+                            <li class="menu-item">
+                                <h3>Seasonal Harvest Salad</h3>
+                                <div class="dish-details">
+                                    <p>Mixed greens with roasted seasonal vegetables, pumpkin seeds, cranberries, and a balsamic vinaigrette dressing.</p>
+                                    <span class="dietary">Vegan, Gluten-Free</span>
+                                    <p class="price">$12.95</p>
+                                    <div class="quantity-toggle">
+                                        <label for="harvest-salad-quantity">Quantity:</label>
+                                        <input type="number" id="harvest-salad-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Seasonal Harvest Salad" data-price="12.95">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <h3>Quinoa & Chickpea Salad</h3>
+                                <div class="dish-details">
+                                    <p>Organic quinoa, chickpeas, cucumber, tomatoes, red onion, and parsley, tossed in a lemon-tahini dressing.</p>
+                                    <span class="dietary">Vegan, Gluten-Free</span>
+                                    <p class="price">$11.95</p>
+                                    <div class="quantity-toggle">
+                                        <label for="quinoa-salad-quantity">Quantity:</label>
+                                        <input type="number" id="quinoa-salad-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Quinoa & Chickpea Salad" data-price="11.95">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+    
+                    <!-- Drinks -->
+                    <section class="menu-category" id="Drinks">
+                        <h2>Drinks</h2>
+                        <ul>
+                            <li class="menu-item">
+                                <h3>Tropical Tonic 🌴✨</h3>
+                                <div class="dish-details">
+                                    <p>A vibrant elixir blending orange, coconut, mango, pineapple, ginger, and turmeric. Infused with tart cherry and ashwagandha to promote strength, endurance, and recovery.</p>
+                                    <span class="dietary">Contains Coconut</span>
+                                    <p class="price">$10.45</p>
+                                    <div class="quantity-toggle">
+                                        <label for="tropical-tonic-quantity">Quantity:</label>
+                                        <input type="number" id="tropical-tonic-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Tropical Tonic" data-price="10.45">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <h3>Banana Berry Beauty 🍓🍌</h3>
+                                <div class="dish-details">
+                                    <p>A radiant blend of organic strawberries, banana, and orange, enhanced with goji berry, acerola, rosehips, cranberry, raspberry, and pomegranate. Fortified with vegan collagen and biotin for healthy skin, hair, and nails.</p>
+                                    <span class="dietary">Contains Soy | 100 mcg Biotin</span>
+                                    <p class="price">$10.45</p>
+                                    <div class="quantity-toggle">
+                                        <label for="banana-berry-quantity">Quantity:</label>
+                                        <input type="number" id="banana-berry-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Banana Berry Beauty" data-price="10.45">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <h3>Hydration Hero 💦🥒</h3>
+                                <div class="dish-details">
+                                    <p>Quench your thirst with a refreshing fusion of organic coconut milk, lime, lemon, pineapple, cucumber, fresh basil, pomegranate, and acerola cherry. Packed with natural electrolytes for deep hydration.</p>
+                                    <span class="dietary">Contains Coconut</span>
+                                    <p class="price">$11.45</p>
+                                    <div class="quantity-toggle">
+                                        <label for="hydration-hero-quantity">Quantity:</label>
+                                        <input type="number" id="hydration-hero-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Hydration Hero" data-price="11.45">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <h3>Green GlowUp 🌱🌟</h3>
+                                <div class="dish-details">
+                                    <p>Nourish from the inside out with this powerhouse blend of organic mango, orange juice, coconut milk, spinach, spirulina, chlorella, kale, broccoli, and Indian moringa. Naturally sweetened with coconut crystals, lucuma, and baobab fruit.</p>
+                                    <span class="dietary">Contains Coconut, Legumes</span>
+                                    <p class="price">$10.45</p>
+                                    <div class="quantity-toggle">
+                                        <label for="green-glowup-quantity">Quantity:</label>
+                                        <input type="number" id="green-glowup-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Green GlowUp" data-price="10.45">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <h3>Java Jolt ☕⚡</h3>
+                                <div class="dish-details">
+                                    <p>Jumpstart your day with this energizing coffee-meets-superfood smoothie! Organic coffee, cocoa, banana, maca, cinnamon, and adaptogenic mushrooms, lightly sweetened with maple syrup.</p>
+                                    <span class="dietary">Contains Soy, Coconut, Legumes</span>
+                                    <p class="price">$10.45</p>
+                                    <div class="quantity-toggle">
+                                        <label for="java-jolt-quantity">Quantity:</label>
+                                        <input type="number" id="java-jolt-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Java Jolt" data-price="10.45">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+    
+                    <!-- Burgers & Sandwiches -->
+                    <section class="menu-category" id="Burgers">
+                        <h2>Burgers & Sandwiches</h2>
+                        <ul>
+                            <li class="menu-item">
+                                <h3>Junior Smash Burger</h3>
+                                <div class="dish-details">
+                                    <p>House-seasoned plant-based patty, organic dill pickles, crisp lettuce, tomato, and your choice of sauce (house-made special sauce, egg-free mayo, ketchup, or yellow mustard) on a toasted vegan brioche bun.</p>
+                                    <p class="price">$7.95</p>
+                                    <div class="quantity-toggle">
+                                        <label for="junior-burger-quantity">Quantity:</label>
+                                        <input type="number" id="junior-burger-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Junior Smash Burger" data-price="7.95">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <h3>Classic American ChzBurger</h3>
+                                <div class="dish-details">
+                                    <p>Savory house-seasoned plant-based patty, organic tempeh bacon, organic dill pickles, melted vegan cheese, and your choice of sauce (house-made special sauce, egg-free mayo, ketchup, or yellow mustard) on a toasted vegan brioche bun.</p>
+                                    <p class="price">$11.95</p>
+                                    <div class="quantity-toggle">
+                                        <label for="classic-burger-quantity">Quantity:</label>
+                                        <input type="number" id="classic-burger-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Classic American ChzBurger" data-price="11.95">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <h3>Hearth and Home Classic ChzBurger</h3>
+                                <div class="dish-details">
+                                    <p>Juicy Beyond® 1/4 lb patty, melted vegan American cheese, house-made special sauce, organic lettuce, organic tomato, organic pickles, and organic onion on a vegan brioche bun.</p>
+                                    <p class="price">$12.45</p>
+                                    <div class="quantity-toggle">
+                                        <label for="hearth-burger-quantity">Quantity:</label>
+                                        <input type="number" id="hearth-burger-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Hearth and Home Classic ChzBurger" data-price="12.45">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <h3>Maverick BBQ Burger</h3>
+                                <div class="dish-details">
+                                    <p>Smoky Beyond® 1/4 lb patty, crispy onion rings, organic tempeh bacon, organic dill pickles, melted vegan cheese, rich hickory BBQ sauce, and house-made special sauce on a toasted pretzel bun.</p>
+                                    <p class="price">$15.45</p>
+                                    <div class="quantity-toggle">
+                                        <label for="maverick-burger-quantity">Quantity:</label>
+                                        <input type="number" id="maverick-burger-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Maverick BBQ Burger" data-price="15.45">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <h3>Steakhouse Umami Burger</h3>
+                                <div class="dish-details">
+                                    <p>Savory Beyond® 1/4 lb patty, caramelized organic onions, house-made horseradish aioli, organic lettuce, and vegan blue cheese crumbles on a vegan brioche bun.</p>
+                                    <p class="price">$12.95</p>
+                                    <div class="quantity-toggle">
+                                        <label for="umami-burger-quantity">Quantity:</label>
+                                        <input type="number" id="umami-burger-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Steakhouse Umami Burger" data-price="12.95">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <h3>Signature Veggie Burger</h3>
+                                <div class="dish-details">
+                                    <p>House-made organic quinoa and mushroom patty, creamy organic avocado, crisp lettuce, juicy tomato, red onion, melted vegan cheese, and roasted garlic-thyme mayo on a whole wheat bun.</p>
+                                    <span class="dietary">Contains tree nuts</span>
+                                    <p class="price">$9.95</p>
+                                    <div class="quantity-toggle">
+                                        <label for="signature-burger-quantity">Quantity:</label>
+                                        <input type="number" id="signature-burger-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Signature Veggie Burger" data-price="9.95">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <h3>SoCal Veggie Burger</h3>
+                                <div class="dish-details">
+                                    <p>House-made organic quinoa and mushroom patty, organic tempeh bacon, creamy organic avocado, and house-made special sauce on a whole wheat bun.</p>
+                                    <span class="dietary">Contains tree nuts</span>
+                                    <p class="price">$11.95</p>
+                                    <div class="quantity-toggle">
+                                        <label for="socal-burger-quantity">Quantity:</label>
+                                        <input type="number" id="socal-burger-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="SoCal Veggie Burger" data-price="11.95">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <h3>Crispy Chik’n Sandwich</h3>
+                                <div class="dish-details">
+                                    <p>Golden-crispy plant-based chik’n filet, organic dill pickles, crisp organic lettuce, juicy tomato, and house-made lemon-herb mayo on a vegan brioche bun.</p>
+                                    <p class="price">$10.95</p>
+                                    <div class="quantity-toggle">
+                                        <label for="chikn-sandwich-quantity">Quantity:</label>
+                                        <input type="number" id="chikn-sandwich-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Crispy Chik’n Sandwich" data-price="10.95">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <h3>Smoky Chik’n Bacon Ranch</h3>
+                                <div class="dish-details">
+                                    <p>Crispy plant-based chik’n filet, organic tempeh bacon, melted vegan smoked Gouda, organic lettuce, juicy tomato, and house-made creamy ranch on a toasted pretzel bun.</p>
+                                    <p class="price">$12.45</p>
+                                    <div class="quantity-toggle">
+                                        <label for="bacon-ranch-quantity">Quantity:</label>
+                                        <input type="number" id="bacon-ranch-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Smoky Chik’n Bacon Ranch" data-price="12.45">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <h3>Santa Fe Chik’n Sandwich</h3>
+                                <div class="dish-details">
+                                    <p>Crispy plant-based chik’n, organic guacamole, house-made southwest mayo, organic lettuce, juicy tomato, and house-pickled onions on a whole wheat bun.</p>
+                                    <p class="price">$11.95</p>
+                                    <div class="quantity-toggle">
+                                        <label for="santa-fe-quantity">Quantity:</label>
+                                        <input type="number" id="santa-fe-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Santa Fe Chik’n Sandwich" data-price="11.95">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <h3>Buffalo Bomber</h3>
+                                <div class="dish-details">
+                                    <p>Crispy Buffalo-style plant-based chik’n, house-made dairy-free ranch, crisp organic lettuce, juicy tomato, and organic pickles on a vegan brioche bun.</p>
+                                    <p class="price">$11.50</p>
+                                    <div class="quantity-toggle">
+                                        <label for="buffalo-bomber-quantity">Quantity:</label>
+                                        <input type="number" id="buffalo-bomber-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Buffalo Bomber" data-price="11.50">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <h3>Pesto Chik’n Parm</h3>
+                                <div class="dish-details">
+                                    <p>Crispy plant-based chik’n, house-made arrabbiata sauce, creamy vegan cheese sauce, blistered organic cherry tomatoes, fresh organic basil, almond parmesan, and basil pesto spread on a vegan brioche bun.</p>
+                                    <span class="dietary">Contains tree nuts</span>
+                                    <p class="price">$12.95</p>
+                                    <div class="quantity-toggle">
+                                        <label for="pesto-parm-quantity">Quantity:</label>
+                                        <input type="number" id="pesto-parm-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Pesto Chik’n Parm" data-price="12.95">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+    
+                    <!-- Desserts -->
+                    <section class="menu-category" id="Desserts">
+                        <h2>Desserts</h2>
+                        <ul>
+                            <li class="menu-item">
+                                <h3>Chocolate Avocado Mousse</h3>
+                                <div class="dish-details">
+                                    <p>A rich and creamy chocolate mousse made with ripe avocados, cacao, and a touch of maple syrup, topped with berries.</p>
+                                    <span class="dietary">Vegan, Gluten-Free</span>
+                                    <p class="price">$5.95</p>
+                                    <div class="quantity-toggle">
+                                        <label for="chocolate-mousse-quantity">Quantity:</label>
+                                        <input type="number" id="chocolate-mousse-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Chocolate Avocado Mousse" data-price="5.95">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <h3>Berry Almond Tart</h3>
+                                <div class="dish-details">
+                                    <p>Gluten-free almond crust filled with a creamy berry filling, topped with fresh berries and a dusting of powdered sugar.</p>
+                                    <span class="dietary">Vegan, Gluten-Free</span>
+                                    <p class="price">$6.95</p>
+                                    <div class="quantity-toggle">
+                                        <label for="berry-tart-quantity">Quantity:</label>
+                                        <input type="number" id="berry-tart-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Berry Almond Tart" data-price="6.95">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <h3>Classic Apple Crisp</h3>
+                                <div class="dish-details">
+                                    <p>Warm apple crisp with oats and a cinnamon crumble topping, served with a scoop of coconut milk ice cream.</p>
+                                    <span class="dietary">Vegan, Gluten-Free Option Available</span>
+                                    <p class="price">$6.95</p>
+                                    <div class="quantity-toggle">
+                                        <label for="apple-crisp-quantity">Quantity:</label>
+                                        <input type="number" id="apple-crisp-quantity" class="quantity" min="1" value="1">
+                                        <button class="add-to-order" data-name="Classic Apple Crisp" data-price="6.95">Add to Order</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+            </main>
+            
+            <div class="payment-section">
+                <h3>Payment</h3>
+                <input type="text" placeholder="Card Number">
+                <input type="text" placeholder="Expiration Date">
+                <input type="text" placeholder="CVV">
+            </div>
+            
+            <div id="takeout-order-summary" class="order-summary">
+                <h3><strong>Your Order</strong></h3>
+                <div id="takeout-order-items"></div>
+                <div id="takeout-order-totals">
+                    <div class="total-line">
+                        <span><strong>Subtotal:</strong></span>
+                        <span id="takeout-subtotal">$0.00</span>
+                    </div>
+                    <div class="total-line">
+                        <span><strong>Sales Tax:</strong></span>
+                        <span id="takeout-tax">$0.00</span>
+                    </div>
+                    <div id="takeout-tip-section">
+                        <h4>Add Tip</h4>
+                        <div class="tip-buttons">
+                            <button class="tip-button" data-tip="0">0%</button>
+                            <button class="tip-button" data-tip="0.10">10%</button>
+                            <button class="tip-button" data-tip="0.15">15%</button>
+                            <button class="tip-button" data-tip="0.20">20%</button>
+                        </div>
+                        <input type="number" id="takeout-custom-tip" placeholder="Custom $">
+                    </div>
+                    <div class="total-line grand-total">
+                        <span>Total:</span>
+                        <span id="takeout-total">$0.00</span>
+                    </div>
+                    <button class="place-order" data-screen="takeout">Place Order</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -658,31 +1290,35 @@
         </div>
     </div>
 
+    <!-- need google maps api key --> 
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
     <script>
         // Function to toggle between screens
         function toggleScreen(screen) {
+            currentScreen = screen;
             // Hide all screens
-            document.getElementById('delivery-screen').style.display = 'none';
-            document.getElementById('takeout-screen').style.display = 'none';
-            document.getElementById('dinein-screen').style.display = 'none';
-
+            document.querySelectorAll('.order-screen').forEach(el => {
+                el.style.display = 'none';
+            });
+            
             // Remove active class from all buttons
-            document.getElementById('delivery-btn').classList.remove('active');
-            document.getElementById('takeout-btn').classList.remove('active');
-            document.getElementById('dinein-btn').classList.remove('active');
+            document.querySelectorAll('.toggle-buttons button').forEach(btn => {
+                btn.classList.remove('active');
+            });
 
-            // Show the selected screen
-            if (screen === 'delivery') {
-                document.getElementById('delivery-screen').style.display = 'block';
-                document.getElementById('delivery-btn').classList.add('active');
-            } else if (screen === 'takeout') {
-                document.getElementById('takeout-screen').style.display = 'block';
-                document.getElementById('takeout-btn').classList.add('active');
-            } else {
-                document.getElementById('dinein-screen').style.display = 'block';
-                document.getElementById('dinein-btn').classList.add('active');
+            // Show selected screen
+            const screenElement = document.getElementById(`${screen}-screen`);
+            if (screenElement) {
+                screenElement.style.display = 'block';
+                document.getElementById(`${screen}-btn`).classList.add('active');
             }
+
+            // Initialize menu if needed
+            if (screen === 'delivery' || screen === 'takeout') {
+                initializeMenuToggles(screen);
+            }
+            
+            updateOrderSummary();
         }
 
         // Function to calculate estimated delivery time
@@ -724,7 +1360,13 @@
 
         // Set the Takeout screen to show by default on page load
         window.onload = function() {
+            // Initialize both menus
+            initializeMenuToggles('delivery');
+            initializeMenuToggles('takeout');
+            
+            // Set default screen
             toggleScreen('takeout');
+            updateOrderSummary();
         };
     </script>
 
