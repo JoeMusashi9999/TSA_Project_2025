@@ -2,6 +2,9 @@ let addressCaptured = '';
 let order = [];
 let takeoutOrder = [];
 
+// need google maps api key
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_ACTUAL_API_KEY&callback=initMap&libraries=places&v=weekly" async defer></script>
+
 function toggleScreen(screen) {
     if (screen === 'delivery') {
         document.getElementById('delivery-screen').style.display = 'block';
@@ -18,11 +21,44 @@ function captureAddress() {
     console.log(`Address captured: ${addressCaptured}`);
     calculateDeliveryTime();
 }
-
+    
 function calculateDeliveryTime() {
-    const deliveryTime = Math.floor(Math.random() * 30) + 15; // Random estimate between 15 to 45 minutes
-    const totalTime = deliveryTime + 15; // Total time is estimated time + 15 minutes
-    document.getElementById('delivery-time').innerText = `${totalTime} mins`;
+
+    const timeElement = document.getElementById('estimated-time');
+        timeElement.textContent = "Calculating...";
+        
+    const address = document.getElementById('address').value;
+    if (!address) {
+        alert("Please enter an address.");
+        return;
+    }
+
+    // Restaurant coordinates (replace with your actual coordinates)
+    const restaurantLocation = new google.maps.LatLng(47.5678, -122.2453);
+    
+    // Configure Distance Matrix request
+    const service = new google.maps.DistanceMatrixService();
+    service.getDistanceMatrix({
+        origins: [restaurantLocation],
+        destinations: [address],
+        travelMode: google.maps.TravelMode.DRIVING,
+        unitSystem: google.maps.UnitSystem.IMPERIAL,
+    }, (response, status) => {
+        if (status !== google.maps.DistanceMatrixStatus.OK) {
+            alert('Error: ' + status);
+            return;
+        }
+
+        const result = response.rows[0].elements[0];
+        if (result.status === "ZERO_RESULTS") {
+            alert("No driving route found to this address.");
+            return;
+        }
+
+        // Display formatted duration text (e.g., "15 mins" or "1 hour 5 mins")
+        const duration = result.duration.text;
+        document.getElementById('estimated-time').textContent = duration;
+    });
 }
 
 function addToOrder() {

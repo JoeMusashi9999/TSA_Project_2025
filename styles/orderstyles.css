@@ -32,6 +32,7 @@ h3 {
     display: flex;
     justify-content: center;
     gap: 15px;
+    position: static;
     margin-top: 70px; /* Moved 40px lower */
 }
 
@@ -81,7 +82,7 @@ h3 {
 }
 
 #delivery-screen #menu-selection {
-    position: sticky;
+    position: static;
     top: 0;
     z-index: 1000;
 }
@@ -300,7 +301,7 @@ footer p {
     gap: 0.5rem;
     padding: 1rem;
     background: #2c5f2d;
-    position: sticky;
+    position: static;
     top: 0;
     z-index: 100;
 }
@@ -399,4 +400,362 @@ footer p {
     .menu-toggle {
         flex: 1 1 100%;
     }
+}
+
+.order-summary {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 25px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+.order-summary h2 {
+    color: #2c5f2d;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+#order-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#order-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    background-color: #f9f9f9;
+    padding: 12px 18px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#order-list li:hover {
+    background-color: #eaeaea;
+}
+
+.remove-item {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.remove-item:hover {
+    background-color: #ff1a1a;
+}
+
+.tip-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.tip-button {
+    padding: 15px 30px;
+    font-size: 16px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.tip-button.active {
+    background-color: #2c5f2d;
+    color: white;
+    border: 2px solid #2c5f2d;
+    pointer-events: none;
+}
+
+.tip-button:not(.active):hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+/* Style quantity-toggle containers */
+.quantity-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+    padding: 10px;
+    background: #f8f8f8;
+    border-radius: 5px;
+}
+
+/* Style quantity inputs */
+.quantity-toggle .quantity {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Style labels */
+.quantity-toggle label {
+    font-weight: bold;
+    color: #2c5f2d;
+}
+
+/* Existing button styles will work, but you might want to add: */
+.add-to-order {
+    margin-left: auto; /* pushes button to right side */
+    transition: transform 0.2s ease;
+}
+
+.add-to-order:hover {
+    transform: translateY(-2px);
+}
+
+#place-order {
+    width: 100%; /* Full width for better visibility */
+    padding: 15px 30px; /* Comfortable padding */
+    font-size: 18px; /* Slightly larger font size for emphasis */
+    font-weight: bold; /* Bold text for prominence */
+    background-color: #2c5f2d; /* Green color from your theme */
+    color: white; /* White text for contrast */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    text-transform: uppercase; /* Uppercase text for a modern look */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+#place-order:hover {
+    background-color: #235823; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+#place-order:active {
+    background-color: #1a471a; /* Even darker green on click */
+    transform: translateY(0); /* Reset lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Reset shadow */
+}
+
+#place-order:disabled {
+    background-color: #cccccc; /* Greyed out when disabled */
+    color: #666666; /* Darker text for disabled state */
+    cursor: not-allowed; /* Indicate non-interactivity */
+    box-shadow: none; /* Remove shadow when disabled */
+}
+
+/* Order Summary Container */
+#order-summary {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+#order-summary h2 {
+    color: #2c5f2d;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* Order Details */
+.order-details {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #eee;
+}
+
+.order-details h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* Order Items */
+#order-items {
+    margin-bottom: 20px;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.order-item:last-child {
+    border-bottom: none;
+}
+
+.order-item span {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Order Totals */
+#order-totals {
+    margin-top: 20px;
+}
+
+.total-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+.total-line span {
+    font-weight: bold;
+}
+
+.total-line.grand-total {
+    font-size: 1.2rem;
+    color: #2c5f2d;
+    padding-top: 15px;
+    border-top: 2px solid #2c5f2d;
+}
+
+/* Tip Section */
+#tip-section {
+    margin-top: 20px;
+}
+
+#tip-section h4 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.tip-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.tip-button {
+    flex: 1;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.tip-button.active {
+    background-color: #2c5f2d;
+    border: 2px solid #2c5f2d;
+}
+
+.tip-button:hover {
+    background-color: #444;
+    transform: translateY(-2px);
+}
+
+#custom-tip {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#custom-tip:focus {
+    border-color: #2c5f2d;
+    box-shadow: 0 0 8px rgba(44, 95, 45, 0.5);
+}
+
+/* Add to Order Button Styling - Enhanced Compatibility */
+.add-to-order {
+    background-color: #2c5f2d; /* Matches theme's primary green */
+    color: #fff;
+    border: 2px solid transparent;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: auto; /* Aligns to right in flex container */
+}
+
+.add-to-order:hover {
+    background-color: #235823; /* Darker variant of primary green */
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+}
+
+.add-to-order:active {
+    transform: translateY(0);
+    background-color: #1a471a;
+}
+
+.add-to-order:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(44,95,45,0.3);
+}
+
+/* Quantity Input Alignment - Enhanced Specificity */
+.quantity-toggle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 12px 0;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-radius: 6px;
+}
+
+.quantity-toggle label {
+    font-weight: 500;
+    color: #2c5f2d;
+    min-width: 80px;
+}
+
+.quantity {
+    width: 65px;
+    padding: 7px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.95rem;
+}
+
+/* Price Styling - Complementary Colors */
+.menu-item .price {
+    color: #d32f2f;
+    font-weight: 600;
+    margin: 8px 0;
+    font-size: 1.1rem;
+}
+
+/* Dietary Tags - Consistent with Theme */
+.menu-item .dietary {
+    background-color: #e8f5e9;
+    color: #235823;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.85rem;
 }
