@@ -100,28 +100,7 @@ body {
     box-sizing: border-box;
     z-index: 2;
     border-radius: 10px;
-    width: 80%;
-    max-width: 1000px;
 }
-
-.section-wrapper {
-    position: relative;
-    width: 100%;
-    min-height: 5vh;
-    padding: 5vh 0; 
-    margin-bottom: 5vh; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-/* Background options */
-.farm-bg { background: url('/images/farm.jpg') center/cover no-repeat; }
-.sustainability-bg { background: url('/images/sustainability.jpg') center/cover no-repeat; }
-.preparation-bg { background: url('/images/preparation.jpg') center/cover no-repeat; }
-.ordering-bg { background: #90e476; } 
-
 
 /* Team Section */
 .about-container {
