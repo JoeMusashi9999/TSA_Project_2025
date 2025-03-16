@@ -68,3 +68,18 @@ button:hover {
         opacity: 1;
     }
 }
+a {
+    text-decoration: none;  /* Removes underline */
+    color: inherit;  /* Inherits text color from the parent */
+}
+
+/* Optional: Specific styling for nav links */
+.nav-link {
+    text-decoration: none;
+    color: black; /* Change to desired color */
+}
+
+/* Optional: Add a hover effect */
+.nav-link:hover {
+    color: gray; /* Change color on hover */
+}
