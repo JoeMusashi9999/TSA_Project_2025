@@ -28,6 +28,7 @@
     will-change: transform;
 }
 
+
 /* Style for location bubbles */
 .location-bubble {
     background-color: rgba(255, 255, 255, 0.2);
