@@ -759,3 +759,93 @@ footer p {
     border-radius: 15px;
     font-size: 0.85rem;
 }
+
+
+.order-summary-modal {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    
+}
+
+.cost-breakdown {
+    margin-top: 15px;
+}
+
+.modal-content .order-item {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-content .total-line {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+modal-content {
+    background-color: #fff;
+    margin: 0 auto; /* Center horizontally */
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    border-radius: 8px;
+    position: fixed; /* Fixed positioning */
+    top: 10%; /* Position at the top */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
+    animation: modalSlide 0.3s ease-out;
+}
+
+@media (max-height: 600px) {
+    .modal-content {
+        top: 5%;
+        max-height: 90vh; /* Allow more height on small screens */
+    }
+}
+
+/* For smaller screens */
+@media (max-height: 600px) {
+    .modal-content {
+        top: 5%;
+        transform: translateY(0);
+        margin: 20px auto;
+    }
+}
+
+/* Keep close button properly positioned */
+.close-btn {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 1000;
+    background: #fff;
+    line-height: 1;
+    padding: 0 5px;
+    border-radius: 50%;
+}
+#modal-delivery-info p {
+    margin: 8px 0;
+    font-size: 0.9em;
+    color: #666;
+}
+
+
+#order-confirmation-modal .modal-content {
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+
+
+#order-confirmation-modal .close-btn {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: white;
+    padding: 0 10px;
+}
