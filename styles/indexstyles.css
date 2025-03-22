@@ -224,6 +224,15 @@ body {
     padding: 10px;
 }
 
+.card-image {
+    width: 100%;
+    height: auto;
+    max-height: 250px; /* optional: restricts image height */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
 /* Card Footer */
 .card-footer {
     position: absolute;

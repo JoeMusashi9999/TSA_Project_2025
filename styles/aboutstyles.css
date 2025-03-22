@@ -107,8 +107,8 @@ body {
 
 /* Background options */
 .farm-bg {     background: #d0e2ac;}
-.sustainability-bg { background: url('/images/sustainability.jpg') center/cover no-repeat; }
-.preparation-bg { background: url('/images/preparation.jpg') center/cover no-repeat; }
+.sustainability-bg { background: #61c1df; }
+.preparation-bg { background: #c55134; }
 .ordering-bg { background: #90e476; } 
 
 
