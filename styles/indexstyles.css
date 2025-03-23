@@ -244,6 +244,7 @@ body {
     text-align: center;
     padding: 10px;
     color: #777;
+    border-radius: 10px;
 }
 
 /* Animation: Cards Appear Staggered */
